@@ -8,10 +8,17 @@ import com.behnamuix.sarashpaz.features.home.domain.usecase.GetHomeUseCase
 import org.koin.dsl.module
 
 val appModule = module {
-    single<LocalHomeRepositoryData> {
+    single {
         HomeRepositoryDataImpl()
     }
-    single<HomeRepository> { HomeRepositoryImpl(get()) }
+
+    single<LocalHomeRepositoryData> {
+        get<HomeRepositoryDataImpl>()
+    }
+    single<HomeRepository> {
+        HomeRepositoryImpl(get())
+    }
+
     factory {
         GetHomeUseCase(get())
     }
