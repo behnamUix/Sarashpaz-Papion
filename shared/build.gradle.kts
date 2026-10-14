@@ -71,6 +71,7 @@ kotlin {
             implementation(libs.koin.composeViewModel)
         }
         commonTest.dependencies {
+            implementation(libs.kotlinx.coroutines.test)
             implementation(libs.kotlin.test)
         }
         jsMain.dependencies {

@@ -6,6 +6,7 @@ import com.behnamuix.sarashpaz.sarashpaz_papiyon.App
 
 @OptIn(ExperimentalComposeUiApi::class)
 fun main() {
+
     ComposeViewport {
         App()
     }

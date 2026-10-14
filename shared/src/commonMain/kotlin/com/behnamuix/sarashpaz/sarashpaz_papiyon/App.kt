@@ -9,14 +9,15 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.behnamuix.papiyon.core.design.AppTheme
+import com.behnamuix.sarashpaz.features.home.presentation.screen.HomeSc
 
 @Composable
-@Preview
+
 fun App() {
     AppTheme {
         Scaffold {
             Box(Modifier.padding(it)){
-
+                HomeSc()
             }
 
         }

@@ -28,6 +28,7 @@ class HomeViewModel(private val useCase: GetHomeUseCase) : ViewModel() {
     }
 
     private fun interViewCustomer() {
+
         viewModelScope.launch {
             _homeState.update {
                 it.copy(
@@ -38,6 +39,7 @@ class HomeViewModel(private val useCase: GetHomeUseCase) : ViewModel() {
     }
 
     private fun articleRecipe() {
+
         viewModelScope.launch {
             _homeState.update {
                 it.copy(
@@ -48,6 +50,7 @@ class HomeViewModel(private val useCase: GetHomeUseCase) : ViewModel() {
     }
 
     private fun popularRecipe() {
+
         viewModelScope.launch {
             _homeState.update {
                 it.copy(
@@ -68,6 +71,7 @@ class HomeViewModel(private val useCase: GetHomeUseCase) : ViewModel() {
     }
 
     private fun slideShow() {
+
         viewModelScope.launch {
             _homeState.update {
                 it.copy(
