@@ -4,9 +4,6 @@ import com.behnamuix.sarashpaz.core.di.appModule
 import com.behnamuix.sarashpaz.features.home.domain.usecase.GetHomeUseCase
 import org.koin.core.context.startKoin
 import kotlin.test.Test
-import kotlin.test.assertTrue
-import com.behnamuix.sarashpaz.core.di.appModule
-import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
