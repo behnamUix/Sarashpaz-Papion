@@ -1,7 +1,7 @@
 [versions]
 agp = "9.1.0"
 android-compileSdk = "37"
-android-minSdk = "36"
+android-minSdk = "33"
 android-targetSdk = "37"
 androidx-activity = "1.13.0"
 androidx-appcompat = "1.8.0"
@@ -16,8 +16,10 @@ kotlin-wrappers = "2026.9.3"
 material3 = "1.12.0-alpha03"
 koin = "4.0.2"
 kotlinx-coroutines = "1.10.2"
+backdrop = "2.0.0"
 
 [libraries]
+backdrop = { module = "io.github.kyant0:backdrop", version.ref = "backdrop" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }

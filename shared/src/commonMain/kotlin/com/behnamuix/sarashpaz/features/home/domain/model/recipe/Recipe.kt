@@ -1,5 +1,10 @@
 package com.behnamuix.sarashpaz.features.home.domain.model.recipe
 
+import org.jetbrains.compose.resources.DrawableResource
+import sarashpaz.shared.generated.resources.Res
+import sarashpaz.shared.generated.resources.food3
+import sarashpaz.shared.generated.resources.profile
+
 data class Recipe(
 
     // شناسه یکتای هر دستور پخت
@@ -62,7 +67,11 @@ data class Recipe(
     val createdAt: String = "",
 
     // تاریخ آخرین به‌روزرسانی دستور پخت
-    val updatedAt: String = ""
+    val updatedAt: String = "",
+
+    val image: DrawableResource,
+    val creator: String = "آشپز فرضی",
+    val creator_profile: DrawableResource = Res.drawable.profile
 
 ) {
 
@@ -72,6 +81,7 @@ data class Recipe(
         get() = preparationTimeMinutes + cookingTimeMinutes
 
 }
+
 enum class RecipeDifficulty {
     EASY,
     MEDIUM,

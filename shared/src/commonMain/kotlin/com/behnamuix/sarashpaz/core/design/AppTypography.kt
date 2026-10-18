@@ -15,7 +15,7 @@ import sarashpaz.shared.generated.resources.vazir_light
 import sarashpaz.shared.generated.resources.vazir_regular
 
 @Composable
-fun AppFontFamily() = FontFamily(
+fun AppFontFamily(): FontFamily = FontFamily(
     Font(Res.font.vazir_light, FontWeight.Light),
     Font(Res.font.vazir_regular, FontWeight.Normal),
     Font(Res.font.vazir_bold, FontWeight.Bold),
@@ -27,6 +27,7 @@ fun AppTypography(): Typography {
     val font = AppFontFamily()
 
     return Typography(
+        // Headlines
         headlineLarge = TextStyle(
             fontFamily = font,
             fontWeight = FontWeight.Bold,
@@ -39,6 +40,14 @@ fun AppTypography(): Typography {
             fontSize = 24.sp,
             lineHeight = 32.sp
         ),
+        headlineSmall = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            lineHeight = 28.sp
+        ),
+
+        // Titles
         titleLarge = TextStyle(
             fontFamily = font,
             fontWeight = FontWeight.Bold,
@@ -51,6 +60,14 @@ fun AppTypography(): Typography {
             fontSize = 16.sp,
             lineHeight = 24.sp
         ),
+        titleSmall = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Bold,
+            fontSize = 14.sp,
+            lineHeight = 20.sp
+        ),
+
+        // Body
         bodyLarge = TextStyle(
             fontFamily = font,
             fontWeight = FontWeight.Normal,
@@ -69,11 +86,45 @@ fun AppTypography(): Typography {
             fontSize = 12.sp,
             lineHeight = 18.sp
         ),
+
+        // Labels
         labelLarge = TextStyle(
             fontFamily = font,
             fontWeight = FontWeight.Bold,
             fontSize = 14.sp,
             lineHeight = 20.sp
+        ),
+        labelMedium = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 12.sp,
+            lineHeight = 16.sp
+        ),
+        labelSmall = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 11.sp,
+            lineHeight = 16.sp
+        ),
+
+        // Display
+        displayLarge = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 57.sp,
+            lineHeight = 64.sp
+        ),
+        displayMedium = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 45.sp,
+            lineHeight = 52.sp
+        ),
+        displaySmall = TextStyle(
+            fontFamily = font,
+            fontWeight = FontWeight.Normal,
+            fontSize = 36.sp,
+            lineHeight = 44.sp
         )
     )
 }

@@ -2,9 +2,16 @@ package com.behnamuix.sarashpaz.features.home.data.datasource.fakeData
 
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.Recipe
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.RecipeDifficulty
+import org.jetbrains.compose.resources.DrawableResource
+import sarashpaz.shared.generated.resources.Res
+import sarashpaz.shared.generated.resources.food1
+import sarashpaz.shared.generated.resources.food2
+import sarashpaz.shared.generated.resources.food3
+import sarashpaz.shared.generated.resources.food4
 
 
 object FakeRecipeData {
+
 
     val recipes = listOf(
         createRecipe(
@@ -21,7 +28,10 @@ object FakeRecipeData {
             ratingCount = 245,
             isFeatured = true,
             createdAt = "1405-07-22",
-            tags = listOf("مجلسی", "مرغ", "برنج")
+            tags = listOf("مجلسی", "مرغ", "برنج"),
+            image = Res.drawable.food1
+
+
         ),
         createRecipe(
             id = "2",
@@ -37,7 +47,8 @@ object FakeRecipeData {
             ratingCount = 198,
             isFeatured = true,
             createdAt = "1405-06-15",
-            tags = listOf("سالاد", "مرغ", "سریع")
+            tags = listOf("سالاد", "مرغ", "سریع"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "3",
@@ -51,9 +62,10 @@ object FakeRecipeData {
             difficulty = RecipeDifficulty.MEDIUM,
             rating = 4.9,
             ratingCount = 312,
-            isFeatured = false,
+            isFeatured = true,
             createdAt = "1405-05-10",
-            tags = listOf("خورش", "سنتی", "ناهار")
+            tags = listOf("خورش", "سنتی", "ناهار"),
+            image = Res.drawable.food3
         ),
         createRecipe(
             id = "4",
@@ -67,9 +79,10 @@ object FakeRecipeData {
             difficulty = RecipeDifficulty.MEDIUM,
             rating = 4.7,
             ratingCount = 176,
-            isFeatured = true,
+            isFeatured = false,
             createdAt = "1405-04-01",
-            tags = listOf("خورش", "گوشت", "ناهار")
+            tags = listOf("خورش", "گوشت", "ناهار"),
+            image = Res.drawable.food4
         ),
         createRecipe(
             id = "5",
@@ -85,7 +98,9 @@ object FakeRecipeData {
             ratingCount = 154,
             isFeatured = false,
             createdAt = "1405-03-15",
-            tags = listOf("ماکارونی", "گوشت", "خانوادگی")
+            tags = listOf("ماکارونی", "گوشت", "خانوادگی"),
+            image = Res.drawable.food3
+
         ),
         createRecipe(
             id = "6",
@@ -101,7 +116,8 @@ object FakeRecipeData {
             ratingCount = 121,
             isFeatured = false,
             createdAt = "1405-02-20",
-            tags = listOf("گیاهی", "سریع", "شام")
+            tags = listOf("گیاهی", "سریع", "شام"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "7",
@@ -117,7 +133,8 @@ object FakeRecipeData {
             ratingCount = 287,
             isFeatured = true,
             createdAt = "1405-01-10",
-            tags = listOf("کباب", "مرغ", "گریل")
+            tags = listOf("کباب", "مرغ", "گریل"),
+            image = Res.drawable.food3
         ),
         createRecipe(
             id = "8",
@@ -133,7 +150,8 @@ object FakeRecipeData {
             ratingCount = 301,
             isFeatured = false,
             createdAt = "1404-12-20",
-            tags = listOf("کباب", "گوشت", "مجلسی")
+            tags = listOf("کباب", "گوشت", "مجلسی"),
+            image = Res.drawable.food4
         ),
         createRecipe(
             id = "9",
@@ -149,7 +167,8 @@ object FakeRecipeData {
             ratingCount = 112,
             isFeatured = false,
             createdAt = "1404-12-01",
-            tags = listOf("برنج", "گیاهی", "اقتصادی")
+            tags = listOf("برنج", "گیاهی", "اقتصادی"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "10",
@@ -165,7 +184,8 @@ object FakeRecipeData {
             ratingCount = 184,
             isFeatured = true,
             createdAt = "1404-11-15",
-            tags = listOf("برنج", "گوشت", "ناهار")
+            tags = listOf("برنج", "گوشت", "ناهار"),
+            image = Res.drawable.food4
         ),
         createRecipe(
             id = "11",
@@ -181,7 +201,8 @@ object FakeRecipeData {
             ratingCount = 218,
             isFeatured = true,
             createdAt = "1404-11-01",
-            tags = listOf("ته‌چین", "مرغ", "مجلسی")
+            tags = listOf("ته‌چین", "مرغ", "مجلسی"),
+            image = Res.drawable.food1
         ),
         createRecipe(
             id = "12",
@@ -197,7 +218,8 @@ object FakeRecipeData {
             ratingCount = 209,
             isFeatured = false,
             createdAt = "1404-10-15",
-            tags = listOf("آش", "سنتی", "گیاهی")
+            tags = listOf("آش", "سنتی", "گیاهی"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "13",
@@ -213,7 +235,8 @@ object FakeRecipeData {
             ratingCount = 168,
             isFeatured = false,
             createdAt = "1404-10-01",
-            tags = listOf("پیش‌غذا", "بادمجان", "گیاهی")
+            tags = listOf("پیش‌غذا", "بادمجان", "گیاهی"),
+            image = Res.drawable.food1
         ),
         createRecipe(
             id = "14",
@@ -229,7 +252,8 @@ object FakeRecipeData {
             ratingCount = 233,
             isFeatured = true,
             createdAt = "1404-09-15",
-            tags = listOf("شمالی", "گیلانی", "بادمجان")
+            tags = listOf("شمالی", "گیلانی", "بادمجان"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "15",
@@ -245,7 +269,8 @@ object FakeRecipeData {
             ratingCount = 191,
             isFeatured = false,
             createdAt = "1404-09-01",
-            tags = listOf("شمالی", "گیلانی", "گیاهی")
+            tags = listOf("شمالی", "گیلانی", "گیاهی"),
+            image = Res.drawable.food3
         ),
         createRecipe(
             id = "16",
@@ -261,7 +286,8 @@ object FakeRecipeData {
             ratingCount = 265,
             isFeatured = true,
             createdAt = "1404-08-15",
-            tags = listOf("خورش", "گردو", "مجلسی")
+            tags = listOf("خورش", "گردو", "مجلسی"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "17",
@@ -277,7 +303,8 @@ object FakeRecipeData {
             ratingCount = 126,
             isFeatured = false,
             createdAt = "1404-08-01",
-            tags = listOf("دلمه", "سبزیجات", "سنتی")
+            tags = listOf("دلمه", "سبزیجات", "سنتی"),
+            image = Res.drawable.food4
         ),
         createRecipe(
             id = "18",
@@ -293,7 +320,8 @@ object FakeRecipeData {
             ratingCount = 157,
             isFeatured = false,
             createdAt = "1404-07-15",
-            tags = listOf("کتلت", "گوشت", "شام")
+            tags = listOf("کتلت", "گوشت", "شام"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "19",
@@ -309,7 +337,9 @@ object FakeRecipeData {
             ratingCount = 202,
             isFeatured = true,
             createdAt = "1404-07-01",
-            tags = listOf("سنتی", "گوشت", "ناهار")
+            tags = listOf("سنتی", "گوشت", "ناهار"),
+            image = Res.drawable.food4
+
         ),
         createRecipe(
             id = "20",
@@ -325,7 +355,8 @@ object FakeRecipeData {
             ratingCount = 98,
             isFeatured = false,
             createdAt = "1404-06-15",
-            tags = listOf("برنج", "اقتصادی", "سریع")
+            tags = listOf("برنج", "اقتصادی", "سریع"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "21",
@@ -341,7 +372,8 @@ object FakeRecipeData {
             ratingCount = 176,
             isFeatured = true,
             createdAt = "1404-06-01",
-            tags = listOf("پیتزا", "فست‌فود", "پنیر")
+            tags = listOf("پیتزا", "فست‌فود", "پنیر"),
+            image = Res.drawable.food3
         ),
         createRecipe(
             id = "22",
@@ -357,7 +389,8 @@ object FakeRecipeData {
             ratingCount = 143,
             isFeatured = false,
             createdAt = "1404-05-15",
-            tags = listOf("همبرگر", "فست‌فود", "گوشت")
+            tags = listOf("همبرگر", "فست‌فود", "گوشت"),
+            image = Res.drawable.food4
         ),
         createRecipe(
             id = "23",
@@ -373,7 +406,8 @@ object FakeRecipeData {
             ratingCount = 224,
             isFeatured = true,
             createdAt = "1404-05-01",
-            tags = listOf("پاستا", "مرغ", "خامه")
+            tags = listOf("پاستا", "مرغ", "خامه"),
+            image = Res.drawable.food2
         ),
         createRecipe(
             id = "24",
@@ -389,7 +423,8 @@ object FakeRecipeData {
             ratingCount = 187,
             isFeatured = false,
             createdAt = "1404-04-15",
-            tags = listOf("لازانیا", "گوشت", "پنیر")
+            tags = listOf("لازانیا", "گوشت", "پنیر"),
+            image = Res.drawable.food1
         ),
         createRecipe(
             id = "25",
@@ -405,7 +440,8 @@ object FakeRecipeData {
             ratingCount = 87,
             isFeatured = false,
             createdAt = "1404-04-01",
-            tags = listOf("سوپ", "قارچ", "پیش‌غذا")
+            tags = listOf("سوپ", "قارچ", "پیش‌غذا"),
+            image = Res.drawable.food4
         ),
         createRecipe(
             id = "26",
@@ -421,7 +457,8 @@ object FakeRecipeData {
             ratingCount = 119,
             isFeatured = true,
             createdAt = "1404-03-15",
-            tags = listOf("صبحانه", "موز", "شیرینی")
+            tags = listOf("صبحانه", "موز", "شیرینی"),
+            image = Res.drawable.food3
         ),
         createRecipe(
             id = "27",
@@ -437,7 +474,9 @@ object FakeRecipeData {
             ratingCount = 134,
             isFeatured = false,
             createdAt = "1404-03-01",
-            tags = listOf("صبحانه", "سریع", "تخم‌مرغ")
+            tags = listOf("صبحانه", "سریع", "تخم‌مرغ"),
+            image = Res.drawable.food2
+
         ),
         createRecipe(
             id = "28",
@@ -453,7 +492,8 @@ object FakeRecipeData {
             ratingCount = 92,
             isFeatured = false,
             createdAt = "1404-02-15",
-            tags = listOf("سالاد", "گیاهی", "سریع")
+            tags = listOf("سالاد", "گیاهی", "سریع"),
+            image = Res.drawable.food1
         ),
         createRecipe(
             id = "29",
@@ -469,7 +509,8 @@ object FakeRecipeData {
             ratingCount = 213,
             isFeatured = true,
             createdAt = "1404-02-01",
-            tags = listOf("کیک", "شکلات", "دسر")
+            tags = listOf("کیک", "شکلات", "دسر"),
+            image = Res.drawable.food4
         ),
         createRecipe(
             id = "30",
@@ -485,11 +526,13 @@ object FakeRecipeData {
             ratingCount = 241,
             isFeatured = false,
             createdAt = "1404-01-15",
-            tags = listOf("دسر", "قهوه", "ایتالیایی")
+            tags = listOf("دسر", "قهوه", "ایتالیایی"),
+            image = Res.drawable.food1
+
         )
     )
 
-    val slideShowRecipes =recipes
+    val slideShowRecipes = recipes
         .filter { it.isFeatured }
         .take(3)
 
@@ -504,6 +547,7 @@ object FakeRecipeData {
         .filter { it.createdAt.startsWith("1405") }
         .sortedByDescending { it.createdAt }
         .take(6)
+
     private fun createRecipe(
         id: String,
         title: String,
@@ -518,7 +562,9 @@ object FakeRecipeData {
         ratingCount: Int,
         isFeatured: Boolean,
         createdAt: String,
-        tags: List<String>
+        tags: List<String>,
+
+        image: DrawableResource
     ) = Recipe(
         id = id,
         title = title,
@@ -539,7 +585,10 @@ object FakeRecipeData {
         isFavorite = false,
         isFeatured = isFeatured,
         createdAt = createdAt,
-        updatedAt = createdAt
+        updatedAt = createdAt,
+
+
+        image = image
     )
 
 }
