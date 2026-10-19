@@ -1,11 +1,11 @@
 package com.behnamuix.sarashpaz.features.home.domain.model.article
 
+import org.jetbrains.compose.resources.DrawableResource
+
+
 data class Article(
-    val id:Int,
-    val name:String,
-    val image:String,
-    val writer:String,
-    val description: String? = null
-
-
+    val id: Int,
+    val image: DrawableResource,
+    val title: String,
+    val subtitle: String
 )

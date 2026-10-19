@@ -1,18 +1,93 @@
 package com.behnamuix.sarashpaz.features.home.data.datasource.fakeData
 
+import com.behnamuix.sarashpaz.features.home.domain.model.article.Article
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.Recipe
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.RecipeDifficulty
 import org.jetbrains.compose.resources.DrawableResource
 import sarashpaz.shared.generated.resources.Res
+import sarashpaz.shared.generated.resources.article1
+import sarashpaz.shared.generated.resources.article10
+import sarashpaz.shared.generated.resources.article2
+import sarashpaz.shared.generated.resources.article3
+import sarashpaz.shared.generated.resources.article4
+import sarashpaz.shared.generated.resources.article5
+import sarashpaz.shared.generated.resources.article6
+import sarashpaz.shared.generated.resources.article7
+import sarashpaz.shared.generated.resources.article8
+import sarashpaz.shared.generated.resources.article9
 import sarashpaz.shared.generated.resources.food1
 import sarashpaz.shared.generated.resources.food2
 import sarashpaz.shared.generated.resources.food3
 import sarashpaz.shared.generated.resources.food4
+import sarashpaz.shared.generated.resources.food5
+import sarashpaz.shared.generated.resources.food6
 
 
 object FakeRecipeData {
 
 
+    val articles = listOf(
+        Article(
+            id = 1,
+            image = Res.drawable.article2,
+            title = "چطور یک بشقاب غذای سالم بسازیم؟",
+            subtitle = "با ترکیب سبزیجات، پروتئین و غلات کامل، وعده‌هایی متعادل و مغذی آماده کنید."
+        ),
+        Article(
+            id = 2,
+            image =  Res.drawable.article10,
+            title = "اهمیت نوشیدن آب در طول روز",
+            subtitle = "با نوشیدن آب کافی به حفظ انرژی، تمرکز و عملکرد بهتر بدن کمک کنید."
+        ),
+        Article(
+            id = 3,
+            image =  Res.drawable.article8,
+            title = "صبحانه سالم برای شروع یک روز پرانرژی",
+            subtitle = "با انتخاب تخم‌مرغ، نان سبوس‌دار، میوه و مغزها روز خود را با انرژی آغاز کنید."
+        ),
+        Article(
+            id = 4,
+            image =  Res.drawable.article1,
+            title = "چگونه مصرف قند را کاهش دهیم؟",
+            subtitle = "با جایگزین کردن میوه‌های تازه و کاهش نوشیدنی‌های شیرین، عادت‌های غذایی سالم‌تری بسازید."
+        ),
+        Article(
+            id = 5,
+            image = Res.drawable.article7,
+            title = "نقش پروتئین در سلامت بدن",
+            subtitle = "با مصرف منابعی مانند تخم‌مرغ، حبوبات، ماهی و لبنیات به حفظ عضلات و ترمیم بافت‌ها کمک کنید."
+        ),
+        Article(
+            id = 6,
+            image =  Res.drawable.article9,
+            title = "فواید مصرف روزانه میوه و سبزیجات",
+            subtitle = "ویتامین‌ها، مواد معدنی و فیبر موجود در میوه‌ها و سبزیجات به حفظ سلامت عمومی بدن کمک می‌کنند."
+        ),
+        Article(
+            id = 7,
+            image =  Res.drawable.article3,
+            title = "تغذیه سالم برای داشتن خواب بهتر",
+            subtitle = "با تنظیم زمان شام و پرهیز از وعده‌های سنگین نزدیک خواب، شرایط بهتری برای استراحت فراهم کنید."
+        ),
+        Article(
+            id = 8,
+            image =  Res.drawable.article4,
+            title = "چربی‌های مفید را بشناسید",
+            subtitle = "با مصرف متعادل روغن زیتون، گردو، دانه‌ها و ماهی، چربی‌های مفید را در رژیم غذایی خود بگنجانید."
+        ),
+        Article(
+            id = 9,
+            image =  Res.drawable.article5,
+            title = "چطور عادت‌های غذایی سالم بسازیم؟",
+            subtitle = "با برنامه‌ریزی وعده‌ها، توجه به اندازه سهم غذا و انتخاب مواد غذایی متنوع، تغذیه خود را بهبود دهید."
+        ),
+        Article(
+            id = 10,
+            image =  Res.drawable.article6,
+            title = "اهمیت فیبر در رژیم غذایی",
+            subtitle = "غلات کامل، حبوبات، میوه‌ها و سبزیجات منابع خوبی از فیبر هستند و به عملکرد بهتر دستگاه گوارش کمک می‌کنند."
+        )
+    )
     val recipes = listOf(
         createRecipe(
             id = "1",
@@ -321,7 +396,7 @@ object FakeRecipeData {
             isFeatured = false,
             createdAt = "1404-07-15",
             tags = listOf("کتلت", "گوشت", "شام"),
-            image = Res.drawable.food2
+            image = Res.drawable.food1
         ),
         createRecipe(
             id = "19",
@@ -338,7 +413,7 @@ object FakeRecipeData {
             isFeatured = true,
             createdAt = "1404-07-01",
             tags = listOf("سنتی", "گوشت", "ناهار"),
-            image = Res.drawable.food4
+            image = Res.drawable.food5
 
         ),
         createRecipe(
@@ -353,10 +428,10 @@ object FakeRecipeData {
             difficulty = RecipeDifficulty.EASY,
             rating = 4.4,
             ratingCount = 98,
-            isFeatured = false,
+            isFeatured = true,
             createdAt = "1404-06-15",
             tags = listOf("برنج", "اقتصادی", "سریع"),
-            image = Res.drawable.food2
+            image = Res.drawable.food6
         ),
         createRecipe(
             id = "21",
@@ -390,7 +465,7 @@ object FakeRecipeData {
             isFeatured = false,
             createdAt = "1404-05-15",
             tags = listOf("همبرگر", "فست‌فود", "گوشت"),
-            image = Res.drawable.food4
+            image = Res.drawable.food5
         ),
         createRecipe(
             id = "23",
@@ -407,7 +482,7 @@ object FakeRecipeData {
             isFeatured = true,
             createdAt = "1404-05-01",
             tags = listOf("پاستا", "مرغ", "خامه"),
-            image = Res.drawable.food2
+            image = Res.drawable.food6
         ),
         createRecipe(
             id = "24",
@@ -424,7 +499,7 @@ object FakeRecipeData {
             isFeatured = false,
             createdAt = "1404-04-15",
             tags = listOf("لازانیا", "گوشت", "پنیر"),
-            image = Res.drawable.food1
+            image = Res.drawable.food5
         ),
         createRecipe(
             id = "25",
@@ -438,10 +513,10 @@ object FakeRecipeData {
             difficulty = RecipeDifficulty.EASY,
             rating = 4.4,
             ratingCount = 87,
-            isFeatured = false,
+            isFeatured = true,
             createdAt = "1404-04-01",
             tags = listOf("سوپ", "قارچ", "پیش‌غذا"),
-            image = Res.drawable.food4
+            image = Res.drawable.food6
         ),
         createRecipe(
             id = "26",
@@ -458,7 +533,7 @@ object FakeRecipeData {
             isFeatured = true,
             createdAt = "1404-03-15",
             tags = listOf("صبحانه", "موز", "شیرینی"),
-            image = Res.drawable.food3
+            image = Res.drawable.food5
         ),
         createRecipe(
             id = "27",
@@ -475,7 +550,7 @@ object FakeRecipeData {
             isFeatured = false,
             createdAt = "1404-03-01",
             tags = listOf("صبحانه", "سریع", "تخم‌مرغ"),
-            image = Res.drawable.food2
+            image = Res.drawable.food6
 
         ),
         createRecipe(
@@ -493,7 +568,7 @@ object FakeRecipeData {
             isFeatured = false,
             createdAt = "1404-02-15",
             tags = listOf("سالاد", "گیاهی", "سریع"),
-            image = Res.drawable.food1
+            image = Res.drawable.food5
         ),
         createRecipe(
             id = "29",
@@ -510,7 +585,7 @@ object FakeRecipeData {
             isFeatured = true,
             createdAt = "1404-02-01",
             tags = listOf("کیک", "شکلات", "دسر"),
-            image = Res.drawable.food4
+            image = Res.drawable.food6
         ),
         createRecipe(
             id = "30",
@@ -524,10 +599,10 @@ object FakeRecipeData {
             difficulty = RecipeDifficulty.MEDIUM,
             rating = 4.9,
             ratingCount = 241,
-            isFeatured = false,
+            isFeatured = true,
             createdAt = "1404-01-15",
             tags = listOf("دسر", "قهوه", "ایتالیایی"),
-            image = Res.drawable.food1
+            image = Res.drawable.food5
 
         )
     )
@@ -590,5 +665,7 @@ object FakeRecipeData {
 
         image = image
     )
+
+    
 
 }

@@ -8,18 +8,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -33,17 +30,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.Recipe
-import com.kyant.backdrop.backdrops.layerBackdrop
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun PopularRecipeComp(popularRecipeList: List<Recipe>, title: String) {
+fun PopularRecipeComp(
+    popularRecipeList: List<Recipe>,
+    title: String,
+    modifier: Modifier = Modifier
+) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         Row(
             modifier = Modifier
@@ -52,37 +52,38 @@ fun PopularRecipeComp(popularRecipeList: List<Recipe>, title: String) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "همه",
-                color = Color.Black,
-
-                modifier = Modifier.padding(end = 8.dp),
-                // برای کلیک روی «همه» بهتر است از TextButton استفاده شود.
-                style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
+                text = title,
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold
             )
 
             Spacer(modifier = Modifier.weight(1f))
 
             Text(
-                text = title,
-                color = Color.Black,
+                text = "همه",
 
-                style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Medium
             )
-
         }
-        LazyHorizontalGrid(
 
-            rows = GridCells.Fixed(2),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(250.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            contentPadding = PaddingValues(horizontal = 8.dp)
-        ) {
-            items(popularRecipeList.shuffled()) {
-                FoodItem(it)
+        if (popularRecipeList.isNotEmpty()) {
+            LazyHorizontalGrid(
+                rows = GridCells.Fixed(2),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(370.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                contentPadding = PaddingValues(horizontal = 16.dp)
+            ) {
+                items(
+                    items = popularRecipeList,
+                    key = { recipe -> recipe.id }
+                ) { recipe ->
+                    FoodItem(item = recipe)
+                }
             }
         }
     }
@@ -90,94 +91,73 @@ fun PopularRecipeComp(popularRecipeList: List<Recipe>, title: String) {
 
 @Composable
 fun FoodItem(item: Recipe) {
-    Box(
-        modifier = Modifier
-            .size(150.dp)
-            .padding(4.dp)
-    ){
+    Column(
+        modifier = Modifier.width(155.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
         Card(
-
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(145.dp),
             shape = RoundedCornerShape(16.dp),
             elevation = CardDefaults.cardElevation(
-                defaultElevation = 8.dp
+                defaultElevation = 3.dp
+            ),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surface
             )
-        ) {
-            Image(
-                painter = painterResource(item.image),
-                contentDescription = item.title,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
-            )
-        }
-        Box(
-
-            Modifier.fillMaxSize().clip(RoundedCornerShape(16.dp)),
-            contentAlignment = Alignment.BottomEnd
         ) {
             Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.Black.copy(0.5f)),
-                contentAlignment = Alignment.BottomEnd
+                modifier = Modifier.fillMaxSize()
             ) {
-                Column(
-
-                    Modifier.clip(
-                        shape = RoundedCornerShape(
-                            bottomStart = 8.dp,
-                            bottomEnd = 8.dp
-                        )
-                    ).fillMaxWidth().padding(12.dp),
-                    verticalArrangement = Arrangement.spacedBy(12.dp)
-
+                Image(
+                    painter = painterResource(item.image),
+                    contentDescription = item.title,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
                 )
-                {
 
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .align(Alignment.BottomCenter)
+                        .background(Color.Black.copy(alpha = 0.55f))
+                        .padding(10.dp)
+                ) {
                     Text(
-
-
-                        text = "آموزش " + item.title,
-                        modifier = Modifier.fillMaxWidth(),
-
-                        color = MaterialTheme.colorScheme.onPrimary,
-                        style = MaterialTheme.typography.bodyMedium
+                        text = "آموزش ${item.title}",
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold,
+                        style = MaterialTheme.typography.bodySmall,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
                     )
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        modifier = Modifier.fillMaxWidth().align(Alignment.Start)
-                    ) {
-
-
-                        Box(
-                            modifier = Modifier.size(24.dp).clip(CircleShape)
-
-                        ) {
-                            Image(
-                                painter = painterResource(item.creator_profile),
-                                contentDescription = "",
-                                contentScale = ContentScale.Crop
-
-                            )
-                        }
-                        Text(
-
-
-                            text = item.creator,
-                            modifier = Modifier.weight(1f),
-                            color = MaterialTheme.colorScheme.onPrimary,
-                            style = MaterialTheme.typography.labelSmall
-                        )
-
-                    }
-
-
                 }
             }
+        }
 
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp)
+        ) {
+            Image(
+                painter = painterResource(item.creator_profile),
+                contentDescription = "تصویر ${item.creator}",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(26.dp)
+                    .clip(CircleShape)
+            )
+
+            Text(
+                text = item.creator,
+                modifier = Modifier.weight(1f),
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.labelSmall,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
         }
     }
-
-
 }
-

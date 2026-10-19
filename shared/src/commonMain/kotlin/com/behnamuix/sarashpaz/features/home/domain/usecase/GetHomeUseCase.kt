@@ -22,8 +22,8 @@ class GetHomeUseCase(private val getHomeRepository: HomeRepository) {
     }
 
      fun getArticle(): List<Article> {
-        //return getHomeRepository.getArticle()
-         return emptyList()
+        return getHomeRepository.getArticle()
+
     }
 
      fun getInterviewCustomer(): List<InterviewCustomer> {

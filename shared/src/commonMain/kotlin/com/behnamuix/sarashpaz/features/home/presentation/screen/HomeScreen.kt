@@ -1,5 +1,10 @@
 package com.behnamuix.sarashpaz.features.home.presentation.screen
 
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +20,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,12 +29,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.behnamuix.sarashpaz.features.home.presentation.contract.HomeAction
+import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.ArticleRecipeComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.NewSetRecipeCarouselComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.PopularRecipeComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.SlideShowRecipe
@@ -37,21 +45,53 @@ import com.kyant.backdrop.backdrops.layerBackdrop
 import com.kyant.backdrop.backdrops.rememberLayerBackdrop
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
+import sarashpaz.shared.generated.resources.Res
+import sarashpaz.shared.generated.resources.online
+
 
 @Composable
 fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
+    val infiniteTransition = rememberInfiniteTransition()
+
+    val animatedAlpha by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 1000),
+            repeatMode = RepeatMode.Reverse
+        )
+    )
     val homeState by viewModel.homeState.collectAsState()
     val backdrop = rememberLayerBackdrop()
     LaunchedEffect(Unit) {
         viewModel.onHomeAction(HomeAction.SlideShow)
         viewModel.onHomeAction(HomeAction.NewRecipe)
         viewModel.onHomeAction(HomeAction.PopularRecipe)
+        viewModel.onHomeAction(HomeAction.ArticleRecipe)
     }
     Box() {
         Column(
-            Modifier.fillMaxSize().padding(16.dp),
+            Modifier.fillMaxSize().padding(8.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
+            Card(
+                colors = CardDefaults.cardColors(Color.White),
+                elevation = CardDefaults.elevatedCardElevation(6.dp),
+                shape = CircleShape
+            ) {
+                Row(
+                    modifier = Modifier.padding(8.dp).fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        modifier = Modifier.size(24.dp).alpha(animatedAlpha),
+                        painter = painterResource(Res.drawable.online),
+                        contentDescription = ""
+                    )
+                    Text("ارتباط با پایگاه داده برقرار است")
+                }
+            }
             SlideShowRecipe(
                 modifer = Modifier.fillMaxWidth(),
                 items = homeState.slideShowList,
@@ -76,7 +116,8 @@ fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
                                     bottomStart = 8.dp,
                                     bottomEnd = 8.dp
                                 )
-                            ).fillMaxWidth().background(Color.Black.copy(0.5f))) {
+                            ).fillMaxWidth().background(Color.Black.copy(0.5f))
+                        ) {
 
                             Text(
 
@@ -179,9 +220,8 @@ fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
                 }
 
             }
-
-
-            PopularRecipeComp(homeState.popularRecipeList,"محبوب ترین ها")
+            PopularRecipeComp(homeState.popularRecipeList, "محبوب ترین ها")
+            ArticleRecipeComp(homeState.articleList, "مقالات")
         }
 
 

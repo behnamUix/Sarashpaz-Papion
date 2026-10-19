@@ -19,7 +19,7 @@ class HomeRepositoryDataImpl: LocalHomeRepositoryData {
     }
 
     override fun getArticle(): List<Article> {
-        TODO("Article")
+        return FakeRecipeData.articles
     }
 
     override fun getInterviewCustomer(): List<InterviewCustomer> {

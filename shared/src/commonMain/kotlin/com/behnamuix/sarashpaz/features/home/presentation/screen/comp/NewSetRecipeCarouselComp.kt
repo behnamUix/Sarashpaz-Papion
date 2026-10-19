@@ -37,6 +37,15 @@ fun NewSetRecipeCarouselComp(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
+                text = title,
+                color = Color.Black,
+
+                style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.Bold
+            )
+
+            Spacer(modifier = Modifier.weight(1f))
+            Text(
                 text = "همه",
                 color = Color.Black,
 
@@ -45,15 +54,6 @@ fun NewSetRecipeCarouselComp(
                 style = androidx.compose.material3.MaterialTheme.typography.bodyMedium
             )
 
-            Spacer(modifier = Modifier.weight(1f))
-
-            Text(
-                text = title,
-                color = Color.Black,
-
-                style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold
-            )
         }
 
 

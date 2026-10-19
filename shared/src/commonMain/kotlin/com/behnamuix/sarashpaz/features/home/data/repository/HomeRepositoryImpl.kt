@@ -20,7 +20,7 @@ class HomeRepositoryImpl(private val datasource: HomeRepositoryDataImpl) : HomeR
     }
 
     override  fun getArticle(): List<Article> {
-        TODO("Not yet implemented")
+        return datasource.getArticle()
     }
 
     override  fun getInterviewCustomer(): List<InterviewCustomer> {

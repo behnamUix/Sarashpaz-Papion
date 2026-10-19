@@ -38,7 +38,7 @@ fun App() {
         Scaffold(
             topBar = {
                 CenterAlignedTopAppBar(
-                    modifier = Modifier.padding(16.dp),
+                    modifier = Modifier.padding(8.dp),
                     title = {
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(12.dp),

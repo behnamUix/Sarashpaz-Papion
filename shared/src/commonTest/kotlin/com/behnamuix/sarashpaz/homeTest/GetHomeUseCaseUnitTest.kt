@@ -47,4 +47,10 @@ class GetHomeUseCaseUnitTest {
 
         assertTrue(result.isNotEmpty())
     }
+    @Test
+    fun getArticleTest() {
+        val result = homeUseCase.getArticle()
+
+        assertTrue(result.isNotEmpty())
+    }
 }
