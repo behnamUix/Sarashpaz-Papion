@@ -13,6 +13,7 @@ import sarashpaz.shared.generated.resources.vazir_black
 import sarashpaz.shared.generated.resources.vazir_bold
 import sarashpaz.shared.generated.resources.vazir_light
 import sarashpaz.shared.generated.resources.vazir_regular
+import sarashpaz.shared.generated.resources.ario
 
 @Composable
 fun AppFontFamily(): FontFamily = FontFamily(
@@ -20,6 +21,10 @@ fun AppFontFamily(): FontFamily = FontFamily(
     Font(Res.font.vazir_regular, FontWeight.Normal),
     Font(Res.font.vazir_bold, FontWeight.Bold),
     Font(Res.font.vazir_black, FontWeight.Black)
+)
+@Composable
+fun LogoFont(): FontFamily = FontFamily(
+    Font(Res.font.ario),
 )
 
 @Composable

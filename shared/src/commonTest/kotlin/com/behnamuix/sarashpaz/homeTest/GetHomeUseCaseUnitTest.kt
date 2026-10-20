@@ -53,4 +53,9 @@ class GetHomeUseCaseUnitTest {
 
         assertTrue(result.isNotEmpty())
     }
+    @Test
+    fun getCustomerChef(){
+        val result=homeUseCase.getChefCustomer()
+        assertTrue (result.isNotEmpty() )
+    }
 }

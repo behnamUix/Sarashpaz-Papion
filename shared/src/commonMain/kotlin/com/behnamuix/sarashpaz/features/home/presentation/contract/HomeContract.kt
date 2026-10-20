@@ -1,7 +1,7 @@
 package com.behnamuix.sarashpaz.features.home.presentation.contract
 
 import com.behnamuix.sarashpaz.features.home.domain.model.article.Article
-import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.InterviewCustomer
+import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.ChefCustomer
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.Recipe
 
 data class HomeState(
@@ -9,7 +9,7 @@ data class HomeState(
     val newRecipeList: List<Recipe> = emptyList(),
     val popularRecipeList: List<Recipe> = emptyList(),
     val articleList: List<Article> = emptyList(),
-    val interviewCustomerList: List<InterviewCustomer> = emptyList()
+    val chefCustomerList: List<ChefCustomer> = emptyList()
 )
 
 sealed interface HomeAction {

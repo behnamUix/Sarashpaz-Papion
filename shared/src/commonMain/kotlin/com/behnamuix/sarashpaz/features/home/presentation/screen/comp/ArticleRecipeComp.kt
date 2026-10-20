@@ -55,7 +55,7 @@ fun ArticleRecipeComp(articleList: List<Article>, title: String) {
             columns = GridCells.Fixed(2),
             modifier = Modifier
                 .fillMaxWidth()
-                .height(250.dp),
+                .height(350.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(horizontal = 8.dp)
@@ -64,7 +64,7 @@ fun ArticleRecipeComp(articleList: List<Article>, title: String) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Box(modifier = Modifier.size(80.dp).clip(RoundedCornerShape(16.dp))) {
+                    Box(modifier = Modifier.size(80.dp).clip(CircleShape)) {
                         Image(
                             contentScale = ContentScale.Crop,
                             painter = painterResource(it.image),

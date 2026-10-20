@@ -1,6 +1,8 @@
 package com.behnamuix.sarashpaz.features.home.data.datasource.fakeData
 
 import com.behnamuix.sarashpaz.features.home.domain.model.article.Article
+import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.ChefCustomer
+import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.QAChefCustomer
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.Recipe
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.RecipeDifficulty
 import org.jetbrains.compose.resources.DrawableResource
@@ -21,10 +23,130 @@ import sarashpaz.shared.generated.resources.food3
 import sarashpaz.shared.generated.resources.food4
 import sarashpaz.shared.generated.resources.food5
 import sarashpaz.shared.generated.resources.food6
+import sarashpaz.shared.generated.resources.chef1
+import sarashpaz.shared.generated.resources.chef2
+import sarashpaz.shared.generated.resources.chef3
+import sarashpaz.shared.generated.resources.chef4
+import sarashpaz.shared.generated.resources.chef5
 
 
 object FakeRecipeData {
 
+    val chefs = listOf(
+
+        ChefCustomer(
+            id = 1,
+            name = "ترانه شریفی",
+            imageUrl = Res.drawable.chef1,
+            registeredAt = "۱۴۰۵/۰۷/۲۵",
+            q_a = listOf(
+                QAChefCustomer(
+                    question = "اولین غذایی که به‌تنهایی پختید چه بود؟",
+                    answer = "کتلت بود؛ کمی سوخته شد، اما خانواده همه‌اش را خوردند!"
+                ),
+                QAChefCustomer(
+                    question = "برای یک شام سریع چه پیشنهادی دارید؟",
+                    answer = "املت گوجه با نان تازه و سبزی خوردن؛ ساده، خوشمزه و اقتصادی."
+                )
+            )
+        ),
+
+        ChefCustomer(
+            id = 2,
+            name = "بهار فرهمند",
+            imageUrl = Res.drawable.chef2,
+            registeredAt = "۱۴۰۵/۰۷/۲۴",
+            q_a = listOf(
+                QAChefCustomer(
+                    question = "چطور برنج ایرانی را خوش‌عطرتر می‌کنید؟",
+                    answer = "برنج باکیفیت انتخاب می‌کنم و در مراحل پخت از کمی زعفران دم‌کرده استفاده می‌کنم."
+                ),
+                QAChefCustomer(
+                    question = "برای جا افتادن خورش چه نکته‌ای مهم است؟",
+                    answer = "حرارت ملایم و زمان کافی؛ نباید برای پخت خورش عجله کرد."
+                ),
+                QAChefCustomer(
+                    question = "غذای مورد علاقه شما برای مهمانی چیست؟",
+                    answer = "باقالی‌پلو با ماهیچه؛ هم ظاهر مجلسی دارد و هم عطر فوق‌العاده‌ای."
+                )
+            )
+        ),
+
+        ChefCustomer(
+            id = 3,
+            name = "آناهیتا نیک‌روش",
+            imageUrl = Res.drawable.chef3,
+            registeredAt = "۱۴۰۵/۰۷/۲۳",
+            q_a = listOf(
+                QAChefCustomer(
+                    question = "چطور غذاهای سالم را خوشمزه می‌کنید؟",
+                    answer = "از سبزی‌های تازه، آب‌لیمو، ادویه‌های معطر و روش‌های پخت کم‌روغن استفاده می‌کنم."
+                ),
+                QAChefCustomer(
+                    question = "برای جایگزین کردن نمک چه پیشنهادی دارید؟",
+                    answer = "آب‌لیمو، سیر، سبزی‌های معطر و ادویه‌هایی مثل پاپریکا می‌توانند طعم غذا را بهتر کنند."
+                ),
+                QAChefCustomer(
+                    question = "کدام وعده غذایی را مهم‌تر می‌دانید؟",
+                    answer = "به نظرم مهم است که تمام وعده‌ها متناسب با نیاز بدن و سبک زندگی تنظیم شوند."
+                ),
+                QAChefCustomer(
+                    question = "برای تهیه سالاد متفاوت چه کار می‌کنید؟",
+                    answer = "ترکیب بافت‌های مختلف مثل مغزها، سبزیجات تازه و یک سس خانگی ساده را دوست دارم."
+                )
+            )
+        ),
+
+        ChefCustomer(
+            id = 4,
+            name = "نگار رستگار",
+            imageUrl = Res.drawable.chef4,
+            registeredAt = "۱۴۰۵/۰۷/۲۲",
+            q_a = listOf(
+                QAChefCustomer(
+                    question = "راز یک کباب آبدار چیست؟",
+                    answer = "انتخاب گوشت مناسب، ورز دادن اصولی و کنترل حرارت هنگام پخت."
+                ),
+                QAChefCustomer(
+                    question = "برای مزه‌دار کردن مرغ از چه موادی استفاده می‌کنید؟",
+                    answer = "پیاز، زعفران، کمی آب‌لیمو و ادویه‌های متناسب با نوع غذا."
+                ),
+                QAChefCustomer(
+                    question = "چه اشتباهی ممکن است کباب را خشک کند؟",
+                    answer = "حرارت نامناسب و پخت بیش از اندازه از دلایل رایج خشک شدن کباب هستند."
+                ),
+                QAChefCustomer(
+                    question = "اگر گوشت بوی نامطبوع داشته باشد چه می‌کنید؟",
+                    answer = "از گوشت مشکوک استفاده نمی‌کنم؛ ادویه و مواد طعم‌دهنده نمی‌توانند گوشت فاسد را ایمن کنند."
+                ),
+                QAChefCustomer(
+                    question = "چه غذایی را برای دورهمی دوستانه پیشنهاد می‌دهید؟",
+                    answer = "جوجه‌کباب همراه گوجه کبابی، نان تازه و چند نوع مخلفات."
+                )
+            )
+        ),
+
+        ChefCustomer(
+            id = 5,
+            name = "پرنیان دادخواه",
+            imageUrl = Res.drawable.chef5,
+            registeredAt = "۱۴۰۵/۰۷/۲۱",
+            q_a = listOf(
+                QAChefCustomer(
+                    question = "برای تزیین حرفه‌ای دسر چه پیشنهادی دارید؟",
+                    answer = "از میوه تازه، کمی پودر پسته و ظرف مناسب استفاده می‌کنم تا ظاهر دسر شلوغ نشود."
+                ),
+                QAChefCustomer(
+                    question = "چرا بعضی کیک‌ها بعد از پخت می‌خوابند؟",
+                    answer = "باز کردن زودهنگام در فر، اندازه‌گیری اشتباه مواد یا پخت ناکافی می‌تواند علت باشد."
+                ),
+                QAChefCustomer(
+                    question = "دسر محبوب شما برای فصل تابستان چیست؟",
+                    answer = "چیزکیک یخچالی با میوه‌های فصل؛ چون سبک و خنک است و آماده‌سازی ساده‌ای دارد."
+                )
+            )
+        )
+    )
 
     val articles = listOf(
         Article(
@@ -35,19 +157,19 @@ object FakeRecipeData {
         ),
         Article(
             id = 2,
-            image =  Res.drawable.article10,
+            image = Res.drawable.article10,
             title = "اهمیت نوشیدن آب در طول روز",
             subtitle = "با نوشیدن آب کافی به حفظ انرژی، تمرکز و عملکرد بهتر بدن کمک کنید."
         ),
         Article(
             id = 3,
-            image =  Res.drawable.article8,
+            image = Res.drawable.article8,
             title = "صبحانه سالم برای شروع یک روز پرانرژی",
             subtitle = "با انتخاب تخم‌مرغ، نان سبوس‌دار، میوه و مغزها روز خود را با انرژی آغاز کنید."
         ),
         Article(
             id = 4,
-            image =  Res.drawable.article1,
+            image = Res.drawable.article1,
             title = "چگونه مصرف قند را کاهش دهیم؟",
             subtitle = "با جایگزین کردن میوه‌های تازه و کاهش نوشیدنی‌های شیرین، عادت‌های غذایی سالم‌تری بسازید."
         ),
@@ -59,31 +181,31 @@ object FakeRecipeData {
         ),
         Article(
             id = 6,
-            image =  Res.drawable.article9,
+            image = Res.drawable.article9,
             title = "فواید مصرف روزانه میوه و سبزیجات",
             subtitle = "ویتامین‌ها، مواد معدنی و فیبر موجود در میوه‌ها و سبزیجات به حفظ سلامت عمومی بدن کمک می‌کنند."
         ),
         Article(
             id = 7,
-            image =  Res.drawable.article3,
+            image = Res.drawable.article3,
             title = "تغذیه سالم برای داشتن خواب بهتر",
             subtitle = "با تنظیم زمان شام و پرهیز از وعده‌های سنگین نزدیک خواب، شرایط بهتری برای استراحت فراهم کنید."
         ),
         Article(
             id = 8,
-            image =  Res.drawable.article4,
+            image = Res.drawable.article4,
             title = "چربی‌های مفید را بشناسید",
             subtitle = "با مصرف متعادل روغن زیتون، گردو، دانه‌ها و ماهی، چربی‌های مفید را در رژیم غذایی خود بگنجانید."
         ),
         Article(
             id = 9,
-            image =  Res.drawable.article5,
+            image = Res.drawable.article5,
             title = "چطور عادت‌های غذایی سالم بسازیم؟",
             subtitle = "با برنامه‌ریزی وعده‌ها، توجه به اندازه سهم غذا و انتخاب مواد غذایی متنوع، تغذیه خود را بهبود دهید."
         ),
         Article(
             id = 10,
-            image =  Res.drawable.article6,
+            image = Res.drawable.article6,
             title = "اهمیت فیبر در رژیم غذایی",
             subtitle = "غلات کامل، حبوبات، میوه‌ها و سبزیجات منابع خوبی از فیبر هستند و به عملکرد بهتر دستگاه گوارش کمک می‌کنند."
         )
@@ -666,6 +788,5 @@ object FakeRecipeData {
         image = image
     )
 
-    
 
 }
