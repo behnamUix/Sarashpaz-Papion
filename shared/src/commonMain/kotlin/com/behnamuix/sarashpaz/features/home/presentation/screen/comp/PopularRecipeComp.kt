@@ -79,7 +79,7 @@ fun PopularRecipeComp(
                 contentPadding = PaddingValues(horizontal = 16.dp)
             ) {
                 items(
-                    items = popularRecipeList,
+                    items = popularRecipeList.shuffled(),
                     key = { recipe -> recipe.id }
                 ) { recipe ->
                     FoodItem(item = recipe)

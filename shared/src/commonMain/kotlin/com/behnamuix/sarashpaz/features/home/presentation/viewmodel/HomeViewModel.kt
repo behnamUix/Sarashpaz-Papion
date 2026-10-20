@@ -32,7 +32,7 @@ class HomeViewModel(private val useCase: GetHomeUseCase) : ViewModel() {
         viewModelScope.launch {
             _homeState.update {
                 it.copy(
-                    interviewCustomerList = useCase.getInterviewCustomer()
+                    chefCustomerList = useCase.getChefCustomer()
                 )
             }
         }

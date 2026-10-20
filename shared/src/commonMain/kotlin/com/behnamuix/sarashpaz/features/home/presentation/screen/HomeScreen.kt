@@ -35,8 +35,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.behnamuix.sarashpaz.core.design.LogoFont
 import com.behnamuix.sarashpaz.features.home.presentation.contract.HomeAction
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.ArticleRecipeComp
+import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.InterViewCustomerComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.NewSetRecipeCarouselComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.PopularRecipeComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.SlideShowRecipe
@@ -68,11 +70,12 @@ fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
         viewModel.onHomeAction(HomeAction.NewRecipe)
         viewModel.onHomeAction(HomeAction.PopularRecipe)
         viewModel.onHomeAction(HomeAction.ArticleRecipe)
+        viewModel.onHomeAction(HomeAction.InterviewRecipe)
     }
     Box() {
         Column(
             Modifier.fillMaxSize().padding(8.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             Card(
                 colors = CardDefaults.cardColors(Color.White),
@@ -89,7 +92,7 @@ fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
                         painter = painterResource(Res.drawable.online),
                         contentDescription = ""
                     )
-                    Text("ارتباط با پایگاه داده برقرار است")
+                    Text("ارتباط با پایگاه داده برقرار است", style = MaterialTheme.typography.labelMedium)
                 }
             }
             SlideShowRecipe(
@@ -123,6 +126,7 @@ fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
 
 
                                 text = "دستور پخت " + "\n" + recipe.title,
+                                fontFamily = LogoFont(),
                                 modifier = Modifier.fillMaxWidth().padding(12.dp),
                                 color = MaterialTheme.colorScheme.onPrimary,
                                 style = MaterialTheme.typography.headlineMedium
@@ -222,6 +226,7 @@ fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
             }
             PopularRecipeComp(homeState.popularRecipeList, "محبوب ترین ها")
             ArticleRecipeComp(homeState.articleList, "مقالات")
+            InterViewCustomerComp(homeState.chefCustomerList,"مصاحبه با کاربران برتر")
         }
 
 

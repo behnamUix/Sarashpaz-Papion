@@ -84,7 +84,7 @@ class ViewModelUnitTest {
         viewModel.onHomeAction(HomeAction.InterviewRecipe)
         advanceUntilIdle()
 
-        val result = viewModel.homeState.value.interviewCustomerList
+        val result = viewModel.homeState.value.chefCustomerList
         assertTrue(
             result.isNotEmpty(),
             "Interview customer list should not be empty"
