@@ -46,13 +46,13 @@ import com.behnamuix.sarashpaz.features.home.presentation.viewmodel.HomeViewMode
 import com.kyant.backdrop.backdrops.layerBackdrop
 import com.kyant.backdrop.backdrops.rememberLayerBackdrop
 import org.jetbrains.compose.resources.painterResource
-import org.koin.compose.viewmodel.koinViewModel
+import org.koin.compose.koinInject
 import sarashpaz.shared.generated.resources.Res
 import sarashpaz.shared.generated.resources.online
 
 
 @Composable
-fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
+fun HomeSc(viewModel: HomeViewModel = koinInject()) {
     val infiniteTransition = rememberInfiniteTransition()
 
     val animatedAlpha by infiniteTransition.animateFloat(
@@ -232,7 +232,3 @@ fun HomeSc(viewModel: HomeViewModel = koinViewModel()) {
 
     }
 }
-
-
-
-
