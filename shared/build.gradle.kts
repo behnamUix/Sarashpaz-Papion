@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -58,6 +59,7 @@ kotlin {
             implementation(libs.koin.android)
         }
         commonMain.dependencies {
+            implementation("org.jetbrains.compose.material:material-icons-extended:1.7.3")
             implementation(libs.backdrop)
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
@@ -70,6 +72,18 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.composeViewModel)
+            // =========================
+            // Kotlin Serialization
+            // =========================
+
+            implementation(libs.kotlinx.serialization.json)
+
+
+            // =========================
+            // Navigation
+            // =========================
+
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.10.0")
 
         }
         commonTest.dependencies {

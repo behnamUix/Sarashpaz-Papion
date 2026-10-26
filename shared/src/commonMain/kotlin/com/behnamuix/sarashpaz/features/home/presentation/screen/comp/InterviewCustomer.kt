@@ -1,11 +1,13 @@
-
 package com.behnamuix.sarashpaz.features.home.presentation.screen.comp
+
+import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.QAChefCustomer
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,22 +18,28 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,11 +50,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.ChefCustomer
-import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.QAChefCustomer
-import org.jetbrains.compose.resources.painterResource
+
+import kotlinx.coroutines.launch
 import sarashpaz.shared.generated.resources.Res
 import sarashpaz.shared.generated.resources.arrow
+import org.jetbrains.compose.resources.painterResource
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun InterViewCustomerComp(
     interviewList: List<ChefCustomer>,
@@ -56,11 +66,13 @@ fun InterViewCustomerComp(
     val pagerState = rememberPagerState(
         pageCount = { interviewList.size }
     )
+    val scope = rememberCoroutineScope()
 
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
+        // عنوان
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -73,97 +85,154 @@ fun InterViewCustomerComp(
                 style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Bold
             )
-
-            Spacer(modifier = Modifier.weight(1f))
-
-
         }
 
         if (interviewList.isNotEmpty()) {
-            HorizontalPager(
-
-                state = pagerState,
-                modifier = Modifier.fillMaxWidth(),
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                pageSpacing = 8.dp
-            ) { page ->
-                ChefCustomerItem(
-                    chef = interviewList[page],
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(380.dp)
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun ChefCustomerItem(
-    chef: ChefCustomer,
-    modifier: Modifier = Modifier
-) {
-    Card(
-        elevation = CardDefaults.elevatedCardElevation(
-            defaultElevation = 6.dp
-        ),
-        colors = CardDefaults.cardColors(
-            containerColor = Color.White
-        ),
-        modifier = modifier,
-        shape = RoundedCornerShape(24.dp)
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(24.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            // اطلاعات سرآشپز؛ بدون تغییر در ظاهر
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+            BoxWithConstraints(
+                modifier = Modifier.fillMaxWidth()
             ) {
-                Image(
-                    painter = painterResource(chef.imageUrl),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .width(85.dp)
-                        .height(140.dp)
-                        .clip(RoundedCornerShape(45.dp))
-                )
+                val cardHeight = when {
+                    maxWidth < 400.dp -> 420.dp
+                    maxWidth < 700.dp -> 450.dp
+                    else -> 480.dp
+                }
 
-                Text(
-                    text = chef.name,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Text(
-                    text = chef.registeredAt,
-                    style = MaterialTheme.typography.labelMedium
-                )
+                HorizontalPager(
+                    state = pagerState,
+                    modifier = Modifier.fillMaxWidth(),
+                    contentPadding = PaddingValues(horizontal = 16.dp),
+                    pageSpacing = 12.dp
+                ) {
+                    Card(
+                        elevation = CardDefaults.elevatedCardElevation(
+                            defaultElevation = 6.dp
+                        ),
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color.White
+                        ),
+                        shape = RoundedCornerShape(24.dp),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .widthIn(max = 560.dp)
+                            .height(cardHeight)
+                    ) {
+                        ChefCustomerItemContent(
+                            chef = interviewList[it]
+                        )
+                    }
+                }
             }
 
-            // اسکرول فقط برای فهرست سؤال‌وجواب‌ها
-            Column(
+            // هندل‌های جابه‌جایی کارت‌ها
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState()),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                chef.q_a.forEach { qa ->
-                    QACardItem(item = qa)
+                IconButton(
+                    enabled = pagerState.currentPage > 0,
+                    onClick = {
+                        scope.launch {
+                            pagerState.animateScrollToPage(
+                                (pagerState.currentPage - 1).coerceAtLeast(0)
+                            )
+                        }
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+                        contentDescription = "کارت قبلی",
+                        tint = if (pagerState.currentPage > 0) {
+                            Color.Black
+                        } else {
+                            Color.LightGray
+                        },
+                        modifier = Modifier.size(32.dp)
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(24.dp))
+
+                IconButton(
+                    enabled = pagerState.currentPage < interviewList.lastIndex,
+                    onClick = {
+                        scope.launch {
+                            pagerState.animateScrollToPage(
+                                (pagerState.currentPage + 1)
+                                    .coerceAtMost(interviewList.lastIndex)
+                            )
+                        }
+                    }
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                        contentDescription = "کارت بعدی",
+                        tint = if (pagerState.currentPage < interviewList.lastIndex) {
+                            Color.Black
+                        } else {
+                            Color.LightGray
+                        },
+                        modifier = Modifier.size(32.dp)
+                    )
                 }
             }
         }
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun ChefCustomerItemContent(
+    chef: ChefCustomer
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Image(
+                painter = painterResource(chef.imageUrl),
+                contentDescription = chef.name,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .width(85.dp)
+                    .height(110.dp)
+                    .clip(RoundedCornerShape(45.dp))
+            )
+
+            Text(
+                text = chef.name,
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.Bold
+            )
+
+            Text(
+                text = chef.registeredAt,
+                style = MaterialTheme.typography.labelMedium
+            )
+        }
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            chef.q_a.forEach { qa ->
+                QACardItem(item = qa)
+            }
+        }
+    }
+}
+
 @Composable
 fun QACardItem(
     item: QAChefCustomer
@@ -173,8 +242,7 @@ fun QACardItem(
     }
 
     Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier.fillMaxWidth()
     ) {
         Card(
             onClick = {
@@ -187,7 +255,8 @@ fun QACardItem(
                 .fillMaxWidth()
                 .animateContentSize(
                     animationSpec = tween(durationMillis = 300)
-                )
+                ),
+            shape = RoundedCornerShape(12.dp)
         ) {
             Column(
                 modifier = Modifier
@@ -199,7 +268,6 @@ fun QACardItem(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-
                         text = item.question,
                         modifier = Modifier.weight(1f),
                         textAlign = TextAlign.Start,
@@ -207,13 +275,13 @@ fun QACardItem(
                     )
 
                     Icon(
-                        modifier = Modifier.size(16.dp),
                         painter = painterResource(Res.drawable.arrow),
                         contentDescription = if (showAnswer) {
                             "بستن پاسخ"
                         } else {
                             "نمایش پاسخ"
-                        }
+                        },
+                        modifier = Modifier.size(16.dp)
                     )
                 }
 
@@ -221,8 +289,8 @@ fun QACardItem(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                       color = Color.Black.copy(0.5f),
                         text = item.answer,
+                        color = Color.Black.copy(alpha = 0.5f),
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Start,
                         style = MaterialTheme.typography.labelMedium

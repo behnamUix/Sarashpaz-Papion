@@ -9,8 +9,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -37,12 +40,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.behnamuix.sarashpaz.core.design.LogoFont
 import com.behnamuix.sarashpaz.features.home.presentation.contract.HomeAction
+import com.behnamuix.sarashpaz.features.home.presentation.screen.android.AndroidUi
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.ArticleRecipeComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.InterViewCustomerComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.NewSetRecipeCarouselComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.PopularRecipeComp
 import com.behnamuix.sarashpaz.features.home.presentation.screen.comp.SlideShowRecipe
+import com.behnamuix.sarashpaz.features.home.presentation.screen.web.WebUi
 import com.behnamuix.sarashpaz.features.home.presentation.viewmodel.HomeViewModel
+import com.behnamuix.sarashpaz.isAndroid
 import com.kyant.backdrop.backdrops.layerBackdrop
 import com.kyant.backdrop.backdrops.rememberLayerBackdrop
 import org.jetbrains.compose.resources.painterResource
@@ -53,182 +59,11 @@ import sarashpaz.shared.generated.resources.online
 
 @Composable
 fun HomeSc(viewModel: HomeViewModel = koinInject()) {
-    val infiniteTransition = rememberInfiniteTransition()
-
-    val animatedAlpha by infiniteTransition.animateFloat(
-        initialValue = 0f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 1000),
-            repeatMode = RepeatMode.Reverse
-        )
-    )
-    val homeState by viewModel.homeState.collectAsState()
-    val backdrop = rememberLayerBackdrop()
-    LaunchedEffect(Unit) {
-        viewModel.onHomeAction(HomeAction.SlideShow)
-        viewModel.onHomeAction(HomeAction.NewRecipe)
-        viewModel.onHomeAction(HomeAction.PopularRecipe)
-        viewModel.onHomeAction(HomeAction.ArticleRecipe)
-        viewModel.onHomeAction(HomeAction.InterviewRecipe)
+    if (isAndroid()) {
+        AndroidUi(viewModel)
+    } else {
+        WebUi(viewModel)
     }
-    Box() {
-        Column(
-            Modifier.fillMaxSize().padding(8.dp),
-            verticalArrangement = Arrangement.spacedBy(20.dp),
-        ) {
-            Card(
-                colors = CardDefaults.cardColors(Color.White),
-                elevation = CardDefaults.elevatedCardElevation(6.dp),
-                shape = CircleShape
-            ) {
-                Row(
-                    modifier = Modifier.padding(8.dp).fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        modifier = Modifier.size(24.dp).alpha(animatedAlpha),
-                        painter = painterResource(Res.drawable.online),
-                        contentDescription = ""
-                    )
-                    Text("ارتباط با پایگاه داده برقرار است", style = MaterialTheme.typography.labelMedium)
-                }
-            }
-            SlideShowRecipe(
-                modifer = Modifier.fillMaxWidth(),
-                items = homeState.slideShowList,
-            ) { recipe ->
-                Box() {
-                    Card {
-                        Image(
-                            painter = painterResource(recipe.image),
-                            contentDescription = "",
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier.fillMaxWidth().height(240.dp)
-
-                        )
-                    }
-                    Box(
-                        Modifier.fillMaxWidth().height(240.dp),
-                        contentAlignment = Alignment.BottomEnd
-                    ) {
-                        Column(
-                            Modifier.clip(
-                                shape = RoundedCornerShape(
-                                    bottomStart = 8.dp,
-                                    bottomEnd = 8.dp
-                                )
-                            ).fillMaxWidth().background(Color.Black.copy(0.5f))
-                        ) {
-
-                            Text(
 
 
-                                text = "دستور پخت " + "\n" + recipe.title,
-                                fontFamily = LogoFont(),
-                                modifier = Modifier.fillMaxWidth().padding(12.dp),
-                                color = MaterialTheme.colorScheme.onPrimary,
-                                style = MaterialTheme.typography.headlineMedium
-                            )
-
-
-                        }
-                    }
-                }
-            }
-            NewSetRecipeCarouselComp(
-                homeState.newRecipeList.shuffled(),
-                "جدیدترین دستور پخت ها"
-            ) { recipe ->
-                Box(modifier = Modifier.height(205.dp)) {
-                    Card(
-                        shape = RoundedCornerShape(16.dp),
-                        elevation = CardDefaults.elevatedCardElevation(8.dp)
-                    ) {
-                        Image(
-                            painter = painterResource(recipe.image),
-                            contentDescription = "",
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .layerBackdrop(backdrop)
-                        )
-                    }
-                    Box(
-
-                        Modifier.fillMaxSize().clip(RoundedCornerShape(16.dp)),
-                        contentAlignment = Alignment.BottomEnd
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .background(Color.Black.copy(0.5f)),
-                            contentAlignment = Alignment.BottomEnd
-                        ) {
-                            Column(
-
-                                Modifier.clip(
-                                    shape = RoundedCornerShape(
-                                        bottomStart = 8.dp,
-                                        bottomEnd = 8.dp
-                                    )
-                                ).fillMaxWidth().padding(12.dp),
-                                verticalArrangement = Arrangement.spacedBy(12.dp)
-
-                            )
-                            {
-
-                                Text(
-
-
-                                    text = "آموزش " + recipe.title,
-                                    modifier = Modifier.fillMaxWidth(),
-
-                                    color = MaterialTheme.colorScheme.onPrimary,
-                                    style = MaterialTheme.typography.bodyMedium
-                                )
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                                    modifier = Modifier.fillMaxWidth().align(Alignment.Start)
-                                ) {
-
-
-                                    Box(
-                                        modifier = Modifier.size(24.dp).clip(CircleShape)
-                                            .background(Color.Red)
-                                    ) {
-                                        Image(
-                                            painter = painterResource(recipe.creator_profile),
-                                            contentDescription = "",
-                                            contentScale = ContentScale.Crop
-
-                                        )
-                                    }
-                                    Text(
-
-
-                                        text = recipe.creator,
-                                        modifier = Modifier.weight(1f),
-                                        color = MaterialTheme.colorScheme.onPrimary,
-                                        style = MaterialTheme.typography.labelSmall
-                                    )
-
-                                }
-
-
-                            }
-                        }
-
-                    }
-                }
-
-            }
-            PopularRecipeComp(homeState.popularRecipeList, "محبوب ترین ها")
-            ArticleRecipeComp(homeState.articleList, "مقالات")
-            InterViewCustomerComp(homeState.chefCustomerList,"مصاحبه با کاربران برتر")
-        }
-
-
-    }
 }

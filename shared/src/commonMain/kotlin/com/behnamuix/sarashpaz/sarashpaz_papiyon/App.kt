@@ -7,11 +7,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -22,13 +24,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.behnamuix.sarashpaz.core.design.AppTheme
 import com.behnamuix.sarashpaz.core.design.LogoFont
-import com.behnamuix.sarashpaz.features.home.presentation.screen.HomeSc
+import com.behnamuix.sarashpaz.core.navigation.bottomNav.BottomNavigationBar
+import com.behnamuix.sarashpaz.core.navigation.SarashpazNavigation
 import org.jetbrains.compose.resources.painterResource
 import sarashpaz.shared.generated.resources.Res
 import sarashpaz.shared.generated.resources.notif_icon
@@ -39,8 +45,12 @@ import sarashpaz.shared.generated.resources.logo
 @Composable
 
 fun App() {
+    val navController = rememberNavController()
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
     AppTheme {
         Scaffold(
+            containerColor = Color.Transparent,
             topBar = {
                 CenterAlignedTopAppBar(
                     modifier = Modifier.padding(8.dp),
@@ -98,6 +108,17 @@ fun App() {
 
                     }
                 )
+            },
+            bottomBar = {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.Transparent),
+                    contentAlignment = Alignment.Center
+                ) {
+                    BottomNavigationBar(navController)
+                }
+
             }
         ) {
             Box(
@@ -109,7 +130,7 @@ fun App() {
                 CompositionLocalProvider(
                     LocalLayoutDirection provides LayoutDirection.Rtl
                 ) {
-                    HomeSc()
+                    SarashpazNavigation(navController)
                 }
             }
 

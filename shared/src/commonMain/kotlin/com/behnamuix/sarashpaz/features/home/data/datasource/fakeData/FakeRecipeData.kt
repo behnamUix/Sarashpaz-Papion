@@ -734,16 +734,10 @@ object FakeRecipeData {
         .take(3)
 
     val popularRecipes = recipes
-        .sortedWith(
-            compareByDescending<Recipe> { it.rating ?: 0.0 }
-                .thenByDescending { it.ratingCount }
-        )
-        .take(10)
+
 
     val newestRecipes = recipes
-        .filter { it.createdAt.startsWith("1405") }
-        .sortedByDescending { it.createdAt }
-        .take(6)
+
 
     private fun createRecipe(
         id: String,
