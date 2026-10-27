@@ -35,6 +35,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.behnamuix.sarashpaz.core.utils.CheckUiVersion
 import com.behnamuix.sarashpaz.features.category.domain.model.CategoryRecipe
 import com.behnamuix.sarashpaz.features.category.presentation.contract.CategoryAction
 import com.behnamuix.sarashpaz.features.category.presentation.viewmodel.CategoryViewModel
@@ -56,30 +57,34 @@ fun CategoryScreen(categoryViewModel: CategoryViewModel = koinInject()) {
         ) {
 
             BoxWithConstraints {
-                if (maxWidth >= 600.dp) {
-                    LazyVerticalGrid(
-                        columns = GridCells.Fixed(2),
-                        modifier = Modifier.height(800.dp)
-                    ) {
-                        items(categoryState.categoryList) {
+                CheckUiVersion(
+                    maxWidth,
+                    androidContent = {
+                        LazyColumn(modifier = Modifier.height(800.dp)) {
+                            items(categoryState.categoryList) {
 
-                            CategoryItem(it)
+                                CategoryItem(it)
+                            }
                         }
-                    }
-                } else {
-                    LazyColumn(modifier = Modifier.height(800.dp)) {
-                        items(categoryState.categoryList) {
+                    },
+                    webContent = {
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(2),
+                            modifier = Modifier.height(800.dp)
+                        ) {
+                            items(categoryState.categoryList) {
 
-                            CategoryItem(it)
+                                CategoryItem(it)
+                            }
                         }
-                    }
-                }
+                    })
 
             }
+
+
         }
-
-
     }
+
 }
 
 

@@ -1,6 +1,5 @@
 package com.behnamuix.sarashpaz.core.navigation.bottomNav
 
-import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,25 +31,23 @@ fun BottomNavigationBar(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
-    val navBackStackEntry by
-    navController.currentBackStackEntryAsState()
-
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
 
     Box(
         modifier = modifier
-            .background(Color.Transparent)
             .fillMaxWidth()
+            .background(Color.Transparent)
             .padding(horizontal = 16.dp, vertical = 8.dp),
         contentAlignment = Alignment.Center
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth(0.8f)
-                .padding(8.dp)
-                .height(76.dp)
-                .clip(RoundedCornerShape(28.dp))
-                .background(Color(0x9A000000)),
+                .height(68.dp)
+                .clip(RoundedCornerShape(24.dp))
+                .background(Color.Transparent)
+                .padding(horizontal = 12.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -59,6 +55,7 @@ fun BottomNavigationBar(
                 val selected = currentDestination?.hasRoute(
                     item.route::class
                 ) == true
+
                 BottomNavigationItem(
                     item = item,
                     selected = selected,
@@ -82,34 +79,31 @@ private fun BottomNavigationItem(
     selected: Boolean,
     onClick: () -> Unit
 ) {
+    val itemColor = if (selected) {
+        MaterialTheme.colorScheme.primary
+    } else {
+        Color(0xFF858B82)
+    }
+
     Column(
         modifier = Modifier
-            .clickable(onClick = onClick),
-
+            .clip(RoundedCornerShape(12.dp))
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp, vertical = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Icon(
             painter = painterResource(item.icon),
             contentDescription = item.label,
-            modifier = Modifier.size(
-                24.dp
-            ),
-            tint = if (selected) {
-                MaterialTheme.colorScheme.primary
-            } else {
-                Color.White
-            }
+            modifier = Modifier.size(24.dp),
+            tint = itemColor
         )
-            Text(
-                text = item.label,
-                color = if (selected) {
-                    MaterialTheme.colorScheme.primary
-                } else {
-                    Color.White
-                },
-                style = MaterialTheme.typography.labelMedium
-            )
 
+        Text(
+            text = item.label,
+            color = itemColor,
+            style = MaterialTheme.typography.labelMedium
+        )
     }
 }
