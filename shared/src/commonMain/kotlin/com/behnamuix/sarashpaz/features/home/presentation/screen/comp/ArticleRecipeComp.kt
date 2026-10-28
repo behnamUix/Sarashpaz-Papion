@@ -64,7 +64,7 @@ fun ArticleRecipeComp(articleList: List<Article>, title: String) {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Box(modifier = Modifier.size(80.dp).clip(CircleShape)) {
+                    Box(modifier = Modifier.size(80.dp).clip(RoundedCornerShape(16.dp))) {
                         Image(
                             contentScale = ContentScale.Crop,
                             painter = painterResource(it.image),

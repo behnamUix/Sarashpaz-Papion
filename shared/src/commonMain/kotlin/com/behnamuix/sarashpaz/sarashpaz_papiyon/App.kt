@@ -298,9 +298,7 @@ fun App(onNavHostReady: suspend (NavHostController) -> Unit = {}) {
         ) {
             Box(
                 Modifier.padding(it).fillMaxSize()
-                    .background(MaterialTheme.colorScheme.background).verticalScroll(
-                        rememberScrollState()
-                    )
+                    .background(MaterialTheme.colorScheme.background)
             ) {
                 CompositionLocalProvider(
                     LocalLayoutDirection provides LayoutDirection.Rtl
