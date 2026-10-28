@@ -19,6 +19,18 @@ class CategoryViewModel(private val categoryUseCase: GetCategoryUseCase) : ViewM
     fun onCategoryAction(action: CategoryAction) {
         when (action) {
             is CategoryAction.Category -> getCategory()
+            is CategoryAction.RecipeList->getRecipeList(action.id)
+        }
+    }
+
+    private fun getRecipeList(id:Int) {
+        viewModelScope.launch {
+            _categoryState.update {
+                it.copy(
+                    categoryRecipe = categoryUseCase.getCategoryWithId(id)
+                )
+
+            }
         }
     }
 

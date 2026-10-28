@@ -37,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.behnamuix.sarashpaz.core.utils.CheckUiVersion
 import com.behnamuix.sarashpaz.features.category.domain.model.CategoryRecipe
+import com.behnamuix.sarashpaz.features.category.domain.model.RecipeModel
 import com.behnamuix.sarashpaz.features.category.presentation.contract.CategoryAction
 import com.behnamuix.sarashpaz.features.category.presentation.viewmodel.CategoryViewModel
 import org.jetbrains.compose.resources.painterResource
@@ -44,7 +45,9 @@ import org.koin.compose.koinInject
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun CategoryScreen(categoryViewModel: CategoryViewModel = koinInject()) {
+fun CategoryScreen(categoryViewModel: CategoryViewModel = koinInject(),
+                   onCardClick:(Int)->Unit
+) {
     val categoryState by categoryViewModel.categoryState.collectAsState()
     LaunchedEffect(Unit) {
         categoryViewModel.onCategoryAction(CategoryAction.Category)
@@ -63,7 +66,10 @@ fun CategoryScreen(categoryViewModel: CategoryViewModel = koinInject()) {
                         LazyColumn(modifier = Modifier.height(800.dp)) {
                             items(categoryState.categoryList) {
 
-                                CategoryItem(it)
+                                CategoryItem(it){
+                                    onCardClick(it.id)
+
+                                }
                             }
                         }
                     },
@@ -74,10 +80,13 @@ fun CategoryScreen(categoryViewModel: CategoryViewModel = koinInject()) {
                         ) {
                             items(categoryState.categoryList) {
 
-                                CategoryItem(it)
+                                CategoryItem(it){
+                                    onCardClick(it.id)
+                                }
                             }
                         }
-                    })
+                    }
+                )
 
             }
 
@@ -89,8 +98,9 @@ fun CategoryScreen(categoryViewModel: CategoryViewModel = koinInject()) {
 
 
 @Composable
-fun CategoryItem(item: CategoryRecipe) {
+fun CategoryItem(item: CategoryRecipe,onCardClick:()->Unit) {
     Card(
+        onClick = { onCardClick() },
         colors = CardDefaults.cardColors(Color.White),
         modifier = Modifier.fillMaxWidth().padding(4.dp),
         elevation = CardDefaults.elevatedCardElevation(6.dp),

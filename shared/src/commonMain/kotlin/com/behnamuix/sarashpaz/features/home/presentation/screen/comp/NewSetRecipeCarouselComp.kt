@@ -1,12 +1,19 @@
 package com.behnamuix.sarashpaz.features.home.presentation.screen.comp
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.material3.carousel.HorizontalMultiBrowseCarousel
 import androidx.compose.material3.carousel.rememberCarouselState
@@ -56,24 +63,18 @@ fun NewSetRecipeCarouselComp(
 
         }
 
-
-            HorizontalMultiBrowseCarousel(
-
-                state = rememberCarouselState {
-                    items.size
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .padding(vertical = 16.dp),
-                preferredItemWidth = 186.dp,
-                itemSpacing = 6.dp,
-                userScrollEnabled = true,
-
-                contentPadding = PaddingValues(horizontal = 16.dp)
-            ) { index ->
-                content(items[index])
+        LazyRow (
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            contentPadding = PaddingValues(horizontal = 16.dp)
+        ) {
+            items(items){
+                content(it)
             }
         }
+
+
+    }
 
 }
