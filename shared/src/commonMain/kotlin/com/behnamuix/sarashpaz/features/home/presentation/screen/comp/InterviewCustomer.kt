@@ -1,7 +1,5 @@
 package com.behnamuix.sarashpaz.features.home.presentation.screen.comp
 
-import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.QAChefCustomer
-
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -27,7 +25,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
-
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -50,11 +47,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.ChefCustomer
-
+import com.behnamuix.sarashpaz.features.home.domain.model.interviewCustomer.QAChefCustomer
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.painterResource
 import sarashpaz.shared.generated.resources.Res
 import sarashpaz.shared.generated.resources.arrow
-import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -89,7 +86,7 @@ fun InterViewCustomerComp(
 
         if (interviewList.isNotEmpty()) {
             BoxWithConstraints(
-                modifier = Modifier.fillMaxWidth()
+
             ) {
                 val cardHeight = when {
                     maxWidth < 400.dp -> 420.dp

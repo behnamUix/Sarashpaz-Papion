@@ -39,6 +39,7 @@ import com.behnamuix.sarashpaz.core.utils.CheckUiVersion
 import com.behnamuix.sarashpaz.features.category.domain.model.CategoryRecipe
 import com.behnamuix.sarashpaz.features.category.domain.model.RecipeModel
 import com.behnamuix.sarashpaz.features.category.presentation.contract.CategoryAction
+import com.behnamuix.sarashpaz.features.category.presentation.screen.comp.CategoryItem
 import com.behnamuix.sarashpaz.features.category.presentation.viewmodel.CategoryViewModel
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.koinInject
@@ -75,8 +76,8 @@ fun CategoryScreen(categoryViewModel: CategoryViewModel = koinInject(),
                     },
                     webContent = {
                         LazyVerticalGrid(
-                            columns = GridCells.Fixed(2),
-                            modifier = Modifier.height(800.dp)
+                            columns = GridCells.Fixed(3),
+
                         ) {
                             items(categoryState.categoryList) {
 
@@ -97,41 +98,3 @@ fun CategoryScreen(categoryViewModel: CategoryViewModel = koinInject(),
 }
 
 
-@Composable
-fun CategoryItem(item: CategoryRecipe,onCardClick:()->Unit) {
-    Card(
-        onClick = { onCardClick() },
-        colors = CardDefaults.cardColors(Color.White),
-        modifier = Modifier.fillMaxWidth().padding(4.dp),
-        elevation = CardDefaults.elevatedCardElevation(6.dp),
-        shape = RoundedCornerShape(8.dp)
-    ) {
-        Row(
-            modifier = Modifier.padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
-        ) {
-            Box(modifier = Modifier.clip(CircleShape)) {
-                Image(
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.size(52.dp).padding(4.dp),
-                    painter = painterResource(item.image),
-                    contentDescription = ""
-                )
-            }
-            Text(
-                item.title,
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.Black
-            )
-            Spacer(Modifier.weight(1f))
-            OutlinedCard() {
-                Text(
-                    item.recipeCount.toString() + "دستور پخت",
-                    modifier = Modifier.padding(8.dp),
-                    style = MaterialTheme.typography.labelSmall
-                )
-            }
-        }
-    }
-}

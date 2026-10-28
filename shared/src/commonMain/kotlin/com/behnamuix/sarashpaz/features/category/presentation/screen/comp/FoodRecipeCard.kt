@@ -29,14 +29,14 @@ fun FoodRecipeCard(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {}
 ) {
-    OutlinedCard {
+
         Column(
             modifier = modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(16.dp))
                 .background(Color.White)
                 .clickable { onClick() }
-                .padding(10.dp)
+                .padding(16.dp)
         ) {
             Image(
                 painter = painterResource(recipe.image),
@@ -69,5 +69,5 @@ fun FoodRecipeCard(
                 overflow = TextOverflow.Ellipsis
             )
         }
-    }
+
 }
