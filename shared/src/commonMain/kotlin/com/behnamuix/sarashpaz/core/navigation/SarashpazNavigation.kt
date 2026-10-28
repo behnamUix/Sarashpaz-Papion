@@ -4,10 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.behnamuix.sarashpaz.features.category.presentation.screen.CategoryScreen
+import com.behnamuix.sarashpaz.features.category.presentation.screen.RecipeScreen
 import com.behnamuix.sarashpaz.features.home.presentation.screen.HomeSc
-import com.behnamuix.sarashpaz.isAndroid
 
 @Composable
 fun SarashpazNavigation(navController: NavHostController) {
@@ -21,7 +21,13 @@ fun SarashpazNavigation(navController: NavHostController) {
            HomeSc()
         }
         composable<CategoryScreenRoute> {
-            CategoryScreen()
+            CategoryScreen(){id->
+                navController.navigate(RecipeRoute(id = id))
+            }
+        }
+        composable<RecipeRoute> { backStackEntry->
+            val route=backStackEntry.toRoute<RecipeRoute>()
+           RecipeScreen(recipeId = route.id)
         }
     }
 
