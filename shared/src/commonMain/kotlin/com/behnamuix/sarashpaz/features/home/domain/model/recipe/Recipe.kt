@@ -5,6 +5,8 @@ import sarashpaz.shared.generated.resources.Res
 import sarashpaz.shared.generated.resources.food3
 import sarashpaz.shared.generated.resources.profile
 
+
+
 data class Recipe(
 
     // شناسه یکتای هر دستور پخت
@@ -37,8 +39,6 @@ data class Recipe(
     // میزان سختی تهیه غذا؛ آسان، متوسط یا سخت
     val difficulty: RecipeDifficulty = RecipeDifficulty.MEDIUM,
 
-    // فهرست مواد اولیه موردنیاز برای تهیه غذا
-    val ingredients: List<Ingredient>,
 
     // مراحل تهیه و پخت غذا به ترتیب
     val steps: List<RecipeStep>,
@@ -71,7 +71,10 @@ data class Recipe(
 
     val image: DrawableResource,
     val creator: String = "آشپز فرضی",
-    val creator_profile: DrawableResource = Res.drawable.profile
+    val creator_profile: DrawableResource = Res.drawable.profile,
+    val cookingSteps: List<String>,
+    val ingredients: List<Ingredients>,
+    val spices: List<Spices>
 
 ) {
 
