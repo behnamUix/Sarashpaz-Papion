@@ -1,5 +1,7 @@
 package com.behnamuix.sarashpaz.features.home.domain.model.recipe
 
+import kotlinx.serialization.Serializable
+
 
 enum class IngredientUnit {
     GRAM,          // گرم
@@ -7,15 +9,22 @@ enum class IngredientUnit {
     MILLIGRAM,     // میلی‌گرم
     LITER,         // لیتر
     MILLILITER,    // میلی‌لیتر
-    CUP,           // پیمانه
+    CUP,
+    STALK,
+    QUARTER_CUP,// پیمانه
     TABLESPOON,    // قاشق غذاخوری
     TEASPOON,      // قاشق چای‌خوری
     PIECE,         // عدد
     CLOVE,         // حبه (سیر)
     BUNCH,         // دسته (سبزی)
-    PINCH,         // نوک قاشق
-    TO_TASTE       // به مقدار لازم
+    PINCH,// نوک قاشق
+    CAN,
+    LEAF,
+    SHOT,
+    PACK,
+    TO_TASTE  ,     // به مقدار لازم
 }
+@Serializable
 data class Ingredients(
     val name: String,
 
@@ -23,7 +32,7 @@ data class Ingredients(
 
     val unit: IngredientUnit
 )
-
+@Serializable
 data class Spices(
     val name: String,
 

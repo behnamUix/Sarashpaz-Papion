@@ -11,5 +11,13 @@ class LocalCategoryRepositoryDataImpl: LocalCategoryRepositoryData {
         return FakeCategoryData.categoryRecipe
     }
 
+    override fun getRecipeDetail(
+        id: Int,
+        title: String
+    ): RecipeModel? {
+        return FakeCategoryData.allRecipe
+            .find { it.id == id }
+    }
+
 
 }

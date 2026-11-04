@@ -5,9 +5,11 @@ import com.behnamuix.sarashpaz.features.category.domain.model.RecipeModel
 
 data class CategoryState(
     val categoryList: List<CategoryRecipe> = emptyList(),
-    val categoryRecipe: CategoryRecipe? =null
+    val categoryRecipe: CategoryRecipe? =null,
+    val recipeDetail: RecipeModel?=null
 )
 sealed interface CategoryAction{
     data object Category: CategoryAction
     data class RecipeList(val id:Int):CategoryAction
+    data class RecipeDetail(val id:Int,val title:String): CategoryAction
 }

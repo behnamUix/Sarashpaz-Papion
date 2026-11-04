@@ -11,4 +11,7 @@ class GetCategoryUseCase(val categoryRepo: CategoryRepository) {
     fun getCategoryWithId(id:Int):CategoryRecipe{
         return categoryRepo.getRecipeWithId(id)
     }
+    fun getRecipeDetail(id:Int, title:String): RecipeModel? {
+        return categoryRepo.getRecipeDetail(id,title)
+    }
 }

@@ -22,3 +22,9 @@ object ProfileScreenRoute
 data class RecipeRoute(
     val id: Int
 )
+
+@Serializable
+data class RecipeDetailRoute(
+    val id: Int,
+    val title: String = ""
+)

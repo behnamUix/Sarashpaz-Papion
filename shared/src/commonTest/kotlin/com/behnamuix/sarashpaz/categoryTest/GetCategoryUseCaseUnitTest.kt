@@ -1,6 +1,8 @@
 package com.behnamuix.sarashpaz.categoryTest
 
 import com.behnamuix.sarashpaz.core.di.appModule
+import com.behnamuix.sarashpaz.features.category.data.datasource.fakeData.FakeCategoryData
+import com.behnamuix.sarashpaz.features.category.domain.model.RecipeModel
 import com.behnamuix.sarashpaz.features.category.domain.usecase.GetCategoryUseCase
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
@@ -29,6 +31,12 @@ class GetCategoryUseCaseUnitTest {
         val result = categoryUseCase.getCategory()
 
         assertTrue(result.isNotEmpty())
+    }
+    @Test
+    fun getRecipeDetail(){
+        val result = categoryUseCase.getRecipeDetail(FakeCategoryData.saladRecipes,"سزار")
+
+        result?.cookingSteps?.isNotEmpty()?.let { assertTrue(it) }
     }
 
 

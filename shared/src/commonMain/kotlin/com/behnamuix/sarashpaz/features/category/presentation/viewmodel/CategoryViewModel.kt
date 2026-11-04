@@ -2,6 +2,7 @@ package com.behnamuix.sarashpaz.features.category.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.behnamuix.sarashpaz.features.category.domain.model.RecipeModel
 import com.behnamuix.sarashpaz.features.category.domain.usecase.GetCategoryUseCase
 import com.behnamuix.sarashpaz.features.category.presentation.contract.CategoryAction
 import com.behnamuix.sarashpaz.features.category.presentation.contract.CategoryState
@@ -20,9 +21,18 @@ class CategoryViewModel(private val categoryUseCase: GetCategoryUseCase) : ViewM
         when (action) {
             is CategoryAction.Category -> getCategory()
             is CategoryAction.RecipeList->getRecipeList(action.id)
+            is CategoryAction.RecipeDetail->getRecipeDetail(action.id,action.title)
         }
     }
-
+    private fun getRecipeDetail(id:Int,title:String){
+        viewModelScope.launch {
+            _categoryState.update {
+                it.copy(
+                    recipeDetail = categoryUseCase.getRecipeDetail(id,title)
+                )
+            }
+        }
+    }
     private fun getRecipeList(id:Int) {
         viewModelScope.launch {
             _categoryState.update {

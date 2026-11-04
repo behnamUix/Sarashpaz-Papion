@@ -10,4 +10,5 @@ interface HomeRepository {
      fun getPopularRecipe():List<Recipe>
      fun getArticle():List<Article>
      fun getChefCustomer():List<ChefCustomer>
+
 }

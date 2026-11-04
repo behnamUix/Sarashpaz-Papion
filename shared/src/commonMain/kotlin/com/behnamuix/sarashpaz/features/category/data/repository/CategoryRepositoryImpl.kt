@@ -17,4 +17,10 @@ class CategoryRepositoryImpl(private val datasource: LocalCategoryRepositoryData
             .find { it.id == id } ?: throw NoSuchElementException("Recipe not found: $id")
     }
 
+    override fun getRecipeDetail(
+        id:Int,
+        title: String
+    ): RecipeModel? {
+        return datasource.getRecipeDetail(id,title)
+    }
 }

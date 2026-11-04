@@ -7,4 +7,6 @@ interface CategoryRepository {
     fun getCategory():List<CategoryRecipe>
 
     fun getRecipeWithId(id:Int): CategoryRecipe
+
+    fun getRecipeDetail(id:Int, title:String): RecipeModel?
 }

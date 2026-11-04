@@ -5,7 +5,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.behnamuix.sarashpaz.features.category.data.datasource.fakeData.FakeCategoryData
 import com.behnamuix.sarashpaz.features.category.presentation.screen.CategoryScreen
+import com.behnamuix.sarashpaz.features.category.presentation.screen.RecipeDetail
 import com.behnamuix.sarashpaz.features.category.presentation.screen.RecipeScreen
 import com.behnamuix.sarashpaz.features.home.presentation.screen.HomeSc
 
@@ -15,7 +17,7 @@ fun SarashpazNavigation(navController: NavHostController) {
 
     NavHost(
         navController = navController,
-        startDestination = HomeScreenRoute
+        startDestination =HomeScreenRoute
     ) {
         composable<HomeScreenRoute> {
            HomeSc()
@@ -27,7 +29,14 @@ fun SarashpazNavigation(navController: NavHostController) {
         }
         composable<RecipeRoute> { backStackEntry->
             val route=backStackEntry.toRoute<RecipeRoute>()
-           RecipeScreen(recipeId = route.id)
+
+           RecipeScreen(recipeId = route.id){title,id->
+               navController.navigate(RecipeDetailRoute(title =title , id = id))
+           }
+        }
+        composable<RecipeDetailRoute> {backStackEntry->
+            val route= backStackEntry.toRoute<RecipeDetailRoute>()
+            RecipeDetail(id= route.id, title = route.title)
         }
     }
 

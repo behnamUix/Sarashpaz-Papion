@@ -15,7 +15,7 @@ import com.behnamuix.sarashpaz.features.category.presentation.viewmodel.Category
 import org.koin.compose.koinInject
 
 @Composable
-fun RecipeScreen(categoryViewModel: CategoryViewModel = koinInject(), recipeId: Int) {
+fun RecipeScreen(categoryViewModel: CategoryViewModel = koinInject(), recipeId: Int,onRecipeCardClick:(String,Int)->Unit) {
     val categoryState = categoryViewModel.categoryState.collectAsState()
     LaunchedEffect(Unit) {
         categoryViewModel.onCategoryAction(CategoryAction.RecipeList(recipeId))
@@ -24,7 +24,7 @@ fun RecipeScreen(categoryViewModel: CategoryViewModel = koinInject(), recipeId: 
         LazyVerticalGrid(columns = GridCells.Fixed(3)) {
             items(categoryState.value.categoryRecipe?.recipeList ?: emptyList()) {
                 FoodRecipeCard(recipe = it) {
-
+                    onRecipeCardClick(it.title,it.id)
                 }
 
             }

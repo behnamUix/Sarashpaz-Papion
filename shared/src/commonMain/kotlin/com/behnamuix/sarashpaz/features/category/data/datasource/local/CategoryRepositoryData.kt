@@ -6,6 +6,9 @@ import com.behnamuix.sarashpaz.features.category.domain.model.RecipeModel
 
 interface LocalCategoryRepositoryData {
     fun geCategory():List<CategoryRecipe>
-
+    fun getRecipeDetail(
+        id:Int,
+        title: String
+    ): RecipeModel?
 
 }
