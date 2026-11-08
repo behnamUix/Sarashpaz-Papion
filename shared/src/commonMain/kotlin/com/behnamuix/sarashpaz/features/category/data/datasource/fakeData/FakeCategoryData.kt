@@ -2893,6 +2893,1998 @@ object FakeCategoryData {
                 Spices("وانیل", "نصف", IngredientUnit.TEASPOON)
             )
         ),
+        recipe(
+            id = 62,
+            image = Res.drawable.food1,
+            title = "پیتزا پپرونی",
+            chefName = "علی رضایی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "خمیر پیتزا را آماده کنید و اجازه دهید حجم بگیرد.",
+                "خمیر را روی سطح آردپاشی‌شده باز کنید.",
+                "سس گوجه‌فرنگی را روی خمیر پخش کنید.",
+                "پنیر موزارلا را روی سس بریزید.",
+                "برش‌های پپرونی را روی پنیر بچینید.",
+                "فلفل دلمه‌ای و قارچ خردشده را روی مواد پخش کنید.",
+                "آویشن و فلفل سیاه را اضافه کنید.",
+                "پیتزا را در فر از قبل گرم‌شده با دمای ۲۲۰ درجه حدود ۱۲ تا ۱۵ دقیقه بپزید.",
+                "پس از طلایی شدن پنیر، پیتزا را برش زده و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 520,
+                proteinGrams = 24.0,
+                carbohydratesGrams = 48.0,
+                fatGrams = 25.0
+            ),
+
+            tags = listOf("پیتزا", "پیتزا پپرونی", "فست فود", "غذای ایتالیایی", "غذای خانگی", "پنیر موزارلا"),
+
+            rating = 4.9,
+            ratingCount = 342,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("خمیر پیتزا", "۱", IngredientUnit.PIECE),
+                Ingredients("پنیر موزارلا", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("پپرونی", "۱۵۰", IngredientUnit.GRAM),
+                Ingredients("سس گوجه‌فرنگی", "نصف", IngredientUnit.CUP),
+                Ingredients("فلفل دلمه‌ای", "نصف", IngredientUnit.PIECE),
+                Ingredients("قارچ", "۱۰۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("آویشن", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 63,
+            image = Res.drawable.food2,
+            title = "همبرگر خانگی",
+            chefName = "امیر محمدی",
+            cuisine = "آمریکایی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 15,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "گوشت چرخ‌کرده را با پیاز رنده‌شده و آب‌گرفته مخلوط کنید.",
+                "نمک، فلفل و پودر سیر را اضافه کنید.",
+                "مواد را خوب ورز دهید تا کاملاً یکدست شوند.",
+                "گوشت را به چهار قسمت تقسیم کنید و به شکل برگر درآورید.",
+                "برگرها را حدود ۳۰ دقیقه در یخچال استراحت دهید.",
+                "آن‌ها را در تابه یا روی گریل با حرارت متوسط بپزید تا کاملاً مغزپخت شوند.",
+                "در دقایق پایانی پنیر ورقه‌ای را روی برگرها قرار دهید تا ذوب شود.",
+                "نان همبرگر را کمی گرم کنید.",
+                "برگر را همراه کاهو، گوجه، خیارشور و سس داخل نان قرار دهید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 560,
+                proteinGrams = 32.0,
+                carbohydratesGrams = 38.0,
+                fatGrams = 29.0
+            ),
+
+            tags = listOf("همبرگر", "برگر خانگی", "فست فود", "غذای آمریکایی", "گوشت چرخ‌کرده", "ساندویچ"),
+
+            rating = 4.8,
+            ratingCount = 298,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت چرخ‌کرده", "۴۰۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("نان همبرگر", "۴", IngredientUnit.PIECE),
+                Ingredients("کاهو", "۴", IngredientUnit.LEAF),
+                Ingredients("گوجه‌فرنگی", "۱", IngredientUnit.PIECE),
+                Ingredients("خیارشور", "۴", IngredientUnit.PIECE),
+                Ingredients("پنیر ورقه‌ای", "۴", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پودر سیر", "۱", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 64,
+            image = Res.drawable.food3,
+            title = "هات‌داگ",
+            chefName = "محمد کریمی",
+            cuisine = "آمریکایی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 15,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "سوسیس‌ها را در آب جوش چند دقیقه گرم کنید یا در تابه سرخ کنید.",
+                "پیاز را خلالی خرد کرده و با کمی روغن تفت دهید تا طلایی شود.",
+                "قارچ خردشده را اضافه کنید و تفت دهید تا آب آن کشیده شود.",
+                "فلفل سیاه و آویشن را به قارچ و پیاز اضافه کنید.",
+                "نان هات‌داگ را کمی گرم کنید.",
+                "سوسیس را داخل نان قرار دهید.",
+                "قارچ، پیاز و خیارشور خردشده را اضافه کنید.",
+                "سس خردل و کچاپ را روی مواد بریزید.",
+                "هات‌داگ را گرم سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 430,
+                proteinGrams = 17.0,
+                carbohydratesGrams = 39.0,
+                fatGrams = 23.0
+            ),
+
+            tags = listOf("هات‌داگ", "فست فود", "ساندویچ", "سوسیس", "غذای سریع", "غذای خیابانی"),
+
+            rating = 4.7,
+            ratingCount = 215,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("سوسیس", "۴", IngredientUnit.PIECE),
+                Ingredients("نان هات‌داگ", "۴", IngredientUnit.PIECE),
+                Ingredients("قارچ", "۱۵۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("خیارشور", "۴", IngredientUnit.PIECE),
+                Ingredients("سس خردل", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("سس کچاپ", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پودر آویشن", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 65,
+            image = Res.drawable.food4,
+            title = "ساندویچ مرغ",
+            chefName = "علی رضایی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 20,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "سینه مرغ را به قطعات کوچک برش دهید.",
+                "مرغ را با نمک، فلفل و پودر سیر مزه‌دار کنید.",
+                "مرغ را با کمی روغن در تابه بپزید تا کاملاً مغزپخت شود.",
+                "قارچ و فلفل دلمه‌ای خردشده را اضافه کرده و تفت دهید.",
+                "نان ساندویچی را باز کنید و کمی سس داخل آن بمالید.",
+                "مرغ و سبزیجات را داخل نان قرار دهید.",
+                "کاهو، گوجه و خیارشور را اضافه کنید.",
+                "در صورت تمایل کمی پنیر روی مواد قرار دهید و ساندویچ را سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 410,
+                proteinGrams = 32.0,
+                carbohydratesGrams = 42.0,
+                fatGrams = 13.0
+            ),
+
+            tags = listOf("ساندویچ مرغ", "مرغ", "فست فود", "ساندویچ خانگی", "غذای سریع", "غذای سبک"),
+
+            rating = 4.8,
+            ratingCount = 267,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("سینه مرغ", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("نان ساندویچی", "۲", IngredientUnit.PIECE),
+                Ingredients("قارچ", "۱۰۰", IngredientUnit.GRAM),
+                Ingredients("فلفل دلمه‌ای", "۱", IngredientUnit.PIECE),
+                Ingredients("کاهو", "۴", IngredientUnit.LEAF),
+                Ingredients("گوجه‌فرنگی", "۱", IngredientUnit.PIECE),
+                Ingredients("خیارشور", "۳", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("پودر سیر", "۱", IngredientUnit.TEASPOON),
+                Spices("پاپریکا", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 66,
+            image = Res.drawable.food5,
+            title = "لازانیا",
+            chefName = "امیر محمدی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 40,
+            servings = 6,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "پیاز خردشده را در روغن تفت دهید تا نرم و طلایی شود.",
+                "گوشت چرخ‌کرده را اضافه کنید و تفت دهید تا رنگ آن تغییر کند.",
+                "قارچ و فلفل دلمه‌ای خردشده را اضافه کنید.",
+                "رب گوجه‌فرنگی را اضافه کرده و چند دقیقه تفت دهید.",
+                "نمک و ادویه‌ها را اضافه کنید و اجازه دهید مایه گوشتی بپزد.",
+                "برای تهیه سس بشامل، کره را در قابلمه ذوب کنید.",
+                "آرد را به کره اضافه کنید و کمی تفت دهید.",
+                "شیر را کم‌کم اضافه کنید و مرتب هم بزنید تا سس غلیظ و یکدست شود.",
+                "ورقه‌های لازانیا را طبق دستور بسته آماده کنید.",
+                "در ظرف فر یک لایه سس بشامل، ورقه لازانیا و مایه گوشتی بریزید.",
+                "لایه‌ها را تکرار کنید و در پایان پنیر موزارلا اضافه کنید.",
+                "لازانیا را در فر ۱۸۰ درجه حدود ۳۰ تا ۴۰ دقیقه بپزید.",
+                "پس از خارج کردن از فر، چند دقیقه استراحت دهید و سپس برش بزنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 490,
+                proteinGrams = 28.0,
+                carbohydratesGrams = 43.0,
+                fatGrams = 23.0
+            ),
+
+            tags = listOf("لازانیا", "غذای ایتالیایی", "پاستا", "گوشت چرخ‌کرده", "پنیر موزارلا", "غذای فر"),
+
+            rating = 4.9,
+            ratingCount = 376,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("ورقه لازانیا", "۹", IngredientUnit.PIECE),
+                Ingredients("گوشت چرخ‌کرده", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("قارچ", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("فلفل دلمه‌ای", "۱", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("پنیر موزارلا", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("شیر", "۲", IngredientUnit.CUP),
+                Ingredients("آرد سفید", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("آویشن", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پودر سیر", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 67,
+            image = Res.drawable.food6,
+            title = "سیب‌زمینی تنوری",
+            chefName = "محمد کریمی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 40,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "سیب‌زمینی‌ها را خوب بشویید و به شکل قاچ‌های درشت برش دهید.",
+                "در صورت تمایل پوست سیب‌زمینی‌ها را جدا نکنید.",
+                "سیب‌زمینی‌ها را با روغن زیتون و سیر خردشده مخلوط کنید.",
+                "نمک، فلفل، پاپریکا و آویشن را اضافه کنید.",
+                "سیب‌زمینی‌ها را در سینی فر با فاصله بچینید.",
+                "در فر از قبل گرم‌شده با دمای ۲۰۰ درجه حدود ۳۵ تا ۴۵ دقیقه بپزید.",
+                "در نیمه زمان پخت، سیب‌زمینی‌ها را برگردانید.",
+                "پس از طلایی و برشته شدن، پنیر پارمزان را روی آن‌ها بپاشید و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 285,
+                proteinGrams = 7.0,
+                carbohydratesGrams = 39.0,
+                fatGrams = 12.0
+            ),
+
+            tags = listOf("سیب‌زمینی تنوری", "پیش‌غذا", "غذای فر", "سیب‌زمینی", "میان‌وعده", "غذای گیاهی"),
+
+            rating = 4.8,
+            ratingCount = 194,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("سیب‌زمینی", "۵۰۰", IngredientUnit.GRAM),
+                Ingredients("روغن زیتون", "۳", IngredientUnit.TABLESPOON),
+                Ingredients("سیر", "۲", IngredientUnit.PIECE),
+                Ingredients("پنیر پارمزان", "۳۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("پاپریکا", "۱", IngredientUnit.TEASPOON),
+                Spices("آویشن", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("نمک", "۱", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 68,
+            image = Res.drawable.food1,
+            title = "ناگت مرغ",
+            chefName = "علی رضایی",
+            cuisine = "آمریکایی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 15,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "سینه مرغ را چرخ یا کاملاً ریز خرد کنید.",
+                "مرغ را با نمک، فلفل و پودر سیر مخلوط کنید.",
+                "پنیر پارمزان را اضافه کنید و مواد را خوب هم بزنید.",
+                "از مواد تکه‌های کوچک و یک‌شکل درست کنید.",
+                "ناگت‌ها را ابتدا در آرد بغلتانید.",
+                "سپس آن‌ها را در تخم‌مرغ زده‌شده فرو ببرید.",
+                "در پایان ناگت‌ها را با پودر سوخاری کاملاً بپوشانید.",
+                "ناگت‌ها را در روغن داغ با حرارت متوسط سرخ کنید تا طلایی و مغزپخت شوند.",
+                "پس از سرخ شدن، روی دستمال قرار دهید تا روغن اضافی گرفته شود.",
+                "با سس دلخواه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 30.0,
+                carbohydratesGrams = 25.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf("ناگت مرغ", "مرغ سوخاری", "فست فود", "پیش‌غذا", "غذای کودک", "ساندویچ"),
+
+            rating = 4.9,
+            ratingCount = 321,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("سینه مرغ", "۴۰۰", IngredientUnit.GRAM),
+                Ingredients("تخم‌مرغ", "۲", IngredientUnit.PIECE),
+                Ingredients("آرد سفید", "نصف", IngredientUnit.CUP),
+                Ingredients("پودر سوخاری", "۱", IngredientUnit.CUP),
+                Ingredients("پنیر پارمزان", "۳۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("پودر سیر", "۱", IngredientUnit.TEASPOON),
+                Spices("پاپریکا", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 69,
+            image = Res.drawable.food2,
+            title = "ساندویچ کلاب",
+            chefName = "امیر محمدی",
+            cuisine = "آمریکایی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "سینه مرغ را با کمی نمک و فلفل بپزید و به برش‌های نازک تقسیم کنید.",
+                "نان تست‌ها را کمی برشته کنید.",
+                "روی یک برش نان سس مایونز بمالید.",
+                "مرغ، کاهو و گوجه را روی نان قرار دهید.",
+                "برش دوم نان را اضافه کنید و ژامبون و پنیر را روی آن بچینید.",
+                "در صورت تمایل کمی سس مایونز روی برش دوم نان بمالید.",
+                "برش سوم نان را قرار دهید.",
+                "ساندویچ را به شکل مثلثی برش دهید و با خلال دندان ثابت کنید.",
+                "ساندویچ کلاب را همراه سیب‌زمینی سرخ‌کرده یا سالاد سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 460,
+                proteinGrams = 29.0,
+                carbohydratesGrams = 43.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf("ساندویچ کلاب", "ساندویچ مرغ", "فست فود", "ژامبون", "غذای سریع", "صبحانه"),
+
+            rating = 4.8,
+            ratingCount = 246,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("نان تست", "۶", IngredientUnit.PIECE),
+                Ingredients("سینه مرغ", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("ژامبون", "۴", IngredientUnit.PIECE),
+                Ingredients("پنیر ورقه‌ای", "۲", IngredientUnit.PIECE),
+                Ingredients("کاهو", "۴", IngredientUnit.LEAF),
+                Ingredients("گوجه‌فرنگی", "۱", IngredientUnit.PIECE),
+                Ingredients("سس مایونز", "۳", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پودر سیر", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 70,
+            image = Res.drawable.food3,
+            title = "پیتزا سبزیجات",
+            chefName = "محمد کریمی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "فر را روی دمای ۲۲۰ درجه سانتی‌گراد گرم کنید.",
+                "خمیر پیتزا را روی سطح آردپاشی‌شده باز کنید.",
+                "سس گوجه‌فرنگی را روی خمیر پخش کنید.",
+                "مقداری پنیر موزارلا روی سس بریزید.",
+                "قارچ و فلفل دلمه‌ای را خرد کنید.",
+                "زیتون را حلقه‌ای خرد کنید و همراه ذرت روی خمیر پخش کنید.",
+                "باقی پنیر را روی مواد بریزید.",
+                "آویشن و فلفل سیاه را اضافه کنید.",
+                "پیتزا را در فر حدود ۱۲ تا ۱۵ دقیقه بپزید تا خمیر طلایی و پنیر ذوب شود."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 18.0,
+                carbohydratesGrams = 49.0,
+                fatGrams = 14.0
+            ),
+
+            tags = listOf("پیتزا سبزیجات", "پیتزا", "غذای گیاهی", "غذای ایتالیایی", "قارچ", "غذای خانگی"),
+
+            rating = 4.7,
+            ratingCount = 183,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("خمیر پیتزا", "۱", IngredientUnit.PIECE),
+                Ingredients("پنیر موزارلا", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("قارچ", "۱۵۰", IngredientUnit.GRAM),
+                Ingredients("فلفل دلمه‌ای", "۱", IngredientUnit.PIECE),
+                Ingredients("ذرت", "نصف", IngredientUnit.CUP),
+                Ingredients("زیتون", "نصف", IngredientUnit.CUP),
+                Ingredients("سس گوجه‌فرنگی", "نصف", IngredientUnit.CUP)
+            ),
+
+            spices = listOf(
+                Spices("آویشن", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 71,
+            image = Res.drawable.food4,
+            title = "تاکوی مرغ",
+            chefName = "علی رضایی",
+            cuisine = "مکزیکی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 15,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "سینه مرغ را به نوارهای باریک برش دهید.",
+                "مرغ را با روغن، پاپریکا، زیره و فلفل مزه‌دار کنید.",
+                "مرغ را در تابه داغ بپزید تا کاملاً مغزپخت شود.",
+                "پیاز را خلالی خرد کرده و همراه مرغ کمی تفت دهید.",
+                "نان تاکو یا ترتیلا را در تابه کمی گرم کنید.",
+                "کاهو و گوجه را خرد کنید.",
+                "مرغ را همراه سبزیجات داخل نان قرار دهید.",
+                "پنیر رنده‌شده و آبلیمو را اضافه کنید.",
+                "تاکوها را با سس دلخواه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 370,
+                proteinGrams = 29.0,
+                carbohydratesGrams = 31.0,
+                fatGrams = 15.0
+            ),
+
+            tags = listOf("تاکوی مرغ", "غذای مکزیکی", "مرغ", "فست فود", "غذای سریع", "تاکو"),
+
+            rating = 4.8,
+            ratingCount = 229,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("سینه مرغ", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("نان ترتیلا", "۴", IngredientUnit.PIECE),
+                Ingredients("کاهو", "۴", IngredientUnit.LEAF),
+                Ingredients("گوجه‌فرنگی", "۲", IngredientUnit.PIECE),
+                Ingredients("پنیر چدار", "۱۰۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("آبلیمو", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("پاپریکا", "۱", IngredientUnit.TEASPOON),
+                Spices("زیره سبز", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل قرمز", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 72,
+            image = Res.drawable.food5,
+            title = "رپ مرغ",
+            chefName = "امیر محمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "سینه مرغ را به قطعات باریک برش دهید.",
+                "مرغ را با نمک، فلفل و پاپریکا مزه‌دار کنید.",
+                "مرغ را در تابه با کمی روغن بپزید تا کاملاً مغزپخت شود.",
+                "نان ترتیلا را کمی گرم کنید تا نرم شود.",
+                "سس مایونز را روی سطح نان پخش کنید.",
+                "مرغ، کاهو، گوجه و خیارشور را وسط نان قرار دهید.",
+                "پنیر ورقه‌ای را روی مواد بگذارید.",
+                "لبه‌های نان را تا کنید و آن را محکم رول کنید.",
+                "رپ را از وسط برش دهید و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 420,
+                proteinGrams = 31.0,
+                carbohydratesGrams = 36.0,
+                fatGrams = 17.0
+            ),
+
+            tags = listOf("رپ مرغ", "ساندویچ مرغ", "غذای سریع", "فست فود", "مرغ", "غذای سبک"),
+
+            rating = 4.8,
+            ratingCount = 204,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("سینه مرغ", "۲۵۰", IngredientUnit.GRAM),
+                Ingredients("نان ترتیلا", "۲", IngredientUnit.PIECE),
+                Ingredients("کاهو", "۴", IngredientUnit.LEAF),
+                Ingredients("گوجه‌فرنگی", "۱", IngredientUnit.PIECE),
+                Ingredients("خیارشور", "۲", IngredientUnit.PIECE),
+                Ingredients("سس مایونز", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("پنیر ورقه‌ای", "۲", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("پاپریکا", "۱", IngredientUnit.TEASPOON),
+                Spices("پودر سیر", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 73,
+            image = Res.drawable.food6,
+            title = "پنینی ژامبون",
+            chefName = "محمد کریمی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 10,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "نان پنینی را از وسط باز کنید.",
+                "روی یک سمت نان سس خردل بمالید.",
+                "ژامبون، پنیر، گوجه و قارچ را داخل نان قرار دهید.",
+                "کمی آویشن و فلفل سیاه روی مواد بپاشید.",
+                "نان را ببندید و در دستگاه پنینی‌ساز قرار دهید.",
+                "چند دقیقه حرارت دهید تا نان برشته و پنیر کاملاً ذوب شود.",
+                "پنینی را از دستگاه خارج کنید و به دو قسمت برش دهید.",
+                "پنینی را داغ سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 445,
+                proteinGrams = 23.0,
+                carbohydratesGrams = 42.0,
+                fatGrams = 20.0
+            ),
+
+            tags = listOf("پنینی", "پنینی ژامبون", "ساندویچ", "غذای ایتالیایی", "فست فود", "پنیر"),
+
+            rating = 4.7,
+            ratingCount = 176,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("نان پنینی", "۲", IngredientUnit.PIECE),
+                Ingredients("ژامبون", "۱۰۰", IngredientUnit.GRAM),
+                Ingredients("پنیر موزارلا", "۱۰۰", IngredientUnit.GRAM),
+                Ingredients("گوجه‌فرنگی", "۱", IngredientUnit.PIECE),
+                Ingredients("قارچ", "۱۰۰", IngredientUnit.GRAM),
+                Ingredients("سس خردل", "۱", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("آویشن", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 74,
+            image = Res.drawable.food1,
+            title = "ماکارونی فوری",
+            chefName = "علی رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 25,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "ماکارونی را در آب جوش و نمک بپزید و آبکش کنید.",
+                "پیاز خردشده را در تابه با روغن تفت دهید تا طلایی شود.",
+                "گوشت چرخ‌کرده را اضافه کنید و تفت دهید تا رنگ آن تغییر کند.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید.",
+                "نمک، زردچوبه، فلفل سیاه و آویشن را اضافه کنید.",
+                "کمی آب به سس اضافه کنید و اجازه دهید چند دقیقه جا بیفتد.",
+                "ماکارونی را با سس مخلوط کنید.",
+                "مواد را چند دقیقه روی حرارت ملایم قرار دهید تا مزه‌ها ترکیب شوند.",
+                "ماکارونی را در ظرف مناسب بریزید و گرم سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 460,
+                proteinGrams = 22.0,
+                carbohydratesGrams = 61.0,
+                fatGrams = 15.0
+            ),
+
+            tags = listOf("ماکارونی", "پاستا", "غذای ایرانی", "غذای سریع", "گوشت چرخ‌کرده", "غذای خانگی"),
+
+            rating = 4.8,
+            ratingCount = 291,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("ماکارونی", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("گوشت چرخ‌کرده", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("آویشن", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 75,
+            image = Res.drawable.food2,
+            title = "کوئسادیای مرغ",
+            chefName = "امیر محمدی",
+            cuisine = "مکزیکی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "سینه مرغ را به قطعات کوچک خرد کنید.",
+                "مرغ را با پاپریکا، فلفل و کمی روغن در تابه بپزید.",
+                "فلفل دلمه‌ای و پیاز خردشده را اضافه کنید و تفت دهید.",
+                "یک نان ترتیلا را در تابه قرار دهید.",
+                "روی نصف نان پنیر چدار و مواد مرغ را پخش کنید.",
+                "نان را از وسط تا کنید و کمی فشار دهید.",
+                "دو طرف آن را روی حرارت ملایم برشته کنید تا پنیر کاملاً ذوب شود.",
+                "کوئسادیای آماده را از تابه خارج کرده و به چند قسمت برش دهید.",
+                "با سس دلخواه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 485,
+                proteinGrams = 35.0,
+                carbohydratesGrams = 34.0,
+                fatGrams = 23.0
+            ),
+
+            tags = listOf("کوئسادیای مرغ", "غذای مکزیکی", "مرغ", "پنیر چدار", "فست فود", "غذای سریع"),
+
+            rating = 4.9,
+            ratingCount = 263,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("سینه مرغ", "۲۵۰", IngredientUnit.GRAM),
+                Ingredients("نان ترتیلا", "۲", IngredientUnit.PIECE),
+                Ingredients("پنیر چدار", "۱۵۰", IngredientUnit.GRAM),
+                Ingredients("فلفل دلمه‌ای", "۱", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("روغن زیتون", "۱", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("پاپریکا", "۱", IngredientUnit.TEASPOON),
+                Spices("زیره سبز", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+        recipe(
+            id = 93,
+            image = Res.drawable.food1,
+            title = "کوکو سیب‌زمینی",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 25,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "سیب‌زمینی‌ها را آب‌پز کنید و اجازه دهید خنک شوند.",
+                "سیب‌زمینی‌ها را پوست بگیرید و رنده یا له کنید.",
+                "تخم‌مرغ، پیاز رنده‌شده و آب‌گرفته را اضافه کنید.",
+                "نمک و ادویه‌ها را اضافه کرده و مواد را مخلوط کنید.",
+                "از مواد به اندازه دلخواه بردارید و در تابه شکل دهید.",
+                "کوکوها را در روغن داغ با حرارت متوسط سرخ کنید.",
+                "پس از طلایی شدن هر دو طرف، روی دستمال قرار دهید و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 310,
+                proteinGrams = 10.0,
+                carbohydratesGrams = 35.0,
+                fatGrams = 14.0
+            ),
+
+            tags = listOf("غذای ایرانی", "کوکو", "سیب‌زمینی", "غذای ساده", "غذای خانگی"),
+
+            rating = 4.7,
+            ratingCount = 198,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("سیب‌زمینی", "۴", IngredientUnit.PIECE),
+                Ingredients("تخم‌مرغ", "۳", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("آرد سفید", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۴", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("نمک", "۱", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 94,
+            image = Res.drawable.food2,
+            title = "کتلت",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 30,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "سیب‌زمینی و پیاز را رنده کنید و آب اضافی آن‌ها را بگیرید.",
+                "گوشت چرخ‌کرده را به مواد اضافه کنید.",
+                "تخم‌مرغ، نمک و ادویه‌ها را اضافه کنید.",
+                "مواد را خوب ورز دهید تا یکدست شوند.",
+                "از مواد بردارید و به شکل بیضی و تخت فرم دهید.",
+                "کتلت‌ها را در روغن داغ با حرارت متوسط سرخ کنید.",
+                "پس از طلایی شدن هر دو طرف، روی دستمال قرار دهید و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 24.0,
+                carbohydratesGrams = 28.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf("غذای ایرانی", "کتلت", "گوشت چرخ‌کرده", "غذای خانگی", "غذای سنتی"),
+
+            rating = 4.8,
+            ratingCount = 267,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت چرخ‌کرده", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("سیب‌زمینی", "۲", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("تخم‌مرغ", "۱", IngredientUnit.PIECE),
+                Ingredients("آرد سوخاری", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۴", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پودر سیر", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 95,
+            image = Res.drawable.food3,
+            title = "فلافل ساندویچی",
+            chefName = "علی رضایی",
+            cuisine = "عربی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 20,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "نخود را از شب قبل در آب خیس کنید و چند بار آب آن را عوض کنید.",
+                "نخود آبکش‌شده را همراه سیر و پیاز چرخ کنید.",
+                "جعفری خردشده و ادویه‌ها را اضافه کنید.",
+                "مواد را مخلوط کنید تا خمیر منسجمی به دست آید.",
+                "خمیر را حدود یک ساعت در یخچال استراحت دهید.",
+                "با قالب فلافل از مواد بردارید و در روغن داغ سرخ کنید.",
+                "فلافل‌ها را داخل نان با کاهو، گوجه، خیارشور و سس سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 460,
+                proteinGrams = 16.0,
+                carbohydratesGrams = 62.0,
+                fatGrams = 17.0
+            ),
+
+            tags = listOf("غذای عربی", "فلافل", "ساندویچ", "غذای گیاهی", "غذای خیابانی"),
+
+            rating = 4.8,
+            ratingCount = 312,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("نخود خشک", "۲", IngredientUnit.CUP),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("سیر", "۳", IngredientUnit.PIECE),
+                Ingredients("جعفری خردشده", "نصف", IngredientUnit.CUP),
+                Ingredients("نان ساندویچی", "۴", IngredientUnit.PIECE),
+                Ingredients("خیارشور", "۴", IngredientUnit.PIECE),
+                Ingredients("گوجه‌فرنگی", "۲", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("زیره سبز", "۱", IngredientUnit.TEASPOON),
+                Spices("پودر تخم گشنیز", "۱", IngredientUnit.TEASPOON),
+                Spices("پاپریکا", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل قرمز", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 96,
+            image = Res.drawable.food4,
+            title = "شامی کباب",
+            chefName = "سارا محمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 35,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "لپه را بشویید و با آب بپزید تا نرم شود.",
+                "لپه پخته را آبکش کرده و له کنید.",
+                "گوشت چرخ‌کرده، پیاز رنده‌شده و تخم‌مرغ را اضافه کنید.",
+                "نمک و ادویه‌ها را اضافه کرده و مواد را ورز دهید.",
+                "از مواد بردارید و به شکل گرد و تخت فرم دهید.",
+                "وسط هر شامی را با انگشت کمی سوراخ کنید.",
+                "شامی‌ها را در روغن داغ سرخ کنید تا هر دو طرف طلایی شود."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 420,
+                proteinGrams = 27.0,
+                carbohydratesGrams = 25.0,
+                fatGrams = 22.0
+            ),
+
+            tags = listOf("غذای ایرانی", "شامی کباب", "گوشت چرخ‌کرده", "لپه", "غذای سنتی"),
+
+            rating = 4.8,
+            ratingCount = 223,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت چرخ‌کرده", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("لپه", "۱", IngredientUnit.CUP),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("تخم‌مرغ", "۲", IngredientUnit.PIECE),
+                Ingredients("آرد نخودچی", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۴", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("دارچین", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 97,
+            image = Res.drawable.food5,
+            title = "خوراک مرغ",
+            chefName = "نگار رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 50,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "پیاز را خلالی خرد کرده و در قابلمه تفت دهید.",
+                "تکه‌های مرغ را اضافه کنید و دو طرف آن‌ها را کمی سرخ کنید.",
+                "زردچوبه، فلفل و نمک را اضافه کنید.",
+                "رب گوجه‌فرنگی را اضافه کرده و تفت دهید.",
+                "هویج و سیب‌زمینی خردشده را به قابلمه اضافه کنید.",
+                "یک لیوان آب جوش اضافه کنید و در قابلمه را بگذارید.",
+                "اجازه دهید مرغ و سبزیجات با حرارت ملایم کاملاً بپزند.",
+                "خوراک را همراه نان تازه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 430,
+                proteinGrams = 34.0,
+                carbohydratesGrams = 32.0,
+                fatGrams = 17.0
+            ),
+
+            tags = listOf("غذای ایرانی", "خوراک مرغ", "مرغ", "غذای خانگی", "خوراک"),
+
+            rating = 4.7,
+            ratingCount = 176,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("مرغ", "۴", IngredientUnit.PIECE),
+                Ingredients("سیب‌زمینی", "۲", IngredientUnit.PIECE),
+                Ingredients("هویج", "۲", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پاپریکا", "۱", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 98,
+            image = Res.drawable.food6,
+            title = "تخم‌مرغ و سوسیس",
+            chefName = "امیر محمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "سوسیس‌ها را به شکل حلقه‌ای خرد کنید.",
+                "کمی روغن در تابه بریزید و سوسیس‌ها را تفت دهید.",
+                "گوجه‌فرنگی خردشده را اضافه کنید و اجازه دهید نرم شود.",
+                "نمک و فلفل را اضافه کنید.",
+                "تخم‌مرغ‌ها را روی مواد بشکنید.",
+                "درب تابه را بگذارید تا تخم‌مرغ‌ها به میزان دلخواه بپزند.",
+                "غذا را همراه نان تازه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 22.0,
+                carbohydratesGrams = 10.0,
+                fatGrams = 28.0
+            ),
+
+            tags = listOf("صبحانه", "تخم‌مرغ", "سوسیس", "غذای سریع", "غذای ساده"),
+
+            rating = 4.6,
+            ratingCount = 159,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("تخم‌مرغ", "۳", IngredientUnit.PIECE),
+                Ingredients("سوسیس", "۲", IngredientUnit.PIECE),
+                Ingredients("گوجه‌فرنگی", "۲", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("روغن", "۱", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پاپریکا", "نصف", IngredientUnit.TEASPOON),
+                Spices("نمک", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 99,
+            image = Res.drawable.food1,
+            title = "نان سیر",
+            chefName = "الناز کریمی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 10,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "کره نرم‌شده را با سیر رنده‌شده مخلوط کنید.",
+                "جعفری خردشده و کمی نمک به کره اضافه کنید.",
+                "نان باگت را از وسط برش دهید.",
+                "مخلوط کره و سیر را روی سطح نان پخش کنید.",
+                "پنیر موزارلا را روی نان بریزید.",
+                "نان‌ها را در فر ۱۸۰ درجه حدود ۸ تا ۱۰ دقیقه قرار دهید.",
+                "پس از ذوب شدن پنیر و طلایی شدن لبه‌ها، سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 320,
+                proteinGrams = 11.0,
+                carbohydratesGrams = 34.0,
+                fatGrams = 16.0
+            ),
+
+            tags = listOf("پیش‌غذا", "نان سیر", "غذای ایتالیایی", "پنیر", "میان‌وعده"),
+
+            rating = 4.8,
+            ratingCount = 241,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("نان باگت", "۱", IngredientUnit.PIECE),
+                Ingredients("کره", "۵۰", IngredientUnit.GRAM),
+                Ingredients("سیر", "۴", IngredientUnit.PIECE),
+                Ingredients("پنیر موزارلا", "۱۰۰", IngredientUnit.GRAM),
+                Ingredients("جعفری خردشده", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("نمک", "نصف", IngredientUnit.TEASPOON),
+                Spices("آویشن", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 100,
+            image = Res.drawable.food2,
+            title = "کشک بادمجان",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 35,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "بادمجان‌ها را پوست بگیرید و از طول برش دهید.",
+                "بادمجان‌ها را سرخ کنید یا با کمی روغن در فر بپزید.",
+                "پیاز را خلالی خرد کرده و سرخ کنید.",
+                "سیر خردشده را اضافه کنید و کمی تفت دهید.",
+                "بادمجان‌ها را اضافه کرده و با گوشت‌کوب له کنید.",
+                "کشک را با کمی آب رقیق کنید و به بادمجان اضافه کنید.",
+                "مواد را روی حرارت ملایم چند دقیقه بجوشانید.",
+                "با نعناع‌داغ، پیازداغ و گردو تزیین کرده و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 350,
+                proteinGrams = 12.0,
+                carbohydratesGrams = 27.0,
+                fatGrams = 23.0
+            ),
+
+            tags = listOf("غذای ایرانی", "کشک بادمجان", "پیش‌غذا", "بادمجان", "غذای سنتی"),
+
+            rating = 4.9,
+            ratingCount = 294,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("بادمجان", "۵", IngredientUnit.PIECE),
+                Ingredients("کشک", "۱", IngredientUnit.CUP),
+                Ingredients("پیاز", "۲", IngredientUnit.PIECE),
+                Ingredients("سیر", "۳", IngredientUnit.PIECE),
+                Ingredients("گردوی خردشده", "نصف", IngredientUnit.CUP),
+                Ingredients("نعناع خشک", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۴", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 101,
+            image = Res.drawable.food3,
+            title = "میرزاقاسمی",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 30,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "بادمجان‌ها را روی شعله یا در فر کباب کنید تا پوست آن‌ها بسوزد و داخلشان نرم شود.",
+                "پوست بادمجان‌ها را جدا کنید و گوشت آن‌ها را خرد یا له کنید.",
+                "گوجه‌فرنگی‌ها را پوست بگیرید و خرد کنید.",
+                "سیر خردشده را در روغن تفت دهید.",
+                "گوجه‌فرنگی را اضافه کنید و اجازه دهید آب آن کشیده شود.",
+                "بادمجان کبابی را اضافه کنید و مواد را مخلوط کنید.",
+                "تخم‌مرغ‌ها را اضافه کنید و هم بزنید تا بپزند.",
+                "با نان تازه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 260,
+                proteinGrams = 13.0,
+                carbohydratesGrams = 18.0,
+                fatGrams = 16.0
+            ),
+
+            tags = listOf("غذای ایرانی", "میرزاقاسمی", "غذای گیلانی", "بادمجان", "غذای محلی"),
+
+            rating = 4.9,
+            ratingCount = 337,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("بادمجان", "۴", IngredientUnit.PIECE),
+                Ingredients("گوجه‌فرنگی", "۳", IngredientUnit.PIECE),
+                Ingredients("تخم‌مرغ", "۳", IngredientUnit.PIECE),
+                Ingredients("سیر", "۴", IngredientUnit.PIECE),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("نمک", "۱", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 102,
+            image = Res.drawable.food4,
+            title = "خوراک لوبیا",
+            chefName = "علی رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 90,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "لوبیا چیتی را از شب قبل خیس کنید و چند بار آب آن را عوض کنید.",
+                "لوبیا را همراه آب تازه بپزید تا نیم‌پز شود.",
+                "پیاز را خرد کرده و در روغن تفت دهید.",
+                "رب گوجه‌فرنگی و ادویه‌ها را اضافه کنید.",
+                "سیب‌زمینی خردشده را به لوبیا اضافه کنید.",
+                "مخلوط پیاز و رب را داخل قابلمه بریزید.",
+                "اجازه دهید خوراک با حرارت ملایم جا بیفتد و لوبیا کاملاً نرم شود.",
+                "خوراک را با آبلیمو و نان تازه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 330,
+                proteinGrams = 17.0,
+                carbohydratesGrams = 52.0,
+                fatGrams = 8.0
+            ),
+
+            tags = listOf("غذای ایرانی", "خوراک لوبیا", "لوبیا چیتی", "غذای گیاهی", "صبحانه"),
+
+            rating = 4.7,
+            ratingCount = 218,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("لوبیا چیتی", "۲", IngredientUnit.CUP),
+                Ingredients("سیب‌زمینی", "۱", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پاپریکا", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 103,
+            image = Res.drawable.food5,
+            title = "خوراک قارچ و پنیر",
+            chefName = "سارا محمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 20,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "قارچ‌ها را تمیز کرده و ورقه‌ای خرد کنید.",
+                "پیاز را خرد کرده و با کمی روغن تفت دهید.",
+                "قارچ‌ها را اضافه کنید و با حرارت بالا تفت دهید تا آب آن‌ها کشیده شود.",
+                "فلفل دلمه‌ای خردشده را اضافه کنید.",
+                "نمک و فلفل را اضافه کنید.",
+                "قارچ‌ها را در ظرف مناسب فر بریزید.",
+                "پنیر موزارلا را روی قارچ‌ها پخش کنید.",
+                "ظرف را در فر ۱۸۰ درجه قرار دهید تا پنیر ذوب و طلایی شود.",
+                "خوراک را با نان تازه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 360,
+                proteinGrams = 19.0,
+                carbohydratesGrams = 17.0,
+                fatGrams = 24.0
+            ),
+
+            tags = listOf("خوراک", "قارچ", "پنیر", "پیش‌غذا", "غذای سریع"),
+
+            rating = 4.7,
+            ratingCount = 167,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("قارچ", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("پنیر موزارلا", "۱۵۰", IngredientUnit.GRAM),
+                Ingredients("فلفل دلمه‌ای", "۱", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM),
+                Ingredients("نان", "۲", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پودر سیر", "نصف", IngredientUnit.TEASPOON),
+                Spices("آویشن", "۱", IngredientUnit.TEASPOON)
+            )
+        ),
+        recipe(
+            id = 104,
+            image = Res.drawable.food1,
+            title = "اسموتی توت‌فرنگی",
+            chefName = "نگار رضایی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 0,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "توت‌فرنگی‌ها را بشویید و برگ آن‌ها را جدا کنید.",
+                "موز را پوست بگیرید و خرد کنید.",
+                "توت‌فرنگی، موز، شیر و عسل را داخل مخلوط‌کن بریزید.",
+                "چند تکه یخ اضافه کنید.",
+                "مواد را مخلوط کنید تا کاملاً یکدست و غلیظ شوند.",
+                "اسموتی را در لیوان بریزید و با توت‌فرنگی تزیین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 185,
+                proteinGrams = 5.0,
+                carbohydratesGrams = 36.0,
+                fatGrams = 3.0
+            ),
+
+            tags = listOf("نوشیدنی", "اسموتی", "توت‌فرنگی", "خنک", "میوه‌ای"),
+
+            rating = 4.8,
+            ratingCount = 186,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("توت‌فرنگی", "۱", IngredientUnit.CUP),
+                Ingredients("موز", "۱", IngredientUnit.PIECE),
+                Ingredients("شیر", "۱", IngredientUnit.CUP),
+                Ingredients("عسل", "۱", IngredientUnit.TABLESPOON),
+                Ingredients("یخ", "۴", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf()
+        ),
+
+        recipe(
+            id = 105,
+            image = Res.drawable.food2,
+            title = "لیموناد",
+            chefName = "مریم احمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 5,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "لیموها را از وسط نصف کنید و آب آن‌ها را بگیرید.",
+                "شکر را با کمی آب گرم مخلوط کنید تا کاملاً حل شود.",
+                "آب لیمو را به شربت شکر اضافه کنید.",
+                "آب سرد را اضافه کرده و مواد را هم بزنید.",
+                "چند تکه یخ داخل پارچ بریزید.",
+                "لیموناد را با برش لیمو و برگ نعناع سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 105,
+                proteinGrams = 0.2,
+                carbohydratesGrams = 27.0,
+                fatGrams = 0.1
+            ),
+
+            tags = listOf("نوشیدنی", "لیموناد", "خنک", "ترش", "تابستانی"),
+
+            rating = 4.7,
+            ratingCount = 214,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("آب لیموترش تازه", "نصف", IngredientUnit.CUP),
+                Ingredients("آب سرد", "۳", IngredientUnit.CUP),
+                Ingredients("شکر", "نصف", IngredientUnit.CUP),
+                Ingredients("یخ", "۶", IngredientUnit.PIECE),
+                Ingredients("برگ نعناع", "۱۰", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf()
+        ),
+
+        recipe(
+            id = 106,
+            image = Res.drawable.food3,
+            title = "شیک شکلات",
+            chefName = "ترانه شریفی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 0,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "شیر را داخل مخلوط‌کن بریزید.",
+                "بستنی وانیلی و پودر کاکائو را اضافه کنید.",
+                "سس شکلات را به مواد اضافه کنید.",
+                "مواد را مخلوط کنید تا بافتی غلیظ و یکدست ایجاد شود.",
+                "شیک را داخل لیوان بلند بریزید.",
+                "روی آن را با خامه و سس شکلات تزیین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 9.0,
+                carbohydratesGrams = 48.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf("نوشیدنی", "شیک", "شکلاتی", "بستنی", "دسر"),
+
+            rating = 4.9,
+            ratingCount = 327,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("شیر سرد", "۱", IngredientUnit.CUP),
+                Ingredients("بستنی وانیلی", "۲", IngredientUnit.CUP),
+                Ingredients("پودر کاکائو", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("سس شکلات", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("خامه فرم‌گرفته", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 107,
+            image = Res.drawable.food4,
+            title = "آیس‌کافی",
+            chefName = "سارا محمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 5,
+            servings = 1,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "قهوه فوری یا اسپرسو را آماده کنید.",
+                "در صورت استفاده از قهوه فوری، آن را با کمی آب داغ حل کنید.",
+                "اجازه دهید قهوه خنک شود.",
+                "لیوان را با تکه‌های یخ پر کنید.",
+                "شیر سرد را روی یخ‌ها بریزید.",
+                "قهوه خنک‌شده را اضافه کنید.",
+                "در صورت تمایل شکر یا سیروپ اضافه کرده و هم بزنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 125,
+                proteinGrams = 6.0,
+                carbohydratesGrams = 17.0,
+                fatGrams = 4.0
+            ),
+
+            tags = listOf("نوشیدنی", "قهوه", "آیس‌کافی", "خنک", "کافئین‌دار"),
+
+            rating = 4.8,
+            ratingCount = 295,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("قهوه اسپرسو", "۲", IngredientUnit.SHOT),
+                Ingredients("شیر سرد", "۱", IngredientUnit.CUP),
+                Ingredients("یخ", "۶", IngredientUnit.PIECE),
+                Ingredients("شکر", "۱", IngredientUnit.TEASPOON)
+            ),
+
+            spices = listOf()
+        ),
+
+        recipe(
+            id = 108,
+            image = Res.drawable.food5,
+            title = "شربت زعفران",
+            chefName = "الناز کریمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 15,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "آب و شکر را داخل قابلمه بریزید.",
+                "قابلمه را روی حرارت ملایم قرار دهید تا شکر حل شود.",
+                "زعفران دم‌کرده را به شربت اضافه کنید.",
+                "گلاب را اضافه کنید و چند دقیقه هم بزنید.",
+                "شربت را از روی حرارت بردارید و اجازه دهید خنک شود.",
+                "برای سرو، مقداری از شربت را با آب سرد و یخ مخلوط کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 165,
+                proteinGrams = 0.1,
+                carbohydratesGrams = 42.0,
+                fatGrams = 0.0
+            ),
+
+            tags = listOf("نوشیدنی", "شربت", "زعفرانی", "ایرانی", "خنک"),
+
+            rating = 4.9,
+            ratingCount = 241,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("آب", "۲", IngredientUnit.CUP),
+                Ingredients("شکر", "۱", IngredientUnit.CUP),
+                Ingredients("گلاب", "۳", IngredientUnit.TABLESPOON),
+                Ingredients("زعفران دم‌کرده", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("یخ", "۴", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("هل", "۲", IngredientUnit.PIECE)
+            )
+        ),
+
+        recipe(
+            id = 109,
+            image = Res.drawable.food6,
+            title = "موهیتو",
+            chefName = "نگار رضایی",
+            cuisine = "کوبایی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 0,
+            servings = 1,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "لیموترش را به چند قسمت برش دهید.",
+                "برگ‌های نعناع را داخل لیوان بریزید.",
+                "لیمو و شکر را اضافه کنید.",
+                "مواد را به‌آرامی بکوبید تا آب لیمو و عطر نعناع آزاد شود.",
+                "لیوان را با یخ خردشده پر کنید.",
+                "آب گازدار سرد را اضافه کنید.",
+                "نوشیدنی را به‌آرامی هم بزنید و با نعناع تزیین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 115,
+                proteinGrams = 0.5,
+                carbohydratesGrams = 29.0,
+                fatGrams = 0.1
+            ),
+
+            tags = listOf("نوشیدنی", "موهیتو", "نعناعی", "خنک", "لیمو"),
+
+            rating = 4.8,
+            ratingCount = 263,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("لیموترش", "۲", IngredientUnit.PIECE),
+                Ingredients("برگ نعناع", "۱۵", IngredientUnit.PIECE),
+                Ingredients("شکر", "۲", IngredientUnit.TEASPOON),
+                Ingredients("آب گازدار", "۱", IngredientUnit.CUP),
+                Ingredients("یخ خردشده", "۱", IngredientUnit.CUP)
+            ),
+
+            spices = listOf()
+        ),
+
+        recipe(
+            id = 110,
+            image = Res.drawable.food1,
+            title = "اسموتی موز",
+            chefName = "مریم احمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 0,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "موزها را پوست بگیرید و حلقه‌حلقه کنید.",
+                "موز را همراه شیر داخل مخلوط‌کن بریزید.",
+                "عسل و ماست را اضافه کنید.",
+                "چند تکه یخ اضافه کنید.",
+                "مواد را مخلوط کنید تا کاملاً یکدست شوند.",
+                "اسموتی را داخل لیوان بریزید و سرد سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 210,
+                proteinGrams = 7.0,
+                carbohydratesGrams = 39.0,
+                fatGrams = 4.0
+            ),
+
+            tags = listOf("نوشیدنی", "اسموتی", "موز", "میوه‌ای", "مقوی"),
+
+            rating = 4.7,
+            ratingCount = 198,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("موز", "۲", IngredientUnit.PIECE),
+                Ingredients("شیر", "۱", IngredientUnit.CUP),
+                Ingredients("ماست", "نصف", IngredientUnit.CUP),
+                Ingredients("عسل", "۱", IngredientUnit.TABLESPOON),
+                Ingredients("یخ", "۴", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("دارچین", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 111,
+            image = Res.drawable.food2,
+            title = "شیر موز",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 0,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "موزها را پوست بگیرید و خرد کنید.",
+                "موز را همراه شیر سرد داخل مخلوط‌کن بریزید.",
+                "بستنی وانیلی و عسل را اضافه کنید.",
+                "مواد را چند دقیقه مخلوط کنید تا نوشیدنی کف‌دار و یکدست شود.",
+                "شیر موز را داخل لیوان بریزید.",
+                "در صورت تمایل با پودر پسته تزیین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 320,
+                proteinGrams = 9.0,
+                carbohydratesGrams = 48.0,
+                fatGrams = 11.0
+            ),
+
+            tags = listOf("نوشیدنی", "شیر موز", "موز", "بستنی", "مقوی"),
+
+            rating = 4.9,
+            ratingCount = 312,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("موز", "۲", IngredientUnit.PIECE),
+                Ingredients("شیر سرد", "۲", IngredientUnit.CUP),
+                Ingredients("بستنی وانیلی", "۱", IngredientUnit.CUP),
+                Ingredients("عسل", "۱", IngredientUnit.TABLESPOON),
+                Ingredients("پودر پسته", "۱", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 112,
+            image = Res.drawable.food3,
+            title = "چای ماسالا",
+            chefName = "سارا محمدی",
+            cuisine = "هندی",
+            preparationTimeMinutes = 5,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "آب را داخل قابلمه بریزید و روی حرارت قرار دهید.",
+                "چوب دارچین، هل، میخک و زنجبیل را به آب اضافه کنید.",
+                "اجازه دهید ادویه‌ها حدود ۵ تا ۷ دقیقه بجوشند.",
+                "چای سیاه را اضافه کنید و چند دقیقه دم کنید.",
+                "شیر را اضافه کنید و اجازه دهید نوشیدنی به‌آرامی گرم شود.",
+                "چای را از صافی عبور دهید.",
+                "در صورت تمایل با عسل یا شکر شیرین کنید و گرم سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 125,
+                proteinGrams = 4.0,
+                carbohydratesGrams = 19.0,
+                fatGrams = 4.0
+            ),
+
+            tags = listOf("نوشیدنی", "چای", "ماسالا", "هندی", "ادویه‌ای", "گرم"),
+
+            rating = 4.8,
+            ratingCount = 276,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("آب", "۱", IngredientUnit.CUP),
+                Ingredients("شیر", "۱", IngredientUnit.CUP),
+                Ingredients("چای سیاه", "۲", IngredientUnit.TEASPOON),
+                Ingredients("عسل", "۱", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("چوب دارچین", "۱", IngredientUnit.PIECE),
+                Spices("هل", "۳", IngredientUnit.PIECE),
+                Spices("میخک", "۲", IngredientUnit.PIECE),
+                Spices("زنجبیل تازه", "۱", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 113,
+            image = Res.drawable.food4,
+            title = "هات‌چاکلت",
+            chefName = "الناز کریمی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 5,
+            cookingTimeMinutes = 10,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "پودر کاکائو و شکر را داخل قابلمه بریزید.",
+                "چند قاشق شیر اضافه کنید و هم بزنید تا خمیر یکدستی ایجاد شود.",
+                "باقی شیر را اضافه کنید.",
+                "قابلمه را روی حرارت ملایم قرار دهید و مرتب هم بزنید.",
+                "شکلات خردشده را اضافه کنید تا کاملاً ذوب شود.",
+                "وقتی نوشیدنی غلیظ و یکدست شد، آن را از روی حرارت بردارید.",
+                "هات‌چاکلت را با خامه یا پودر کاکائو تزیین و گرم سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 310,
+                proteinGrams = 9.0,
+                carbohydratesGrams = 35.0,
+                fatGrams = 16.0
+            ),
+
+            tags = listOf("نوشیدنی", "هات‌چاکلت", "شکلاتی", "گرم", "زمستانی"),
+
+            rating = 4.9,
+            ratingCount = 348,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("شیر", "۲", IngredientUnit.CUP),
+                Ingredients("شکلات تلخ", "۵۰", IngredientUnit.GRAM),
+                Ingredients("پودر کاکائو", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("شکر", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("خامه", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 114,
+            image = Res.drawable.food5,
+            title = "شربت بهارنارنج",
+            chefName = "نگار رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 15,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "آب و شکر را داخل قابلمه بریزید.",
+                "روی حرارت ملایم قرار دهید تا شکر کاملاً حل شود.",
+                "عرق بهارنارنج را اضافه کنید.",
+                "گلاب و آبلیمو را اضافه کرده و مخلوط کنید.",
+                "شربت را از روی حرارت بردارید و اجازه دهید خنک شود.",
+                "برای سرو، مقداری شربت را با آب سرد و یخ ترکیب کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 160,
+                proteinGrams = 0.1,
+                carbohydratesGrams = 41.0,
+                fatGrams = 0.0
+            ),
+
+            tags = listOf("نوشیدنی", "شربت", "بهارنارنج", "ایرانی", "خنک", "گیاهی"),
+
+            rating = 4.8,
+            ratingCount = 193,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("آب", "۲", IngredientUnit.CUP),
+                Ingredients("شکر", "۱", IngredientUnit.CUP),
+                Ingredients("عرق بهارنارنج", "نصف", IngredientUnit.CUP),
+                Ingredients("گلاب", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "۱", IngredientUnit.TEASPOON),
+                Ingredients("یخ", "۴", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("هل", "۲", IngredientUnit.PIECE)
+            )
+        ),
+
+        recipe(
+            id = 115,
+            image = Res.drawable.food6,
+            title = "آب هندوانه",
+            chefName = "مریم احمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 0,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "هندوانه را پوست بگیرید و هسته‌های آن را جدا کنید.",
+                "گوشت هندوانه را به قطعات کوچک تقسیم کنید.",
+                "هندوانه را داخل مخلوط‌کن بریزید.",
+                "آبلیمو و چند تکه یخ اضافه کنید.",
+                "مواد را مخلوط کنید تا کاملاً یکدست شوند.",
+                "در صورت تمایل نوشیدنی را از صافی عبور دهید.",
+                "آب هندوانه را سرد سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 95,
+                proteinGrams = 1.5,
+                carbohydratesGrams = 23.0,
+                fatGrams = 0.4
+            ),
+
+            tags = listOf("نوشیدنی", "آبمیوه", "هندوانه", "خنک", "تابستانی"),
+
+            rating = 4.7,
+            ratingCount = 228,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("هندوانه بدون هسته", "۳", IngredientUnit.CUP),
+                Ingredients("آبلیمو", "۱", IngredientUnit.TABLESPOON),
+                Ingredients("یخ", "۵", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf()
+        ),
+
+        recipe(
+            id = 116,
+            image = Res.drawable.food1,
+            title = "اسموتی انبه",
+            chefName = "ترانه شریفی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 0,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "انبه را پوست بگیرید و هسته آن را جدا کنید.",
+                "گوشت انبه را به قطعات کوچک تقسیم کنید.",
+                "انبه را همراه ماست و شیر داخل مخلوط‌کن بریزید.",
+                "عسل و چند تکه یخ اضافه کنید.",
+                "مواد را مخلوط کنید تا بافتی نرم و یکدست ایجاد شود.",
+                "اسموتی را داخل لیوان بریزید و سرد سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 220,
+                proteinGrams = 6.0,
+                carbohydratesGrams = 42.0,
+                fatGrams = 4.0
+            ),
+
+            tags = listOf("نوشیدنی", "اسموتی", "انبه", "میوه‌ای", "خنک"),
+
+            rating = 4.8,
+            ratingCount = 205,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("انبه", "۱", IngredientUnit.PIECE),
+                Ingredients("ماست یونانی", "نصف", IngredientUnit.CUP),
+                Ingredients("شیر", "نصف", IngredientUnit.CUP),
+                Ingredients("عسل", "۱", IngredientUnit.TABLESPOON),
+                Ingredients("یخ", "۴", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf(
+                Spices("هل", "یک چهارم", IngredientUnit.TEASPOON)
+            )
+        )
+
 
 
     )
@@ -5644,6 +7636,925 @@ object FakeCategoryData {
                 Ingredients("روغن", "۳", IngredientUnit.TABLESPOON),
                 Ingredients("کره", "۳۰", IngredientUnit.GRAM)
             ),
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("دارچین", "۱", IngredientUnit.PIECE),
+                Spices("زعفران دم‌کرده", "۲", IngredientUnit.TABLESPOON)
+            )
+        ),
+        recipe(
+            id = 76,
+            image = Res.drawable.food1,
+            title = "زرشک‌پلو با مرغ",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 60,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "مرغ را با پیاز، زردچوبه، نمک و فلفل تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و کمی تفت دهید.",
+                "آب اضافه کنید و اجازه دهید مرغ با حرارت ملایم کاملاً بپزد.",
+                "برنج را بشویید و در آب جوش و نمک نیم‌پز کنید.",
+                "برنج را آبکش کرده و همراه کمی روغن و آب در قابلمه دم بگذارید.",
+                "زرشک را با کره و کمی شکر روی حرارت ملایم تفت دهید.",
+                "برنج را در ظرف بکشید و با زرشک و زعفران تزیین کنید.",
+                "مرغ را کنار برنج سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 620,
+                proteinGrams = 38.0,
+                carbohydratesGrams = 78.0,
+                fatGrams = 17.0
+            ),
+
+            tags = listOf("غذای ایرانی", "پلویی", "مرغ", "زرشک‌پلو", "غذای مجلسی"),
+
+            rating = 4.9,
+            ratingCount = 284,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("مرغ", "۴", IngredientUnit.PIECE),
+                Ingredients("زرشک", "۱", IngredientUnit.CUP),
+                Ingredients("پیاز", "۲", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM),
+                Ingredients("شکر", "۱", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زعفران دم‌کرده", "۳", IngredientUnit.TABLESPOON),
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 77,
+            image = Res.drawable.food2,
+            title = "باقالی‌پلو با گوشت",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 120,
+            servings = 4,
+            difficulty = RecipeDifficulty.HARD,
+
+            cookingSteps = listOf(
+                "گوشت را همراه پیاز، زردچوبه و فلفل تفت دهید.",
+                "مقداری آب اضافه کنید و اجازه دهید گوشت کاملاً بپزد.",
+                "باقالی را جداگانه چند دقیقه در آب بجوشانید.",
+                "برنج را در آب جوش نیم‌پز و سپس آبکش کنید.",
+                "در قابلمه لایه‌ای برنج، باقالی و شوید خشک بریزید.",
+                "لایه‌ها را تکرار کنید و برنج را دم بگذارید.",
+                "در پایان کمی کره و زعفران دم‌کرده روی برنج بریزید.",
+                "باقالی‌پلو را همراه گوشت پخته سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 710,
+                proteinGrams = 39.0,
+                carbohydratesGrams = 86.0,
+                fatGrams = 23.0
+            ),
+
+            tags = listOf("غذای ایرانی", "پلویی", "باقالی‌پلو", "گوشت گوسفندی", "غذای مجلسی"),
+
+            rating = 4.9,
+            ratingCount = 316,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("باقالی سبز", "۲", IngredientUnit.CUP),
+                Ingredients("گوشت گوسفندی", "۴۰۰", IngredientUnit.GRAM),
+                Ingredients("شوید خشک", "۳", IngredientUnit.TABLESPOON),
+                Ingredients("پیاز", "۲", IngredientUnit.PIECE),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("زعفران دم‌کرده", "۲", IngredientUnit.TABLESPOON),
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 78,
+            image = Res.drawable.food3,
+            title = "عدس‌پلو",
+            chefName = "سارا محمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 50,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "عدس را بشویید و با آب بپزید تا نرم شود.",
+                "برنج را در آب جوش نیم‌پز کرده و آبکش کنید.",
+                "پیاز را خلالی خرد کنید و در روغن تفت دهید تا طلایی شود.",
+                "کشمش را اضافه کنید و کمی تفت دهید.",
+                "در قابلمه لایه‌ای برنج و عدس بریزید.",
+                "برنج را دم بگذارید تا کاملاً پخته شود.",
+                "عدس‌پلو را با پیازداغ و کشمش تزیین کنید.",
+                "در صورت تمایل با گوشت قلقلی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 480,
+                proteinGrams = 18.0,
+                carbohydratesGrams = 79.0,
+                fatGrams = 11.0
+            ),
+
+            tags = listOf("غذای ایرانی", "پلویی", "عدس", "غذای گیاهی", "غذای خانگی"),
+
+            rating = 4.7,
+            ratingCount = 192,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("عدس", "۱", IngredientUnit.CUP),
+                Ingredients("کشمش", "نصف", IngredientUnit.CUP),
+                Ingredients("پیاز", "۲", IngredientUnit.PIECE),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON),
+                Ingredients("گوشت چرخ‌کرده", "۲۰۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("دارچین", "۱", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 79,
+            image = Res.drawable.food4,
+            title = "لوبیاپلو",
+            chefName = "نگار رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 60,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "لوبیا سبز را خرد کنید و چند دقیقه در آب بجوشانید.",
+                "پیاز را خرد کرده و در روغن تفت دهید.",
+                "گوشت چرخ‌کرده را اضافه کنید و تفت دهید.",
+                "لوبیا سبز و رب گوجه‌فرنگی را اضافه کنید.",
+                "نمک و ادویه‌ها را اضافه کرده و اجازه دهید مواد بپزند.",
+                "برنج را در آب جوش نیم‌پز و آبکش کنید.",
+                "برنج و مایه لوبیا را به‌صورت لایه‌ای در قابلمه بریزید.",
+                "برنج را دم بگذارید و پس از پخت سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 560,
+                proteinGrams = 25.0,
+                carbohydratesGrams = 76.0,
+                fatGrams = 16.0
+            ),
+
+            tags = listOf("غذای ایرانی", "پلویی", "لوبیا سبز", "گوشت چرخ‌کرده", "غذای خانگی"),
+
+            rating = 4.8,
+            ratingCount = 247,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("لوبیا سبز", "۲۵۰", IngredientUnit.GRAM),
+                Ingredients("گوشت چرخ‌کرده", "۲۵۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("دارچین", "نصف", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 80,
+            image = Res.drawable.food5,
+            title = "استانبولی‌پلو",
+            chefName = "الناز کریمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 45,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "پیاز را خرد کرده و در روغن تفت دهید.",
+                "سیب‌زمینی را نگینی خرد کنید و به پیاز اضافه کنید.",
+                "رب گوجه‌فرنگی را اضافه کرده و کمی تفت دهید.",
+                "گوجه‌فرنگی خردشده را اضافه کنید و اجازه دهید نرم شود.",
+                "برنج شسته‌شده را همراه آب و نمک به مواد اضافه کنید.",
+                "پس از جذب آب، حرارت را کم کنید و برنج را دم بگذارید.",
+                "پس از پخت کامل، استانبولی را مخلوط کرده و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 420,
+                proteinGrams = 9.0,
+                carbohydratesGrams = 76.0,
+                fatGrams = 10.0
+            ),
+
+            tags = listOf("غذای ایرانی", "پلویی", "استانبولی", "سیب‌زمینی", "غذای اقتصادی"),
+
+            rating = 4.6,
+            ratingCount = 183,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۲", IngredientUnit.CUP),
+                Ingredients("سیب‌زمینی", "۲", IngredientUnit.PIECE),
+                Ingredients("گوجه‌فرنگی", "۳", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۱", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پاپریکا", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 81,
+            image = Res.drawable.food6,
+            title = "ته‌چین مرغ",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 60,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "مرغ را با پیاز، نمک و زردچوبه بپزید و ریش‌ریش کنید.",
+                "برنج را در آب جوش نیم‌پز کرده و آبکش کنید.",
+                "ماست، زرده تخم‌مرغ، زعفران و کمی نمک را مخلوط کنید.",
+                "برنج آبکش‌شده را به مخلوط ماست اضافه کنید.",
+                "کف قابلمه را با روغن یا کره چرب کنید.",
+                "نیمی از برنج را در قابلمه بریزید و فشرده کنید.",
+                "مرغ ریش‌ریش و زرشک را روی برنج پخش کنید.",
+                "باقی برنج را اضافه کنید و سطح آن را صاف کنید.",
+                "با حرارت ملایم حدود یک ساعت دم بگذارید تا ته‌چین طلایی شود."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 590,
+                proteinGrams = 32.0,
+                carbohydratesGrams = 72.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf("غذای ایرانی", "ته‌چین", "مرغ", "غذای مجلسی", "غذای پلویی"),
+
+            rating = 4.9,
+            ratingCount = 328,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("سینه مرغ", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("ماست چکیده", "۱", IngredientUnit.CUP),
+                Ingredients("زرده تخم‌مرغ", "۲", IngredientUnit.PIECE),
+                Ingredients("زرشک", "نصف", IngredientUnit.CUP),
+                Ingredients("کره", "۵۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("زعفران دم‌کرده", "۳", IngredientUnit.TABLESPOON),
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 82,
+            image = Res.drawable.food1,
+            title = "کلم‌پلو شیرازی",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 35,
+            cookingTimeMinutes = 55,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "کلم قمری را خلالی خرد کنید.",
+                "پیاز را تفت دهید و کلم را به آن اضافه کنید.",
+                "کلم را با زردچوبه و فلفل تفت دهید تا نرم شود.",
+                "گوشت چرخ‌کرده را با پیاز رنده‌شده و ادویه مخلوط کنید.",
+                "از گوشت قلقلی‌های کوچک درست کنید و در تابه سرخ کنید.",
+                "برنج را نیم‌پز کرده و آبکش کنید.",
+                "برنج را به‌صورت لایه‌ای همراه کلم و سبزی معطر در قابلمه بریزید.",
+                "گوشت قلقلی‌ها را میان لایه‌ها قرار دهید و برنج را دم بگذارید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 570,
+                proteinGrams = 25.0,
+                carbohydratesGrams = 73.0,
+                fatGrams = 18.0
+            ),
+
+            tags = listOf("غذای ایرانی", "غذای شیرازی", "کلم‌پلو", "گوشت قلقلی", "پلویی"),
+
+            rating = 4.8,
+            ratingCount = 216,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("کلم قمری", "۲", IngredientUnit.PIECE),
+                Ingredients("گوشت چرخ‌کرده", "۲۵۰", IngredientUnit.GRAM),
+                Ingredients("سبزی کلم‌پلو", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۲", IngredientUnit.PIECE),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پودر لیموعمانی", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 83,
+            image = Res.drawable.food2,
+            title = "سبزی‌پلو با ماهی",
+            chefName = "سارا محمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 50,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "ماهی را با آبلیمو، نمک و فلفل مزه‌دار کنید.",
+                "برنج را در آب جوش نیم‌پز کرده و آبکش کنید.",
+                "سبزی پلویی خردشده را با برنج مخلوط کنید.",
+                "برنج را در قابلمه دم بگذارید.",
+                "ماهی را در تابه با کمی روغن سرخ کنید یا در فر بپزید.",
+                "سیر را در صورت تمایل کمی تفت دهید و کنار ماهی قرار دهید.",
+                "سبزی‌پلو را همراه ماهی و برش لیمو سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 540,
+                proteinGrams = 34.0,
+                carbohydratesGrams = 69.0,
+                fatGrams = 14.0
+            ),
+
+            tags = listOf("غذای ایرانی", "سبزی‌پلو", "ماهی", "غذای دریایی", "غذای مجلسی"),
+
+            rating = 4.8,
+            ratingCount = 265,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("ماهی", "۲", IngredientUnit.PIECE),
+                Ingredients("سبزی پلویی", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("سیر", "۲", IngredientUnit.PIECE),
+                Ingredients("آبلیمو", "۳", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),
+                Spices("پودر سیر", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 84,
+            image = Res.drawable.food3,
+            title = "شیرین‌پلو",
+            chefName = "نگار رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 35,
+            cookingTimeMinutes = 60,
+            servings = 4,
+            difficulty = RecipeDifficulty.HARD,
+
+            cookingSteps = listOf(
+                "پوست پرتقال را خلالی کنید و چند بار بجوشانید تا تلخی آن گرفته شود.",
+                "خلال پرتقال را با کمی شکر و آب بپزید.",
+                "هویج را خلالی خرد کرده و با کره و شکر تفت دهید.",
+                "برنج را در آب جوش نیم‌پز کرده و آبکش کنید.",
+                "مرغ را با پیاز و ادویه بپزید و تکه‌تکه کنید.",
+                "برنج را دم بگذارید.",
+                "خلال پرتقال، هویج و خلال بادام را با زعفران آماده کنید.",
+                "برنج را با مواد شیرین و مرغ تزیین کرده و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 610,
+                proteinGrams = 29.0,
+                carbohydratesGrams = 88.0,
+                fatGrams = 16.0
+            ),
+
+            tags = listOf("غذای ایرانی", "شیرین‌پلو", "مرغ", "غذای مجلسی", "پلویی"),
+
+            rating = 4.7,
+            ratingCount = 174,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("سینه مرغ", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("هویج", "۲", IngredientUnit.PIECE),
+                Ingredients("خلال پرتقال", "نصف", IngredientUnit.CUP),
+                Ingredients("خلال بادام", "نصف", IngredientUnit.CUP),
+                Ingredients("شکر", "۳", IngredientUnit.TABLESPOON),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("زعفران دم‌کرده", "۳", IngredientUnit.TABLESPOON),
+                Spices("دارچین", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 85,
+            image = Res.drawable.food4,
+            title = "مرصع‌پلو",
+            chefName = "الناز کریمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 40,
+            cookingTimeMinutes = 60,
+            servings = 4,
+            difficulty = RecipeDifficulty.HARD,
+
+            cookingSteps = listOf(
+                "مرغ را با پیاز، نمک و زردچوبه بپزید و ریش‌ریش کنید.",
+                "زرشک را با کمی کره و شکر تفت دهید.",
+                "خلال پسته و بادام را آماده کنید.",
+                "پوست پرتقال خلالی را چند بار بجوشانید تا تلخی آن گرفته شود.",
+                "خلال پرتقال را با کمی شکر تفت دهید.",
+                "برنج را نیم‌پز کرده و آبکش کنید.",
+                "برنج را دم بگذارید و با زعفران دم‌کرده تزیین کنید.",
+                "مرغ و مخلوط خلال‌ها و زرشک را روی برنج بچینید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 650,
+                proteinGrams = 31.0,
+                carbohydratesGrams = 83.0,
+                fatGrams = 21.0
+            ),
+
+            tags = listOf("غذای ایرانی", "مرصع‌پلو", "مرغ", "غذای مجلسی", "پلویی"),
+
+            rating = 4.9,
+            ratingCount = 291,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("مرغ", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("زرشک", "نصف", IngredientUnit.CUP),
+                Ingredients("خلال پسته", "نصف", IngredientUnit.CUP),
+                Ingredients("خلال بادام", "نصف", IngredientUnit.CUP),
+                Ingredients("خلال پرتقال", "نصف", IngredientUnit.CUP),
+                Ingredients("شکر", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("زعفران دم‌کرده", "۳", IngredientUnit.TABLESPOON),
+                Spices("دارچین", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 86,
+            image = Res.drawable.food5,
+            title = "آلبالوپلو",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 60,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "هسته آلبالوها را جدا کنید.",
+                "آلبالو را با شکر روی حرارت ملایم قرار دهید تا کمی آب بیندازد.",
+                "آلبالو را چند دقیقه بجوشانید و سپس از شربت جدا کنید.",
+                "گوشت چرخ‌کرده را با پیاز رنده‌شده و ادویه مخلوط کنید.",
+                "گوشت را به شکل قلقلی درآورید و سرخ کنید.",
+                "برنج را نیم‌پز کرده و آبکش کنید.",
+                "برنج و آلبالو را به‌صورت لایه‌ای در قابلمه بریزید.",
+                "گوشت قلقلی را میان لایه‌ها قرار دهید و برنج را دم بگذارید.",
+                "در پایان با زعفران و آلبالو تزیین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 590,
+                proteinGrams = 24.0,
+                carbohydratesGrams = 89.0,
+                fatGrams = 15.0
+            ),
+
+            tags = listOf("غذای ایرانی", "آلبالوپلو", "گوشت قلقلی", "پلویی", "غذای مجلسی"),
+
+            rating = 4.8,
+            ratingCount = 238,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("آلبالو بدون هسته", "۲", IngredientUnit.CUP),
+                Ingredients("شکر", "نصف", IngredientUnit.CUP),
+                Ingredients("گوشت چرخ‌کرده", "۲۵۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("زعفران دم‌کرده", "۲", IngredientUnit.TABLESPOON),
+                Spices("دارچین", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 87,
+            image = Res.drawable.food6,
+            title = "هویج‌پلو",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 55,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "هویج‌ها را خلالی خرد کنید.",
+                "هویج را با کمی کره و شکر تفت دهید تا نرم شود.",
+                "پیاز را خرد کرده و مرغ را با آن تفت دهید.",
+                "زعفران و کمی آب اضافه کنید و اجازه دهید مرغ بپزد.",
+                "برنج را در آب جوش نیم‌پز کرده و آبکش کنید.",
+                "برنج را با هویج به‌صورت لایه‌ای در قابلمه بریزید.",
+                "مرغ را میان لایه‌ها قرار دهید و برنج را دم بگذارید.",
+                "هویج‌پلو را با زعفران و خلال بادام تزیین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 570,
+                proteinGrams = 28.0,
+                carbohydratesGrams = 79.0,
+                fatGrams = 15.0
+            ),
+
+            tags = listOf("غذای ایرانی", "هویج‌پلو", "مرغ", "پلویی", "غذای خانگی"),
+
+            rating = 4.7,
+            ratingCount = 186,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("هویج", "۳", IngredientUnit.PIECE),
+                Ingredients("مرغ", "۳۰۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("شکر", "۲", IngredientUnit.TABLESPOON),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM),
+                Ingredients("خلال بادام", "نصف", IngredientUnit.CUP)
+            ),
+
+            spices = listOf(
+                Spices("زعفران دم‌کرده", "۲", IngredientUnit.TABLESPOON),
+                Spices("دارچین", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 88,
+            image = Res.drawable.food1,
+            title = "کته گوجه",
+            chefName = "سارا محمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 35,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "گوجه‌فرنگی‌ها را رنده یا پوره کنید.",
+                "پیاز را خرد کرده و در روغن تفت دهید.",
+                "گوجه‌فرنگی و رب را اضافه کنید و اجازه دهید کمی غلیظ شود.",
+                "برنج شسته‌شده را به مواد اضافه کنید.",
+                "آب و نمک را به اندازه مناسب اضافه کنید.",
+                "پس از جوش آمدن و جذب شدن آب، حرارت را کم کنید.",
+                "درب قابلمه را بگذارید و اجازه دهید برنج دم بکشد.",
+                "کته گوجه را با سبزی تازه یا ماست سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 8.0,
+                carbohydratesGrams = 72.0,
+                fatGrams = 9.0
+            ),
+
+            tags = listOf("غذای ایرانی", "کته", "گوجه‌فرنگی", "غذای ساده", "غذای اقتصادی"),
+
+            rating = 4.6,
+            ratingCount = 154,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۲", IngredientUnit.CUP),
+                Ingredients("گوجه‌فرنگی", "۴", IngredientUnit.PIECE),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۱", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 89,
+            image = Res.drawable.food2,
+            title = "رشته‌پلو",
+            chefName = "نگار رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 45,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "رشته پلویی را در تابه با کمی روغن تفت دهید.",
+                "برنج را در آب جوش نیم‌پز کنید.",
+                "در چند دقیقه پایانی پخت برنج، رشته را اضافه کنید.",
+                "برنج و رشته را آبکش کنید.",
+                "کف قابلمه روغن بریزید و ته‌دیگ دلخواه قرار دهید.",
+                "مخلوط برنج و رشته را داخل قابلمه بریزید و دم بگذارید.",
+                "کشمش را با کره کمی تفت دهید.",
+                "رشته‌پلو را با کشمش، خرما یا گوشت قلقلی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 560,
+                proteinGrams = 19.0,
+                carbohydratesGrams = 86.0,
+                fatGrams = 15.0
+            ),
+
+            tags = listOf("غذای ایرانی", "رشته‌پلو", "کشمش", "خرما", "غذای سنتی"),
+
+            rating = 4.7,
+            ratingCount = 201,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("رشته پلویی", "۱۵۰", IngredientUnit.GRAM),
+                Ingredients("کشمش", "نصف", IngredientUnit.CUP),
+                Ingredients("خرما", "۸", IngredientUnit.PIECE),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM),
+                Ingredients("گوشت چرخ‌کرده", "۲۰۰", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("دارچین", "۱", IngredientUnit.TEASPOON),
+                Spices("زعفران دم‌کرده", "۲", IngredientUnit.TABLESPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 90,
+            image = Res.drawable.food3,
+            title = "ماش‌پلو",
+            chefName = "الناز کریمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 50,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "ماش را بشویید و با آب بپزید تا نیم‌پز شود.",
+                "برنج را جداگانه در آب جوش نیم‌پز کرده و آبکش کنید.",
+                "پیاز را خرد کرده و در روغن تفت دهید.",
+                "گوشت چرخ‌کرده را اضافه کنید و تفت دهید.",
+                "ماش پخته را به گوشت اضافه کنید.",
+                "برنج و مخلوط ماش را به‌صورت لایه‌ای در قابلمه بریزید.",
+                "برنج را دم بگذارید تا کاملاً پخته شود.",
+                "با پیازداغ و زعفران تزیین کرده و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 510,
+                proteinGrams = 22.0,
+                carbohydratesGrams = 78.0,
+                fatGrams = 12.0
+            ),
+
+            tags = listOf("غذای ایرانی", "ماش‌پلو", "ماش", "گوشت چرخ‌کرده", "پلویی"),
+
+            rating = 4.6,
+            ratingCount = 143,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۲", IngredientUnit.CUP),
+                Ingredients("ماش", "۱", IngredientUnit.CUP),
+                Ingredients("گوشت چرخ‌کرده", "۲۰۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۲", IngredientUnit.PIECE),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
+                Spices("دارچین", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 91,
+            image = Res.drawable.food4,
+            title = "کینوا پلو",
+            chefName = "مریم احمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 25,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "کینوا را چند بار با آب بشویید تا تلخی آن گرفته شود.",
+                "کینوا را با آب و کمی نمک حدود ۱۵ دقیقه بپزید.",
+                "پیاز و سیر را خرد کرده و در روغن زیتون تفت دهید.",
+                "هویج و فلفل دلمه‌ای خردشده را اضافه کنید.",
+                "نخودفرنگی و ذرت را اضافه کنید و چند دقیقه تفت دهید.",
+                "کینوا پخته را به سبزیجات اضافه کنید.",
+                "مواد را با ادویه مخلوط کنید و چند دقیقه روی حرارت قرار دهید.",
+                "کینوا پلو را با آبلیمو و سبزی تازه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 13.0,
+                carbohydratesGrams = 61.0,
+                fatGrams = 12.0
+            ),
+
+            tags = listOf("غذای سالم", "کینوا", "غذای گیاهی", "بدون گوشت", "غذای بین‌المللی"),
+
+            rating = 4.5,
+            ratingCount = 128,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("کینوا", "۲", IngredientUnit.CUP),
+                Ingredients("هویج", "۱", IngredientUnit.PIECE),
+                Ingredients("فلفل دلمه‌ای", "۱", IngredientUnit.PIECE),
+                Ingredients("نخودفرنگی", "نصف", IngredientUnit.CUP),
+                Ingredients("ذرت", "نصف", IngredientUnit.CUP),
+                Ingredients("پیاز", "۱", IngredientUnit.PIECE),
+                Ingredients("سیر", "۲", IngredientUnit.PIECE),
+                Ingredients("روغن زیتون", "۲", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("زیره سبز", "نصف", IngredientUnit.TEASPOON),
+                Spices("پاپریکا", "نصف", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 92,
+            image = Res.drawable.food5,
+            title = "چلو گوشت",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 150,
+            servings = 4,
+            difficulty = RecipeDifficulty.HARD,
+
+            cookingSteps = listOf(
+                "گوشت را به تکه‌های مناسب تقسیم کنید.",
+                "پیاز را خرد کرده و با کمی روغن تفت دهید.",
+                "گوشت را اضافه کنید و همه طرف آن را تفت دهید.",
+                "زردچوبه، فلفل و چوب دارچین را اضافه کنید.",
+                "آب جوش اضافه کنید و اجازه دهید گوشت با حرارت ملایم بپزد.",
+                "در صورت تمایل کمی زعفران و رب گوجه‌فرنگی به سس اضافه کنید.",
+                "برنج را در آب جوش نیم‌پز کرده و آبکش کنید.",
+                "برنج را دم بگذارید و پس از پخت همراه گوشت و سس سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 760,
+                proteinGrams = 42.0,
+                carbohydratesGrams = 82.0,
+                fatGrams = 29.0
+            ),
+
+            tags = listOf("غذای ایرانی", "چلو گوشت", "گوشت گوسفندی", "غذای مجلسی", "غذای سنتی"),
+
+            rating = 4.9,
+            ratingCount = 342,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج", "۳", IngredientUnit.CUP),
+                Ingredients("گوشت گوسفندی", "۵۰۰", IngredientUnit.GRAM),
+                Ingredients("پیاز", "۲", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "۱", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "۳", IngredientUnit.TABLESPOON),
+                Ingredients("کره", "۳۰", IngredientUnit.GRAM)
+            ),
+
             spices = listOf(
                 Spices("زردچوبه", "۱", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "نصف", IngredientUnit.TEASPOON),

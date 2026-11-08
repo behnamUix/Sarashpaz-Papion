@@ -1,5 +1,10 @@
 package com.behnamuix.sarashpaz.features.category.presentation.screen.web
 
+import kotlin.math.*
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,13 +13,19 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.LocalFireDepartment
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -22,17 +33,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.behnamuix.sarashpaz.features.category.presentation.contract.CategoryAction
 import com.behnamuix.sarashpaz.features.category.presentation.viewmodel.CategoryViewModel
+import com.behnamuix.sarashpaz.features.home.domain.model.recipe.RecipeDifficulty
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.koinInject
+import kotlin.math.cos
+import kotlin.math.sin
 
-private val PageBackground = Color(0xFFECECEC)
-private val CardBackground = Color(0xFFF8F8F8)
-private val PrimaryColor = Color(0xFFF02D68)
-private val TextDark = Color(0xFF292929)
-private val TextGray = Color(0xFF777777)
 
 @Composable
-fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,title: String) {
+fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(), id: Int, title: String) {
+    var ingredientsExpanded by remember { mutableStateOf(false) }
+    var spicesExpanded by remember { mutableStateOf(false) }
     val categoryState by categoryViewModel.categoryState.collectAsState()
     LaunchedEffect(Unit) {
         categoryViewModel.onCategoryAction(CategoryAction.RecipeDetail(id, title))
@@ -44,7 +55,7 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(PageBackground),
+                .background(MaterialTheme.colorScheme.background),
             contentAlignment = Alignment.Center
         ) {
             Text("غذایی برای نمایش وجود ندارد")
@@ -52,13 +63,12 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
         return
     }
 
-    var ingredientsExpanded by remember { mutableStateOf(false) }
-    var spicesExpanded by remember { mutableStateOf(false) }
+
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(PageBackground)
+            .background(MaterialTheme.colorScheme.background)
             .verticalScroll(rememberScrollState())
     ) {
 
@@ -93,6 +103,7 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
+                    .background(Color.Black.copy(alpha = 0.5f))
                     .fillMaxWidth()
                     .padding(20.dp)
             ) {
@@ -121,19 +132,19 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
 
                     InfoItem(
                         title = "زمان پخت",
-                        value = "۴۵ دقیقه",
+                        value = recipe.cookingTimeMinutes.toString(),
                         modifier = Modifier.weight(1f)
                     )
 
                     InfoItem(
                         title = "امتیاز",
-                        value = "۴.۹ / ۵",
+                        value = "${recipe.rating} / ۵",
                         modifier = Modifier.weight(1f)
                     )
 
                     InfoItem(
                         title = "مناسب برای",
-                        value = "۴ نفر",
+                        value = "${recipe.servings}نفر ",
                         modifier = Modifier.weight(1f)
                     )
                 }
@@ -155,37 +166,7 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
                 )
             ) {
 
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-
-                    Column {
-                        Text(
-                            text = "درجه سختی",
-                            fontSize = 12.sp,
-                            color = TextDark
-                        )
-
-                        Spacer(Modifier.height(6.dp))
-
-                        Text(
-                            text = "سخت  •  متوسط  •  آسان",
-                            fontSize = 11.sp,
-                            color = TextDark
-                        )
-                    }
-
-                    Text(
-                        text = "━━━━",
-                        color = Color(0xFF008F9D),
-                        fontSize = 23.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+                RecipeDifficultySection(recipe.difficulty)
             }
 
             Spacer(Modifier.height(14.dp))
@@ -194,7 +175,7 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
                 text = "میخوای بدونی برای پخت این غذا چقدر زمان بگیری؟",
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Medium,
-                color = TextDark
+                color = MaterialTheme.colorScheme.onBackground
             )
 
             Spacer(Modifier.height(8.dp))
@@ -202,7 +183,7 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
             Text(
                 text = "مواد لازم بر اساس تعداد نفرات قابل تنظیم هستند.",
                 fontSize = 11.sp,
-                color = TextGray
+                color = Color.Black.copy(alpha = 0.5f)
             )
         }
 
@@ -283,7 +264,7 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
                         text = "💡 پیشنهاد سرآشپز",
                         fontWeight = FontWeight.Bold,
                         fontSize = 13.sp,
-                        color = PrimaryColor
+                        color = MaterialTheme.colorScheme.primary
                     )
 
                     Spacer(Modifier.height(10.dp))
@@ -291,7 +272,7 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
                     Text(
                         text = "برای داشتن طعمی بهتر، مواد اولیه را تازه انتخاب کنید و مراحل پخت را با دقت انجام دهید.",
                         fontSize = 12.sp,
-                        color = TextDark,
+                        color = MaterialTheme.colorScheme.onBackground,
                         lineHeight = 23.sp
                     )
                 }
@@ -306,6 +287,7 @@ fun WebDetailSc(categoryViewModel: CategoryViewModel = koinInject(),id:Int ,titl
         Spacer(Modifier.height(30.dp))
     }
 }
+
 @Composable
 private fun InfoItem(
     title: String,
@@ -345,7 +327,7 @@ private fun SectionTitle(title: String) {
         text = title,
         fontSize = 17.sp,
         fontWeight = FontWeight.Bold,
-        color = TextDark,
+        color = MaterialTheme.colorScheme.background,
         modifier = Modifier.padding(
             top = 10.dp,
             bottom = 14.dp
@@ -365,7 +347,7 @@ private fun ExpandableSection(
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
-            .background(CardBackground)
+            .background(MaterialTheme.colorScheme.background)
     ) {
 
         Row(
@@ -380,15 +362,15 @@ private fun ExpandableSection(
             Text(
                 text = title,
                 fontSize = 13.sp,
-                color = TextDark,
+
                 fontWeight = FontWeight.Medium
             )
 
             Text(
                 text = if (expanded) "↑" else "↓",
                 fontSize = 18.sp,
-                color = TextDark
-            )
+
+                )
         }
 
         if (expanded) {
@@ -418,12 +400,12 @@ private fun DetailListItem(text: String) {
         Text(
             text = text,
             fontSize = 12.sp,
-            color = TextDark
-        )
+
+            )
 
         Text(
             text = "↓",
-            color = TextGray,
+            color = MaterialTheme.colorScheme.background.copy(alpha = 0.5f),
             fontSize = 12.sp
         )
     }
@@ -444,7 +426,7 @@ private fun CookingStep(
             modifier = Modifier
                 .size(30.dp)
                 .clip(CircleShape)
-                .background(PrimaryColor),
+                .background(MaterialTheme.colorScheme.primary),
             contentAlignment = Alignment.Center
         ) {
 
@@ -466,8 +448,8 @@ private fun CookingStep(
                 text = "مرحله $number",
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Bold,
-                color = TextDark
-            )
+
+                )
 
             Spacer(Modifier.height(8.dp))
 
@@ -475,12 +457,13 @@ private fun CookingStep(
                 text = description,
                 fontSize = 12.sp,
                 lineHeight = 24.sp,
-                color = TextDark,
+
                 textAlign = TextAlign.Justify
             )
         }
     }
 }
+
 @Composable
 private fun CommentsSection() {
 
@@ -508,8 +491,8 @@ private fun CommentsSection() {
                     text = "نظر خودت رو درباره این غذا بنویس",
                     fontSize = 13.sp,
                     fontWeight = FontWeight.Bold,
-                    color = TextDark
-                )
+
+                    )
 
                 Spacer(Modifier.height(12.dp))
 
@@ -536,7 +519,7 @@ private fun CommentsSection() {
                     },
                     modifier = Modifier.align(Alignment.End),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = PrimaryColor
+                        containerColor = MaterialTheme.colorScheme.primary
                     ),
                     shape = RoundedCornerShape(8.dp)
                 ) {
@@ -598,14 +581,14 @@ private fun CommentItem(
                         text = username,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.Bold,
-                        color = TextDark
-                    )
+
+                        )
 
                     Text(
                         text = date,
                         fontSize = 10.sp,
-                        color = TextGray
-                    )
+
+                        )
                 }
 
                 Box(
@@ -621,7 +604,7 @@ private fun CommentItem(
             Text(
                 text = description,
                 fontSize = 12.sp,
-                color = TextDark,
+
                 lineHeight = 22.sp
             )
 
@@ -641,6 +624,200 @@ private fun CommentItem(
                     // TODO: Reply to comment
                 }
             )
+        }
+    }
+}
+
+
+
+@Composable
+fun DifficultyMeter(
+    diff: RecipeDifficulty,
+    modifier: Modifier = Modifier
+) {
+    val progress = when (diff) {
+        RecipeDifficulty.EASY -> 0.25f
+        RecipeDifficulty.MEDIUM -> 0.5f
+        RecipeDifficulty.HARD -> 1f
+    }
+
+    val animatedProgress by animateFloatAsState(
+        targetValue = progress,
+        animationSpec = tween(1200, easing = FastOutSlowInEasing),
+        label = "Gauge Animation"
+    )
+
+    val difficultyColor = when (diff) {
+        RecipeDifficulty.EASY -> Color(0xFF43A978)
+        RecipeDifficulty.MEDIUM -> Color(0xFF3988D8)
+        RecipeDifficulty.HARD -> Color(0xFFE45B5B)
+    }
+
+    val difficultyTitle = when (diff) {
+        RecipeDifficulty.EASY -> "آسان"
+        RecipeDifficulty.MEDIUM -> "متوسط"
+        RecipeDifficulty.HARD -> "سخت"
+    }
+
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Canvas(
+            modifier = Modifier
+                .width(160.dp)
+                .height(95.dp)
+        ) {
+            val stroke = 12.dp.toPx()
+
+            val arcSize = Size(
+                width = size.width - stroke,
+                height = (size.height * 2) - stroke
+            )
+
+            val topLeft = Offset(stroke / 2, stroke / 2)
+
+            // Background
+            drawArc(
+                color = Color.LightGray.copy(alpha = 0.25f),
+                startAngle = 180f,
+                sweepAngle = 180f,
+                useCenter = false,
+                topLeft = topLeft,
+                size = arcSize,
+                style = Stroke(
+                    width = stroke,
+                    cap = StrokeCap.Round
+                )
+            )
+
+            // Colored gauge segments
+            val segments = listOf(
+                Color(0xFF43A978),
+                Color(0xFF3988D8),
+                Color(0xFFE45B5B)
+            )
+
+            segments.forEachIndexed { index, color ->
+                drawArc(
+                    color = color,
+                    startAngle = 180f + index * 60f + 3f,
+                    sweepAngle = 54f,
+                    useCenter = false,
+                    topLeft = topLeft,
+                    size = arcSize,
+                    style = Stroke(
+                        width = stroke,
+                        cap = StrokeCap.Round
+                    )
+                )
+            }
+
+            // Needle angle
+            val angle = (180f + animatedProgress * 180f) * (PI / 180.0)
+
+            val center = Offset(
+                x = size.width / 2,
+                y = size.height - stroke / 2
+            )
+
+            val needleLength = size.height * 0.72f
+
+            val needleEnd = Offset(
+                x = center.x + cos(angle).toFloat() * needleLength,
+                y = center.y + sin(angle).toFloat() * needleLength
+            )
+
+            // Needle shadow
+            drawLine(
+                color = Color.Black.copy(alpha = 0.15f),
+                start = center + Offset(1.dp.toPx(), 2.dp.toPx()),
+                end = needleEnd + Offset(1.dp.toPx(), 2.dp.toPx()),
+                strokeWidth = 5.dp.toPx(),
+                cap = StrokeCap.Round
+            )
+
+            // Needle
+            drawLine(
+                color = Color(0xFF252525),
+                start = center,
+                end = needleEnd,
+                strokeWidth = 3.dp.toPx(),
+                cap = StrokeCap.Round
+            )
+
+            // Needle center
+            drawCircle(
+                color = Color(0xFF252525),
+                radius = 7.dp.toPx(),
+                center = center
+            )
+
+            drawCircle(
+                color = Color.White,
+                radius = 3.dp.toPx(),
+                center = center
+            )
+        }
+
+        Spacer(Modifier.height(4.dp))
+
+        Text(
+            text = difficultyTitle,
+            style = MaterialTheme.typography.titleSmall,
+            color = difficultyColor,
+            fontWeight = FontWeight.Bold
+        )
+    }
+}
+
+
+@Composable
+fun RecipeDifficultySection(
+    difficulty: RecipeDifficulty,
+    modifier: Modifier = Modifier
+) {
+    val difficultyColor = when (difficulty) {
+        RecipeDifficulty.EASY -> Color(0xFF43A978)
+        RecipeDifficulty.MEDIUM -> Color(0xFF3988D8)
+        RecipeDifficulty.HARD -> Color(0xFFE45B5B)
+    }
+
+
+
+
+
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(24.dp))
+            .background(
+                MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.35f)
+            )
+            .padding(18.dp),
+        verticalArrangement = Arrangement.spacedBy(18.dp)
+    ) {
+
+        // Header
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            Text(
+                text = "درجه سختی",
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.ExtraBold,
+                color = difficultyColor
+            )
+
+                DifficultyMeter(
+                    diff = difficulty
+                )
+
+
         }
     }
 }
