@@ -24,6 +24,27 @@ enum class IngredientUnit {
     PACK,
     TO_TASTE  ,     // به مقدار لازم
 }
+val ingredientUnitFa = mapOf(
+    IngredientUnit.GRAM to "گرم",
+    IngredientUnit.KILOGRAM to "کیلوگرم",
+    IngredientUnit.MILLIGRAM to "میلی‌گرم",
+    IngredientUnit.LITER to "لیتر",
+    IngredientUnit.MILLILITER to "میلی‌لیتر",
+    IngredientUnit.CUP to "پیمانه",
+    IngredientUnit.STALK to "ساقه",
+    IngredientUnit.QUARTER_CUP to "یک‌چهارم پیمانه",
+    IngredientUnit.TABLESPOON to "قاشق غذاخوری",
+    IngredientUnit.TEASPOON to "قاشق چای‌خوری",
+    IngredientUnit.PIECE to "عدد",
+    IngredientUnit.CLOVE to "حبه",
+    IngredientUnit.BUNCH to "دسته",
+    IngredientUnit.PINCH to "نوک قاشق",
+    IngredientUnit.CAN to "قوطی",
+    IngredientUnit.LEAF to "برگ",
+    IngredientUnit.SHOT to "شات",
+    IngredientUnit.PACK to "بسته",
+    IngredientUnit.TO_TASTE to "به مقدار لازم"
+)
 @Serializable
 data class Ingredients(
     val name: String,

@@ -4,6 +4,9 @@ import com.behnamuix.sarashpaz.features.category.domain.model.CategoryRecipe
 import com.behnamuix.sarashpaz.features.category.domain.model.RecipeModel
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.IngredientUnit
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.Ingredients
+import com.behnamuix.sarashpaz.features.home.domain.model.recipe.NutritionInfo
+import com.behnamuix.sarashpaz.features.home.domain.model.recipe.RecipeDifficulty
+import com.behnamuix.sarashpaz.features.home.domain.model.recipe.RecipeStep
 import com.behnamuix.sarashpaz.features.home.domain.model.recipe.Spices
 import org.jetbrains.compose.resources.DrawableResource
 import sarashpaz.shared.generated.resources.Res
@@ -13,6 +16,7 @@ import sarashpaz.shared.generated.resources.food3
 import sarashpaz.shared.generated.resources.food4
 import sarashpaz.shared.generated.resources.food5
 import sarashpaz.shared.generated.resources.food6
+import kotlin.String
 
 
 object FakeCategoryData {
@@ -21,35 +25,97 @@ object FakeCategoryData {
     private fun recipe(
         id: Int,
         image: DrawableResource,
-        title:String,
-        cookingSteps:List<String>,
+        title: String,
+        cookingSteps: List<String>,
         chefName: String,
+        cuisine: String? = null,
+        preparationTimeMinutes: Int = 0,
+        cookingTimeMinutes: Int = 0,
+        servings: Int = 2,
+        difficulty: RecipeDifficulty = RecipeDifficulty.MEDIUM,
+
+        nutrition: NutritionInfo? = null,
+        tags: List<String> = emptyList(),
+        rating: Double? = null,
+        ratingCount: Int = 0,
+        isFavorite: Boolean = false,
+        isFeatured: Boolean = false,
+        createdAt: String = "",
+        updatedAt: String = "",
         ingredients: List<Ingredients>,
         spices: List<Spices>
     ) = RecipeModel(
         id = id,
         image = image,
         title = title,
-        cookingSteps=cookingSteps,
+        cookingSteps = cookingSteps,
         chefName = chefName,
-        ingredients=ingredients,
-        spices=spices
-
+        cuisine = cuisine,
+        preparationTimeMinutes = preparationTimeMinutes,
+        cookingTimeMinutes = cookingTimeMinutes,
+        servings = servings,
+        difficulty = difficulty,
+        nutrition = nutrition,
+        tags = tags,
+        rating = rating,
+        ratingCount = ratingCount,
+        isFavorite = isFavorite,
+        isFeatured = isFeatured,
+        createdAt = createdAt,
+        updatedAt = updatedAt,
+        ingredients = ingredients,
+        spices = spices
     )
 
     val allRecipe=listOf(
 
         recipe(
-            id=1, Res.drawable.food1, "سالاد سزار", chefName = "ترانه شریفی",
+            id = 1,
+            image = Res.drawable.food1,
+            title = "سالاد سزار",
+            chefName = "ترانه شریفی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "سینه مرغ را با نمک، فلفل و کمی روغن مزه‌دار کنید.",
+                "سینه مرغ را با نمک، فلفل سیاه و کمی روغن زیتون مزه‌دار کنید.",
                 "مرغ را در تابه گریل کنید تا کاملاً مغزپخت و طلایی شود.",
-                "نان تست را مکعبی خرد کنید و با روغن زیتون و پودر سیر تفت دهید.",
-                "کاهوی تازه را شسته و به قطعات متوسط تقسیم کنید.",
-                "سس سزار را با مایونز، آبلیمو، سیر و پنیر پارمزان آماده کنید.",
-                "مرغ گریل‌شده را برش بزنید و همراه نان تست روی کاهو قرار دهید.",
-                "سس و پنیر پارمزان را اضافه کرده و بلافاصله سرو کنید."
+                "نان تست را به شکل مکعبی خرد کنید و با روغن زیتون و پودر سیر تفت دهید تا ترد و طلایی شود.",
+                "کاهوی تازه را بشویید، خشک کنید و به قطعات متوسط تقسیم کنید.",
+                "برای تهیه سس، مایونز، آبلیمو، سیر رنده‌شده، خردل و پنیر پارمزان را مخلوط کنید.",
+                "مرغ گریل‌شده را به برش‌های باریک تقسیم کنید.",
+                "کاهو را در ظرف سرو قرار دهید و مرغ و نان تست را روی آن اضافه کنید.",
+                "سس سزار را روی مواد بریزید و با پنیر پارمزان تزئین کنید.",
+                "سالاد را بلافاصله پس از آماده‌سازی سرو کنید تا نان تست ترد باقی بماند."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 420,
+                proteinGrams = 32.0,
+                carbohydratesGrams = 22.0,
+                fatGrams = 23.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "غذای بین‌المللی",
+                "ایتالیایی",
+                "مرغ",
+                "پروتئین بالا",
+                "ناهار",
+                "شام"
+            ),
+
+            rating = 4.8,
+            ratingCount = 126,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("سینه مرغ", "300", IngredientUnit.GRAM),
                 Ingredients("کاهو", "1", IngredientUnit.PIECE),
@@ -58,8 +124,10 @@ object FakeCategoryData {
                 Ingredients("مایونز", "3", IngredientUnit.TABLESPOON),
                 Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
                 Ingredients("روغن زیتون", "2", IngredientUnit.TABLESPOON),
-                Ingredients("سیر", "2", IngredientUnit.PIECE)
+                Ingredients("سیر", "2", IngredientUnit.PIECE),
+                Ingredients("سس خردل", "1", IngredientUnit.TEASPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "1", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
@@ -68,16 +136,55 @@ object FakeCategoryData {
         ),
 
         recipe(
-            2, Res.drawable.food2, "سالاد الویه", chefName = "مریم احمدی",
+            id = 2,
+            image = Res.drawable.food2,
+            title = "سالاد الویه",
+            chefName = "مریم احمدی",
+            cuisine = "روسی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 35,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "سیب‌زمینی و تخم‌مرغ‌ها را جداگانه آب‌پز کنید.",
-                "سینه مرغ را همراه پیاز و کمی نمک بپزید.",
-                "سیب‌زمینی و تخم‌مرغ را پس از خنک شدن پوست بگیرید.",
-                "مرغ، سیب‌زمینی، تخم‌مرغ و خیارشور را ریز خرد کنید.",
-                "مواد خردشده را در یک ظرف بزرگ مخلوط کنید.",
-                "مایونز، آبلیمو و ادویه‌ها را اضافه کنید.",
-                "سالاد را حداقل یک ساعت در یخچال قرار دهید تا مزه‌ها ترکیب شوند."
+                "سیب‌زمینی‌ها را با پوست در آب جوش بپزید تا کاملاً نرم شوند.",
+                "تخم‌مرغ‌ها را به مدت 10 تا 12 دقیقه آب‌پز کنید تا سفت شوند.",
+                "سینه مرغ را همراه پیاز، مقداری نمک و آب در قابلمه بپزید تا کاملاً مغزپخت شود.",
+                "نخودفرنگی را در آب جوش بپزید یا از نخودفرنگی پخته استفاده کنید.",
+                "پس از خنک شدن مواد، سیب‌زمینی و تخم‌مرغ‌ها را پوست بگیرید.",
+                "سینه مرغ، سیب‌زمینی، تخم‌مرغ و خیارشور را به قطعات ریز و یکدست خرد کنید.",
+                "تمام مواد خردشده را همراه نخودفرنگی در یک ظرف بزرگ بریزید.",
+                "سس مایونز، آبلیمو، نمک و فلفل سیاه را اضافه کنید و مواد را به‌آرامی مخلوط کنید.",
+                "ظرف سالاد را بپوشانید و حداقل یک ساعت در یخچال قرار دهید تا مواد کاملاً مزه‌دار شوند.",
+                "سالاد الویه را در ظرف سرو بریزید و در صورت تمایل با خیارشور و نخودفرنگی تزئین کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 385,
+                proteinGrams = 21.0,
+                carbohydratesGrams = 28.0,
+                fatGrams = 21.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "غذای سرد",
+                "غذای بین‌المللی",
+                "مرغ",
+                "سیب‌زمینی",
+                "مناسب مهمانی",
+                "ناهار",
+                "شام",
+                "ساندویچ"
+            ),
+
+            rating = 4.7,
+            ratingCount = 98,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("سیب‌زمینی", "4", IngredientUnit.PIECE),
                 Ingredients("سینه مرغ", "250", IngredientUnit.GRAM),
@@ -85,8 +192,10 @@ object FakeCategoryData {
                 Ingredients("خیارشور", "150", IngredientUnit.GRAM),
                 Ingredients("نخودفرنگی", "100", IngredientUnit.GRAM),
                 Ingredients("سس مایونز", "5", IngredientUnit.TABLESPOON),
-                Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON)
+                Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE)
             ),
+
             spices = listOf(
                 Spices("نمک", "1", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON)
@@ -94,16 +203,55 @@ object FakeCategoryData {
         ),
 
         recipe(
-            3, Res.drawable.food3, "سالاد شیرازی", chefName = "سارا محمدی",
+            id = 3,
+            image = Res.drawable.food3,
+            title = "سالاد شیرازی",
+            chefName = "امیرحسین کاظمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 0,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "خیارها را بشویید و به صورت نگینی ریز خرد کنید.",
-                "گوجه‌فرنگی‌ها را به اندازه خیارها خرد کنید.",
-                "پیاز را پوست گرفته و بسیار ریز خرد کنید.",
-                "تمام سبزیجات را در ظرف مناسبی مخلوط کنید.",
-                "آبغوره و آبلیمو را اضافه کنید.",
-                "نعناع خشک، نمک و فلفل را اضافه کرده و مخلوط کنید.",
-                "سالاد را خنک و تازه سرو کنید."
+                "خیارها را بشویید و در صورت تمایل پوست آن‌ها را بگیرید.",
+                "خیارها را به صورت نگینی بسیار ریز و یکدست خرد کنید.",
+                "گوجه‌فرنگی‌های تازه و سفت را به اندازه خیارها نگینی خرد کنید.",
+                "پیاز را پوست بگیرید و به قطعات بسیار ریز خرد کنید.",
+                "تمام سبزیجات خردشده را در یک کاسه مناسب بریزید و مخلوط کنید.",
+                "آبغوره و آبلیموی تازه را به سبزیجات اضافه کنید.",
+                "نعناع خشک، نمک و فلفل سیاه را اضافه کرده و مواد را به‌آرامی هم بزنید.",
+                "سالاد را حدود 15 دقیقه در یخچال قرار دهید تا طعم مواد با یکدیگر ترکیب شود.",
+                "سالاد شیرازی را خنک و تازه در کنار غذاهایی مانند کباب، پلو و خورشت سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 45,
+                proteinGrams = 1.5,
+                carbohydratesGrams = 9.0,
+                fatGrams = 0.4
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "غذای سنتی",
+                "ایرانی",
+                "شیرازی",
+                "گیاهی",
+                "وگان",
+                "کم‌کالری",
+                "رژیمی",
+                "بدون پخت",
+                "پیش‌غذا"
+            ),
+
+            rating = 4.9,
+            ratingCount = 214,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("خیار", "3", IngredientUnit.PIECE),
                 Ingredients("گوجه‌فرنگی", "3", IngredientUnit.PIECE),
@@ -112,6 +260,7 @@ object FakeCategoryData {
                 Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON),
                 Ingredients("نعناع خشک", "1", IngredientUnit.TEASPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON)
@@ -119,16 +268,55 @@ object FakeCategoryData {
         ),
 
         recipe(
-            4, Res.drawable.food4, "سالاد ماکارونی", chefName = "نگار رضایی",
+            id = 4,
+            image = Res.drawable.food4,
+            title = "سالاد ماکارونی",
+            chefName = "آرمان صادقی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 10,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "ماکارونی فرمی را در آب جوش و نمک بپزید.",
-                "ماکارونی را آبکش کرده و اجازه دهید خنک شود.",
-                "کالباس، خیارشور و فلفل دلمه‌ای را نگینی خرد کنید.",
-                "ذرت و نخودفرنگی را آماده کنید.",
-                "تمام مواد را در ظرف بزرگی با ماکارونی مخلوط کنید.",
-                "سس مایونز، ماست و آبلیمو را ترکیب کرده و به سالاد اضافه کنید.",
-                "سالاد را یک ساعت در یخچال استراحت دهید."
+                "یک قابلمه آب را به جوش آورده و مقداری نمک به آن اضافه کنید.",
+                "ماکارونی فرمی را داخل آب جوش بریزید و مطابق زمان درج‌شده روی بسته‌بندی بپزید تا نرم شود اما شکل خود را حفظ کند.",
+                "ماکارونی را آبکش کنید و با آب سرد بشویید تا فرایند پخت متوقف شود.",
+                "کالباس، خیارشور و فلفل دلمه‌ای را به قطعات نگینی کوچک خرد کنید.",
+                "ذرت و نخودفرنگی را در صورت خام بودن جداگانه بپزید و اجازه دهید خنک شوند.",
+                "ماکارونی خنک‌شده را همراه کالباس، خیارشور، فلفل دلمه‌ای، ذرت و نخودفرنگی در ظرف بزرگی بریزید.",
+                "سس مایونز، ماست، آبلیمو، نمک، فلفل سیاه و آویشن را در ظرفی جداگانه مخلوط کنید.",
+                "سس آماده‌شده را به مواد سالاد اضافه کنید و به‌آرامی هم بزنید تا تمام مواد به سس آغشته شوند.",
+                "روی ظرف را بپوشانید و سالاد را حداقل یک ساعت در یخچال قرار دهید تا کاملاً خنک و مزه‌دار شود.",
+                "سالاد ماکارونی را در ظرف سرو بریزید و در صورت تمایل با ذرت و فلفل دلمه‌ای تزئین کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 385,
+                proteinGrams = 13.0,
+                carbohydratesGrams = 42.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "غذای سرد",
+                "غذای بین‌المللی",
+                "ماکارونی",
+                "فست فود",
+                "مناسب مهمانی",
+                "ناهار",
+                "شام",
+                "غذای سریع"
+            ),
+
+            rating = 4.7,
+            ratingCount = 156,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("ماکارونی فرمی", "300", IngredientUnit.GRAM),
                 Ingredients("کالباس", "150", IngredientUnit.GRAM),
@@ -137,8 +325,10 @@ object FakeCategoryData {
                 Ingredients("نخودفرنگی", "80", IngredientUnit.GRAM),
                 Ingredients("فلفل دلمه‌ای", "1", IngredientUnit.PIECE),
                 Ingredients("سس مایونز", "4", IngredientUnit.TABLESPOON),
-                Ingredients("ماست", "2", IngredientUnit.TABLESPOON)
+                Ingredients("ماست", "2", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "1", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
@@ -147,26 +337,67 @@ object FakeCategoryData {
         ),
 
         recipe(
-            5, Res.drawable.food5, "سالاد یونانی", chefName = "الناز کریمی",
+            id = 5,
+            image = Res.drawable.food5,
+            title = "سالاد یونانی",
+            chefName = "پارسا نیک‌روش",
+            cuisine = "یونانی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 0,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "خیار و گوجه‌فرنگی را به قطعات متوسط خرد کنید.",
-                "پیاز قرمز را به صورت حلقه‌های نازک برش دهید.",
-                "فلفل دلمه‌ای را خرد کرده و همراه سبزیجات در ظرف بریزید.",
-                "زیتون سیاه را به مواد اضافه کنید.",
-                "پنیر فتا را به مکعب‌های متوسط تقسیم کنید.",
-                "روغن زیتون، آبلیمو و پونه کوهی را مخلوط کنید.",
-                "سس را روی سالاد بریزید و با پنیر فتا سرو کنید."
+                "خیارها را بشویید و به قطعات متوسط و نسبتاً درشت خرد کنید.",
+                "گوجه‌فرنگی‌ها را به صورت قاچ‌های متوسط برش دهید تا آب و بافت آن‌ها حفظ شود.",
+                "پیاز قرمز را پوست بگیرید و به حلقه‌های نازک برش دهید.",
+                "فلفل دلمه‌ای سبز را بشویید، دانه‌های آن را جدا کنید و به قطعات متوسط خرد کنید.",
+                "خیار، گوجه‌فرنگی، پیاز قرمز و فلفل دلمه‌ای را در ظرف سالاد بریزید.",
+                "زیتون سیاه را به سبزیجات اضافه کنید و مواد را به‌آرامی مخلوط کنید.",
+                "روغن زیتون، آبلیمو، پونه کوهی، نمک و فلفل سیاه را در ظرف کوچکی ترکیب کنید.",
+                "سس آماده‌شده را روی سبزیجات بریزید تا تمام مواد به آن آغشته شوند.",
+                "پنیر فتا را به قطعات مکعبی تقسیم کنید و روی سالاد قرار دهید.",
+                "در صورت تمایل کمی پونه کوهی و روغن زیتون روی پنیر بریزید و سالاد را تازه سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 245,
+                proteinGrams = 8.0,
+                carbohydratesGrams = 12.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "غذای بین‌المللی",
+                "یونانی",
+                "مدیترانه‌ای",
+                "گیاهی",
+                "بدون پخت",
+                "پنیر فتا",
+                "زیتون",
+                "کم‌کربوهیدرات",
+                "پیش‌غذا"
+            ),
+
+            rating = 4.8,
+            ratingCount = 183,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("خیار", "2", IngredientUnit.PIECE),
                 Ingredients("گوجه‌فرنگی", "3", IngredientUnit.PIECE),
                 Ingredients("پیاز قرمز", "1", IngredientUnit.PIECE),
-                Ingredients("فلفل دلمه‌ای", "1", IngredientUnit.PIECE),
+                Ingredients("فلفل دلمه‌ای سبز", "1", IngredientUnit.PIECE),
                 Ingredients("زیتون سیاه", "80", IngredientUnit.GRAM),
                 Ingredients("پنیر فتا", "150", IngredientUnit.GRAM),
                 Ingredients("روغن زیتون", "3", IngredientUnit.TABLESPOON),
                 Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON),
@@ -175,16 +406,56 @@ object FakeCategoryData {
         ),
 
         recipe(
-            6, Res.drawable.food6, "سالاد فصل", chefName = "ترانه شریفی",
+            id = 6,
+            image = Res.drawable.food6,
+            title = "سالاد فصل",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 0,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "کاهو را شسته و به قطعات مناسب خرد کنید.",
-                "خیار و گوجه‌فرنگی را حلقه‌ای خرد کنید.",
-                "هویج را پوست گرفته و رنده کنید.",
-                "کلم سفید را به صورت رشته‌های نازک خرد کنید.",
-                "تمام سبزیجات را به شکل مرتب در ظرف بچینید.",
-                "سس سالاد را با آبلیمو، روغن زیتون و کمی نمک آماده کنید.",
-                "سس را هنگام سرو به سالاد اضافه کنید."
+                "ابتدا کاهو را برگ‌برگ کنید، با آب سرد بشویید و اجازه دهید کاملاً خشک شود.",
+                "خیارها را شسته و به صورت حلقه‌ای یا نیم‌حلقه‌ای با ضخامت متوسط خرد کنید.",
+                "گوجه‌فرنگی‌ها را شسته و به قطعات متوسط برش دهید.",
+                "هویج‌ها را پوست بگیرید و با رنده درشت رنده کنید.",
+                "کلم سفید را به صورت رشته‌های باریک و یکدست خرد کنید.",
+                "کاهو، خیار، گوجه‌فرنگی، هویج و کلم سفید را در ظرف بزرگی با یکدیگر ترکیب کنید.",
+                "برای تهیه سس، آبلیمو و روغن زیتون را در ظرف کوچکی بریزید.",
+                "نمک و فلفل سیاه را به سس اضافه کرده و مواد را خوب هم بزنید.",
+                "سبزیجات را به شکل دلخواه در ظرف سرو بچینید.",
+                "سس را درست هنگام سرو روی سالاد بریزید تا سبزیجات تازگی و تردی خود را حفظ کنند."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 115,
+                proteinGrams = 3.0,
+                carbohydratesGrams = 14.0,
+                fatGrams = 6.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "غذای ایرانی",
+                "سالاد سبزیجات",
+                "گیاهی",
+                "رژیمی",
+                "کم‌کالری",
+                "بدون پخت",
+                "سالم",
+                "وگان",
+                "پیش‌غذا"
+            ),
+
+            rating = 4.7,
+            ratingCount = 214,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("کاهو", "1", IngredientUnit.PIECE),
                 Ingredients("خیار", "2", IngredientUnit.PIECE),
@@ -194,6 +465,7 @@ object FakeCategoryData {
                 Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
                 Ingredients("روغن زیتون", "2", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON)
@@ -201,16 +473,56 @@ object FakeCategoryData {
         ),
 
         recipe(
-            7, Res.drawable.food1, "سالاد کلم", chefName = "مریم احمدی",
+            id = 7,
+            image = Res.drawable.food1,
+            title = "سالاد کلم",
+            chefName = "مریم احمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 0,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "کلم سفید را به صورت رشته‌های بسیار نازک خرد کنید.",
-                "هویج را پوست گرفته و رنده کنید.",
-                "کلم و هویج را در ظرف مناسبی مخلوط کنید.",
-                "سس مایونز، ماست و سرکه را ترکیب کنید.",
-                "شکر و نمک را به سس اضافه کنید.",
-                "سس را با سبزیجات مخلوط کنید.",
-                "سالاد را حدود ۳۰ دقیقه در یخچال قرار دهید."
+                "کلم سفید را برگ‌برگ کرده و پس از شست‌وشو به صورت رشته‌های بسیار نازک خرد کنید.",
+                "هویج‌ها را پوست بگیرید و با رنده درشت رنده کنید.",
+                "کلم خردشده و هویج رنده‌شده را داخل یک کاسه بزرگ بریزید.",
+                "برای تهیه سس، سس مایونز و ماست را در ظرف جداگانه‌ای ترکیب کنید.",
+                "سرکه سفید را به مخلوط سس اضافه کرده و هم بزنید تا یکدست شود.",
+                "شکر، نمک و فلفل سیاه را به سس اضافه کنید و مواد را کاملاً مخلوط کنید.",
+                "سس آماده‌شده را به کلم و هویج اضافه کنید.",
+                "تمام مواد را به آرامی هم بزنید تا سس به طور یکنواخت با سبزیجات ترکیب شود.",
+                "روی ظرف را بپوشانید و سالاد را حدود ۳۰ تا ۴۵ دقیقه در یخچال قرار دهید.",
+                "پس از خنک شدن، سالاد کلم را در ظرف مناسب بریزید و سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 185,
+                proteinGrams = 3.0,
+                carbohydratesGrams = 15.0,
+                fatGrams = 13.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "سالاد کلم",
+                "غذای بین‌المللی",
+                "پیش‌غذا",
+                "سالاد سرد",
+                "گیاهی",
+                "آسان",
+                "خانگی",
+                "مناسب مهمانی",
+                "سس مایونز"
+            ),
+
+            rating = 4.8,
+            ratingCount = 176,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("کلم سفید", "400", IngredientUnit.GRAM),
                 Ingredients("هویج", "2", IngredientUnit.PIECE),
@@ -219,6 +531,7 @@ object FakeCategoryData {
                 Ingredients("سرکه سفید", "2", IngredientUnit.TABLESPOON),
                 Ingredients("شکر", "1", IngredientUnit.TEASPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON)
@@ -226,16 +539,59 @@ object FakeCategoryData {
         ),
 
         recipe(
-            8, Res.drawable.food2, "سالاد تن ماهی", chefName = "سارا محمدی",
+            id = 8,
+            image = Res.drawable.food2,
+            title = "سالاد تن ماهی",
+            chefName = "سارا محمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 25,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "تن ماهی را طبق دستور روی بسته‌بندی بجوشانید.",
-                "سیب‌زمینی را آب‌پز کرده و به مکعب‌های کوچک خرد کنید.",
-                "خیارشور و پیاز را ریز خرد کنید.",
-                "ذرت و لوبیای پخته را به مواد اضافه کنید.",
-                "تن ماهی را پس از جدا کردن روغن به مواد اضافه کنید.",
-                "آبلیمو، روغن زیتون و ادویه‌ها را اضافه کنید.",
-                "مواد را به آرامی مخلوط کرده و سرو کنید."
+                "ابتدا قوطی تن ماهی را طبق دستور روی بسته‌بندی به مدت ۲۰ دقیقه در آب جوش قرار دهید.",
+                "سیب‌زمینی‌ها را بشویید و همراه آب در قابلمه بپزید تا کاملاً نرم شوند.",
+                "پس از خنک شدن سیب‌زمینی‌ها، پوست آن‌ها را جدا کرده و به مکعب‌های متوسط خرد کنید.",
+                "خیارشورها را به صورت نگینی خرد کنید.",
+                "پیاز را پوست گرفته و به قطعات بسیار ریز خرد کنید.",
+                "ذرت و لوبیای قرمز پخته را آماده کرده و در ظرف بزرگی بریزید.",
+                "سیب‌زمینی، خیارشور و پیاز خردشده را به مواد اضافه کنید.",
+                "پس از خنک شدن تن ماهی، روغن اضافی آن را جدا کرده و گوشت ماهی را با چنگال تکه‌تکه کنید.",
+                "تن ماهی را به سایر مواد اضافه کنید.",
+                "آبلیمو، نمک، فلفل سیاه و پودر سیر را به مواد اضافه کنید.",
+                "روغن زیتون را روی سالاد بریزید و تمام مواد را به آرامی مخلوط کنید تا شکل خود را حفظ کنند.",
+                "سالاد را حدود ۲۰ دقیقه در یخچال قرار دهید تا طعم مواد به خوبی ترکیب شود.",
+                "سالاد تن ماهی را در ظرف سرو بریزید و در صورت تمایل با جعفری تازه تزئین کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 325,
+                proteinGrams = 22.0,
+                carbohydratesGrams = 32.0,
+                fatGrams = 11.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "غذای دریایی",
+                "تن ماهی",
+                "سالاد پروتئینی",
+                "غذای بین‌المللی",
+                "غذای سریع",
+                "سالاد سرد",
+                "غذای کامل",
+                "مناسب ناهار",
+                "غذای خانگی"
+            ),
+
+            rating = 4.8,
+            ratingCount = 192,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("تن ماهی", "1", IngredientUnit.CAN),
                 Ingredients("سیب‌زمینی", "2", IngredientUnit.PIECE),
@@ -243,8 +599,10 @@ object FakeCategoryData {
                 Ingredients("ذرت", "80", IngredientUnit.GRAM),
                 Ingredients("لوبیا قرمز پخته", "100", IngredientUnit.GRAM),
                 Ingredients("پیاز", "1", IngredientUnit.PIECE),
-                Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON)
+                Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
+                Ingredients("روغن زیتون", "1", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
@@ -253,16 +611,59 @@ object FakeCategoryData {
         ),
 
         recipe(
-            9, Res.drawable.food3, "سالاد اسفناج", chefName = "نگار رضایی",
+            id = 9,
+            image = Res.drawable.food3,
+            title = "سالاد اسفناج",
+            chefName = "نگار رضایی",
+            cuisine = "مدیترانه‌ای",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 8,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "برگ‌های اسفناج تازه را بشویید و کاملاً خشک کنید.",
-                "قارچ‌ها را ورقه‌ای خرد کنید.",
-                "قارچ را با کمی روغن زیتون تفت دهید.",
-                "گردو را به قطعات کوچک تقسیم کنید.",
-                "اسفناج را در ظرف سرو قرار دهید.",
-                "قارچ، گردو و پنیر فتا را روی اسفناج بریزید.",
-                "سس بالزامیک را اضافه کرده و سرو کنید."
+                "برگ‌های اسفناج تازه را جدا کرده، با آب سرد بشویید و اجازه دهید کاملاً خشک شوند.",
+                "قارچ‌ها را تمیز کرده و به صورت ورقه‌های نازک خرد کنید.",
+                "یک قاشق روغن زیتون را در تابه گرم کنید.",
+                "قارچ‌های خردشده را به تابه اضافه کرده و چند دقیقه تفت دهید تا آب اضافی آن‌ها تبخیر شود.",
+                "قارچ‌ها را از روی حرارت بردارید و اجازه دهید کمی خنک شوند.",
+                "گردوها را به قطعات کوچک تقسیم کنید.",
+                "پنیر فتا را به مکعب‌های متوسط خرد کنید.",
+                "برگ‌های اسفناج را در ظرف سرو قرار دهید.",
+                "قارچ تفت‌داده‌شده، گردو و پنیر فتا را روی اسفناج پخش کنید.",
+                "روغن زیتون باقی‌مانده و سرکه بالزامیک را در ظرف کوچکی مخلوط کنید.",
+                "نمک و فلفل سیاه را به سس اضافه کرده و خوب هم بزنید.",
+                "سس آماده‌شده را روی سالاد بریزید و به آرامی مخلوط کنید.",
+                "سالاد را بلافاصله سرو کنید تا اسفناج تازگی خود را حفظ کند."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 285,
+                proteinGrams = 10.0,
+                carbohydratesGrams = 9.0,
+                fatGrams = 24.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "سالاد اسفناج",
+                "غذای مدیترانه‌ای",
+                "گیاهی",
+                "پنیر فتا",
+                "گردو",
+                "اسفناج تازه",
+                "آنتی‌اکسیدان",
+                "سالم",
+                "پیش‌غذا"
+            ),
+
+            rating = 4.9,
+            ratingCount = 167,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("اسفناج تازه", "250", IngredientUnit.GRAM),
                 Ingredients("قارچ", "150", IngredientUnit.GRAM),
@@ -271,6 +672,7 @@ object FakeCategoryData {
                 Ingredients("روغن زیتون", "2", IngredientUnit.TABLESPOON),
                 Ingredients("سرکه بالزامیک", "2", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON)
@@ -278,16 +680,60 @@ object FakeCategoryData {
         ),
 
         recipe(
-            10, Res.drawable.food4, "سالاد چغندر", chefName = "الناز کریمی",
+            id = 10,
+            image = Res.drawable.food4,
+            title = "سالاد چغندر",
+            chefName = "الناز کریمی",
+            cuisine = "مدیترانه‌ای",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 40,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "چغندرها را بشویید و با پوست بپزید تا نرم شوند.",
-                "پس از خنک شدن، پوست چغندر را جدا کنید.",
-                "چغندر را به صورت ورقه‌ای یا مکعبی خرد کنید.",
-                "پنیر را خرد کرده و گردو را کمی خرد کنید.",
-                "چغندر، پنیر و گردو را در ظرف سرو بچینید.",
-                "روغن زیتون و سرکه بالزامیک را مخلوط کنید.",
-                "سس را روی سالاد بریزید و سرو کنید."
+                "چغندرها را به خوبی بشویید و برگ‌ها و قسمت‌های اضافی آن‌ها را جدا کنید.",
+                "چغندرها را همراه آب در قابلمه قرار دهید و روی حرارت متوسط بپزید تا کاملاً نرم شوند.",
+                "برای بررسی پخت، یک چنگال در چغندر فرو کنید؛ اگر به راحتی وارد شد، آماده است.",
+                "چغندرهای پخته را از آب خارج کنید و اجازه دهید کاملاً خنک شوند.",
+                "پوست چغندرها را جدا کرده و آن‌ها را به صورت ورقه‌ای یا مکعبی خرد کنید.",
+                "پنیر فتا را به قطعات مکعبی متوسط تقسیم کنید.",
+                "گردوها را به قطعات کوچک خرد کنید تا در سالاد به خوبی پخش شوند.",
+                "چغندر خردشده را در ظرف سرو بچینید.",
+                "پنیر فتا و گردو را روی چغندرها اضافه کنید.",
+                "روغن زیتون و سرکه بالزامیک را در ظرف کوچکی مخلوط کنید.",
+                "نمک، فلفل سیاه و آویشن را به سس اضافه کرده و هم بزنید.",
+                "سس آماده‌شده را به صورت یکنواخت روی مواد سالاد بریزید.",
+                "سالاد را حدود ۱۵ دقیقه در یخچال قرار دهید تا طعم مواد ترکیب شود.",
+                "سالاد چغندر را به صورت خنک سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 235,
+                proteinGrams = 8.0,
+                carbohydratesGrams = 19.0,
+                fatGrams = 15.0
+            ),
+
+            tags = listOf(
+                "سالاد",
+                "سالاد چغندر",
+                "غذای مدیترانه‌ای",
+                "گیاهی",
+                "پنیر فتا",
+                "گردو",
+                "چغندر",
+                "آنتی‌اکسیدان",
+                "سالاد سرد",
+                "پیش‌غذا"
+            ),
+
+            rating = 4.8,
+            ratingCount = 145,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("چغندر", "3", IngredientUnit.PIECE),
                 Ingredients("پنیر فتا", "100", IngredientUnit.GRAM),
@@ -295,24 +741,53 @@ object FakeCategoryData {
                 Ingredients("روغن زیتون", "2", IngredientUnit.TABLESPOON),
                 Ingredients("سرکه بالزامیک", "2", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON),
                 Spices("آویشن", "0.5", IngredientUnit.TEASPOON)
             )
         ),
-
         recipe(
-            11, Res.drawable.food5, "سالاد اندونزی", chefName = "مریم احمدی",
+            id = 11,
+            image = Res.drawable.food5,
+            title = "سالاد اندونزی",
+            chefName = "مریم احمدی",
+            cuisine = "اندونزیایی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 10,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "کلم سفید و کلم بنفش را به صورت رشته‌ای خرد کنید.",
-                "هویج را رنده کنید.",
+                "کلم سفید و کلم بنفش را به صورت رشته‌های باریک خرد کنید.",
+                "هویج‌ها را پوست بگیرید و با رنده درشت رنده کنید.",
                 "خیارشور و ژامبون را به صورت نگینی خرد کنید.",
-                "ذرت و نخودفرنگی را آماده کنید.",
-                "تمام مواد را در ظرف بزرگی مخلوط کنید.",
-                "سس مایونز، ماست و آبلیمو را ترکیب کنید.",
-                "سس را اضافه کرده و سالاد را سرد سرو کنید."
+                "ذرت و نخودفرنگی را در صورت نیاز بپزید و اجازه دهید خنک شوند.",
+                "تمام مواد خردشده را در یک کاسه بزرگ بریزید و به آرامی مخلوط کنید.",
+                "سس مایونز، ماست و آبلیمو را در ظرفی جداگانه ترکیب کنید تا یکدست شود.",
+                "نمک و فلفل سیاه را به سس اضافه کنید و هم بزنید.",
+                "سس را به مواد سالاد اضافه کنید و همه مواد را به خوبی مخلوط کنید.",
+                "سالاد را حداقل ۳۰ دقیقه در یخچال قرار دهید تا طعم‌ها به خورد هم بروند.",
+                "سالاد اندونزی را سرد و تازه سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 285,
+                proteinGrams = 10.5,
+                carbohydratesGrams = 22.0,
+                fatGrams = 17.0
+            ),
+
+            tags = listOf("سالاد", "سالاد اندونزی", "پیش‌غذا", "غذای سرد", "مجلسی"),
+
+            rating = 4.8,
+            ratingCount = 216,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("کلم سفید", "200", IngredientUnit.GRAM),
                 Ingredients("کلم بنفش", "100", IngredientUnit.GRAM),
@@ -321,8 +796,11 @@ object FakeCategoryData {
                 Ingredients("ژامبون", "100", IngredientUnit.GRAM),
                 Ingredients("ذرت", "100", IngredientUnit.GRAM),
                 Ingredients("نخودفرنگی", "80", IngredientUnit.GRAM),
-                Ingredients("سس مایونز", "4", IngredientUnit.TABLESPOON)
+                Ingredients("سس مایونز", "4", IngredientUnit.TABLESPOON),
+                Ingredients("ماست", "2", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON)
@@ -330,16 +808,47 @@ object FakeCategoryData {
         ),
 
         recipe(
-            12, Res.drawable.food6, "سالاد مرغ گریل", chefName = "سارا محمدی",
+            id = 12,
+            image = Res.drawable.food6,
+            title = "سالاد مرغ گریل",
+            chefName = "سارا محمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.MEDIUM,
+
             cookingSteps = listOf(
-                "سینه مرغ را با روغن زیتون، آبلیمو و ادویه‌ها مزه‌دار کنید.",
-                "مرغ را روی گریل بپزید تا کاملاً مغزپخت شود.",
-                "کاهو را شسته و خرد کنید.",
-                "خیار و گوجه گیلاسی را برش بزنید.",
-                "ذرت را آماده کرده و به سبزیجات اضافه کنید.",
-                "مرغ گریل‌شده را به صورت نواری برش دهید.",
-                "تمام مواد را در ظرف سرو بچینید و سس دلخواه اضافه کنید."
+                "سینه مرغ را به صورت ورقه‌ای برش دهید.",
+                "روغن زیتون، آبلیمو، نمک، فلفل سیاه، پاپریکا و پودر سیر را در ظرفی مخلوط کنید.",
+                "مرغ را به مواد مزه‌دارکننده آغشته کنید و حداقل ۱۵ دقیقه در یخچال استراحت دهید.",
+                "تابه گریل را گرم کنید و مرغ را از هر طرف بپزید تا کاملاً مغزپخت و طلایی شود.",
+                "مرغ گریل‌شده را از تابه خارج کنید و چند دقیقه استراحت دهید.",
+                "کاهو را بشویید، خشک کنید و به اندازه دلخواه خرد کنید.",
+                "خیار را حلقه‌ای یا نیم‌حلقه‌ای برش دهید.",
+                "گوجه‌های گیلاسی را از وسط نصف کنید.",
+                "ذرت پخته و خنک‌شده را به سبزیجات اضافه کنید.",
+                "مرغ را به صورت نوارهای باریک برش دهید.",
+                "کاهو، خیار، گوجه و ذرت را در ظرف سرو بچینید و مرغ را روی آن قرار دهید.",
+                "در صورت تمایل سس دلخواه را اضافه کنید و سالاد را سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 365,
+                proteinGrams = 35.0,
+                carbohydratesGrams = 18.0,
+                fatGrams = 17.0
+            ),
+
+            tags = listOf("سالاد", "مرغ گریل", "پروتئینی", "غذای سالم", "رژیمی"),
+
+            rating = 4.9,
+            ratingCount = 248,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("سینه مرغ", "250", IngredientUnit.GRAM),
                 Ingredients("کاهو", "150", IngredientUnit.GRAM),
@@ -349,6 +858,7 @@ object FakeCategoryData {
                 Ingredients("روغن زیتون", "2", IngredientUnit.TABLESPOON),
                 Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
@@ -358,16 +868,46 @@ object FakeCategoryData {
         ),
 
         recipe(
-            13, Res.drawable.food1, "سالاد آووکادو", chefName = "نگار رضایی",
+            id = 13,
+            image = Res.drawable.food1,
+            title = "سالاد آووکادو",
+            chefName = "نگار رضایی",
+            cuisine = "مدیترانه‌ای",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 0,
+            servings = 2,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "آووکادو را از وسط نصف کرده و هسته آن را خارج کنید.",
-                "گوشت آووکادو را به مکعب‌های متوسط خرد کنید.",
-                "خیار و گوجه‌فرنگی را خرد کنید.",
-                "پیاز قرمز را به صورت خلالی نازک برش دهید.",
-                "مواد را همراه برگ‌های کاهو در ظرف بریزید.",
-                "آبلیمو و روغن زیتون را مخلوط کنید.",
-                "سس را اضافه کرده و سالاد را تازه سرو کنید."
+                "آووکادوها را از وسط نصف کنید و هسته آن‌ها را خارج کنید.",
+                "گوشت آووکادو را با قاشق جدا کرده و به مکعب‌های متوسط خرد کنید.",
+                "خیار را بشویید و به قطعات کوچک خرد کنید.",
+                "گوجه‌فرنگی‌ها را به صورت مکعبی برش دهید.",
+                "پیاز قرمز را به صورت خلالی نازک خرد کنید.",
+                "برگ‌های کاهو را بشویید، خشک کنید و در ظرف سرو قرار دهید.",
+                "آووکادو، خیار، گوجه‌فرنگی و پیاز را روی کاهو بریزید.",
+                "آبلیمو و روغن زیتون را در ظرف کوچکی مخلوط کنید.",
+                "نمک، فلفل سیاه و پودر چیلی را به سس اضافه کنید.",
+                "سس را روی مواد سالاد بریزید و به آرامی مخلوط کنید تا آووکادو له نشود.",
+                "سالاد را بلافاصله و به صورت تازه سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 320,
+                proteinGrams = 5.0,
+                carbohydratesGrams = 21.0,
+                fatGrams = 25.0
+            ),
+
+            tags = listOf("سالاد", "آووکادو", "گیاهی", "غذای سالم", "مدیترانه‌ای"),
+
+            rating = 4.8,
+            ratingCount = 194,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("آووکادو", "2", IngredientUnit.PIECE),
                 Ingredients("خیار", "1", IngredientUnit.PIECE),
@@ -377,6 +917,7 @@ object FakeCategoryData {
                 Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
                 Ingredients("روغن زیتون", "2", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON),
@@ -385,16 +926,47 @@ object FakeCategoryData {
         ),
 
         recipe(
-            14, Res.drawable.food2, "سالاد نخود", chefName = "ترانه شریفی",
+            id = 14,
+            image = Res.drawable.food2,
+            title = "سالاد نخود",
+            chefName = "ترانه شریفی",
+            cuisine = "مدیترانه‌ای",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 60,
+            servings = 3,
+            difficulty = RecipeDifficulty.EASY,
+
             cookingSteps = listOf(
-                "نخود را از شب قبل خیس کرده و بپزید تا نرم شود.",
-                "خیار و گوجه‌فرنگی را نگینی خرد کنید.",
+                "نخود را از شب قبل در آب خیس کنید و چند بار آب آن را عوض کنید.",
+                "نخود را با آب تازه روی حرارت متوسط بپزید تا کاملاً نرم شود.",
+                "نخود پخته را آبکش کنید و کنار بگذارید تا خنک شود.",
+                "خیارها را بشویید و به صورت نگینی خرد کنید.",
+                "گوجه‌فرنگی‌ها را نیز به قطعات کوچک خرد کنید.",
                 "پیاز قرمز را ریز خرد کنید.",
-                "جعفری تازه را ساطوری کنید.",
-                "نخود پخته و سبزیجات را در ظرف مخلوط کنید.",
-                "آبلیمو، روغن زیتون و ادویه‌ها را اضافه کنید.",
-                "سالاد را پس از کمی استراحت سرو کنید."
+                "جعفری تازه را بشویید، خشک کنید و ساطوری کنید.",
+                "نخود خنک‌شده، خیار، گوجه‌فرنگی، پیاز و جعفری را در ظرف بزرگی بریزید.",
+                "آبلیمو و روغن زیتون را به مواد اضافه کنید.",
+                "نمک، فلفل سیاه و زیره سبز را اضافه کرده و مواد را به آرامی مخلوط کنید.",
+                "سالاد را حدود ۱۵ دقیقه در یخچال قرار دهید تا طعم مواد با یکدیگر ترکیب شود.",
+                "سالاد نخود را خنک سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 285,
+                proteinGrams = 11.0,
+                carbohydratesGrams = 38.0,
+                fatGrams = 10.0
+            ),
+
+            tags = listOf("سالاد", "نخود", "گیاهی", "پروتئینی", "سالم", "مدیترانه‌ای"),
+
+            rating = 4.7,
+            ratingCount = 167,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("نخود پخته", "250", IngredientUnit.GRAM),
                 Ingredients("خیار", "2", IngredientUnit.PIECE),
@@ -404,6 +976,7 @@ object FakeCategoryData {
                 Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
                 Ingredients("روغن زیتون", "2", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON),
@@ -412,16 +985,47 @@ object FakeCategoryData {
         ),
 
         recipe(
-            15, Res.drawable.food3, "سالاد کینوا", chefName = "الناز کریمی",
+            id = 15,
+            image = Res.drawable.food3,
+            title = "سالاد کینوا",
+            chefName = "الناز کریمی",
+            cuisine = "مدیترانه‌ای",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 15,
+            servings = 2,
+            difficulty = RecipeDifficulty.MEDIUM,
+
             cookingSteps = listOf(
-                "کینوا را چند بار با آب سرد بشویید.",
-                "کینوا را با دو برابر حجم آب روی حرارت ملایم بپزید.",
-                "پس از جذب آب، آن را کنار بگذارید تا خنک شود.",
-                "خیار و گوجه‌فرنگی را نگینی خرد کنید.",
-                "جعفری و نعناع تازه را ساطوری کنید.",
-                "کینوا و سبزیجات را در ظرف مخلوط کنید.",
-                "آبلیمو، روغن زیتون و ادویه‌ها را اضافه کرده و سرو کنید."
+                "کینوا را چند بار با آب سرد بشویید تا تلخی احتمالی آن گرفته شود.",
+                "کینوا را همراه با دو برابر حجم آن آب در قابلمه بریزید.",
+                "قابلمه را روی حرارت متوسط قرار دهید تا آب به جوش بیاید.",
+                "حرارت را کم کنید، در قابلمه را بگذارید و حدود ۱۲ تا ۱۵ دقیقه بپزید تا آب جذب شود.",
+                "کینوا را با چنگال کمی زیرورو کنید و کنار بگذارید تا کاملاً خنک شود.",
+                "خیار و گوجه‌فرنگی را به صورت نگینی خرد کنید.",
+                "جعفری و نعناع تازه را بشویید، خشک کنید و ساطوری کنید.",
+                "کینوا خنک‌شده را در ظرف بزرگی بریزید و سبزیجات خردشده را به آن اضافه کنید.",
+                "آبلیمو و روغن زیتون را در ظرفی جداگانه مخلوط کنید.",
+                "نمک، فلفل سیاه و زیره سبز را به سس اضافه کنید.",
+                "سس را روی سالاد بریزید و همه مواد را به آرامی مخلوط کنید.",
+                "سالاد را کمی در یخچال استراحت دهید و سپس سرو کنید."
             ),
+
+            nutrition = NutritionInfo(
+                calories = 295,
+                proteinGrams = 9.0,
+                carbohydratesGrams = 42.0,
+                fatGrams = 11.0
+            ),
+
+            tags = listOf("سالاد", "کینوا", "گیاهی", "غذای سالم", "بدون گوشت", "مدیترانه‌ای"),
+
+            rating = 4.8,
+            ratingCount = 182,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
             ingredients = listOf(
                 Ingredients("کینوا", "150", IngredientUnit.GRAM),
                 Ingredients("خیار", "1", IngredientUnit.PIECE),
@@ -431,12 +1035,1865 @@ object FakeCategoryData {
                 Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
                 Ingredients("روغن زیتون", "2", IngredientUnit.TABLESPOON)
             ),
+
             spices = listOf(
                 Spices("نمک", "0.5", IngredientUnit.TEASPOON),
                 Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON),
                 Spices("زیره سبز", "0.25", IngredientUnit.TEASPOON)
             )
-        )
+        ),
+        recipe(
+            id = 16,
+            image = Res.drawable.food1,
+            title = "قورمه‌سبزی",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 180,
+            servings = 4,
+            difficulty = RecipeDifficulty.HARD,
+
+            cookingSteps = listOf(
+                "لوبیا قرمز را از چند ساعت قبل در آب خیس کنید و چند بار آب آن را عوض کنید.",
+                "پیازها را نگینی خرد کرده و در قابلمه با روغن تفت دهید تا طلایی و سبک شوند.",
+                "گوشت گوسفندی را به قطعات خورشتی خرد کنید و به پیاز اضافه کنید.",
+                "گوشت را تفت دهید تا رنگ آن تغییر کند، سپس زردچوبه و فلفل سیاه را اضافه کنید.",
+                "لوبیای خیس‌خورده را آبکش کرده و همراه گوشت چند دقیقه تفت دهید.",
+                "سبزی قورمه شامل تره، جعفری، گشنیز و مقدار کمی شنبلیله را پاک کرده، بشویید و ریز خرد کنید.",
+                "سبزی خردشده را در تابه با روغن روی حرارت متوسط سرخ کنید تا آب آن کشیده شود و عطرش آزاد شود.",
+                "سبزی سرخ‌شده را به قابلمه گوشت و لوبیا اضافه کنید و مواد را مخلوط کنید.",
+                "به اندازه کافی آب جوش داخل قابلمه بریزید و اجازه دهید خورشت به جوش برسد.",
+                "لیموعمانی‌ها را با چنگال سوراخ کنید و پس از شست‌وشو به خورشت اضافه کنید.",
+                "حرارت را کم کنید و در قابلمه را بگذارید تا خورشت حدود ۲ تا ۳ ساعت آرام بپزد.",
+                "در طول پخت، میزان آب خورشت را بررسی کنید و در صورت نیاز کمی آب جوش اضافه کنید.",
+                "پس از نرم شدن گوشت و لوبیا، نمک را اضافه کرده و طعم خورشت را تنظیم کنید.",
+                "اجازه دهید خورشت با حرارت ملایم جا بیفتد و روغن سبزی روی سطح آن ظاهر شود.",
+                "قورمه‌سبزی را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 485,
+                proteinGrams = 32.0,
+                carbohydratesGrams = 28.0,
+                fatGrams = 27.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "قورمه‌سبزی", "غذای سنتی", "ناهار", "مجلسی"),
+
+            rating = 4.9,
+            ratingCount = 428,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت گوسفندی", "400", IngredientUnit.GRAM),
+                Ingredients("سبزی قورمه", "500", IngredientUnit.GRAM),
+                Ingredients("لوبیا قرمز", "150", IngredientUnit.GRAM),
+                Ingredients("پیاز", "2", IngredientUnit.PIECE),
+                Ingredients("لیموعمانی", "3", IngredientUnit.PIECE),
+                Ingredients("روغن", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 17,
+            image = Res.drawable.food2,
+            title = "قیمه سیب‌زمینی",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 120,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "لپه را بشویید و حدود یک ساعت در آب خیس کنید.",
+                "پیازها را نگینی خرد کرده و در قابلمه با روغن تفت دهید تا طلایی شوند.",
+                "گوشت خورشتی را اضافه کنید و چند دقیقه تفت دهید تا رنگ آن تغییر کند.",
+                "زردچوبه و فلفل سیاه را اضافه کنید و مواد را هم بزنید.",
+                "لپه را آبکش کرده و به قابلمه اضافه کنید و چند دقیقه همراه گوشت تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و روی حرارت ملایم تفت دهید تا رنگ آن باز شود.",
+                "چند پیمانه آب جوش به قابلمه اضافه کنید و اجازه دهید مواد به جوش بیایند.",
+                "حرارت را کم کنید و در قابلمه را بگذارید تا گوشت و لپه به آرامی بپزند.",
+                "لیموعمانی‌ها را سوراخ کرده و پس از شست‌وشو به خورشت اضافه کنید.",
+                "سیب‌زمینی‌ها را پوست بگیرید و به صورت خلالی یکدست خرد کنید.",
+                "سیب‌زمینی‌ها را بشویید و با دستمال خشک کنید تا هنگام سرخ شدن ترد شوند.",
+                "سیب‌زمینی‌ها را در روغن داغ سرخ کنید تا طلایی و برشته شوند.",
+                "پس از نرم شدن گوشت و لپه، نمک و دارچین را به خورشت اضافه کنید.",
+                "اجازه دهید خورشت چند دقیقه دیگر با حرارت ملایم جا بیفتد.",
+                "قیمه را در ظرف سرو بریزید و سیب‌زمینی سرخ‌شده را روی آن قرار دهید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 520,
+                proteinGrams = 29.0,
+                carbohydratesGrams = 46.0,
+                fatGrams = 24.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "قیمه", "غذای سنتی", "ناهار", "غذای مجلسی"),
+
+            rating = 4.8,
+            ratingCount = 365,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "350", IngredientUnit.GRAM),
+                Ingredients("لپه", "150", IngredientUnit.GRAM),
+                Ingredients("پیاز", "2", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "3", IngredientUnit.TABLESPOON),
+                Ingredients("سیب‌زمینی", "3", IngredientUnit.PIECE),
+                Ingredients("لیموعمانی", "2", IngredientUnit.PIECE),
+                Ingredients("روغن", "5", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON),
+                Spices("دارچین", "0.25", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 18,
+            image = Res.drawable.food3,
+            title = "فسنجان",
+            chefName = "سارا محمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 180,
+            servings = 4,
+            difficulty = RecipeDifficulty.HARD,
+
+            cookingSteps = listOf(
+                "گردوها را آسیاب کنید تا کاملاً ریز شوند، اما به روغن نیفتند.",
+                "پیاز را رنده کنید و آب اضافی آن را بگیرید.",
+                "پیاز را در قابلمه با مقدار کمی روغن تفت دهید تا نرم و طلایی شود.",
+                "گردوی آسیاب‌شده را اضافه کنید و چند دقیقه با حرارت ملایم تفت دهید.",
+                "چند پیمانه آب سرد به گردو اضافه کنید و مواد را هم بزنید تا یکدست شوند.",
+                "قابلمه را روی حرارت ملایم قرار دهید و اجازه دهید گردو به آرامی بپزد.",
+                "در طول پخت، هر چند دقیقه خورشت را هم بزنید تا گردو ته نگیرد.",
+                "تکه‌های مرغ را با کمی نمک، زردچوبه و آب در قابلمه‌ای جداگانه نیم‌پز کنید.",
+                "مرغ نیم‌پز را به قابلمه گردو اضافه کنید.",
+                "رب انار را اضافه کرده و مواد را به آرامی مخلوط کنید.",
+                "خورشت را با حرارت بسیار ملایم حدود ۲ تا ۳ ساعت بپزید تا گردو روغن بیندازد.",
+                "در صورت تمایل برای متعادل کردن طعم ترش رب انار، کمی شکر اضافه کنید.",
+                "در طول پخت در صورت غلیظ شدن بیش از حد خورشت، کمی آب سرد اضافه کنید.",
+                "پس از پخت کامل مرغ و جا افتادن خورشت، نمک و طعم نهایی را تنظیم کنید.",
+                "فسنجان را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 625,
+                proteinGrams = 30.0,
+                carbohydratesGrams = 24.0,
+                fatGrams = 47.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "فسنجان", "غذای سنتی", "غذای مجلسی", "گردو"),
+
+            rating = 4.9,
+            ratingCount = 392,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گردوی آسیاب‌شده", "300", IngredientUnit.GRAM),
+                Ingredients("مرغ", "500", IngredientUnit.GRAM),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("رب انار", "4", IngredientUnit.TABLESPOON),
+                Ingredients("شکر", "2", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "2", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 19,
+            image = Res.drawable.food4,
+            title = "خورشت بادمجان",
+            chefName = "نگار رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 120,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "بادمجان‌ها را پوست بگیرید و از طول برش دهید.",
+                "روی بادمجان‌ها کمی نمک بپاشید و حدود ۳۰ دقیقه کنار بگذارید تا تلخی احتمالی آن‌ها گرفته شود.",
+                "بادمجان‌ها را با دستمال خشک کنید و در روغن سرخ کنید تا دو طرف آن‌ها طلایی شود.",
+                "بادمجان‌های سرخ‌شده را روی دستمال قرار دهید تا روغن اضافی آن‌ها گرفته شود.",
+                "پیازها را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید تا رنگ آن تغییر کند.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید تا رنگ آن باز شود.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید گوشت با حرارت ملایم بپزد.",
+                "گوجه‌فرنگی‌ها را نصف کنید و در صورت تمایل کمی جداگانه تفت دهید.",
+                "پس از نیم‌پز شدن گوشت، گوجه‌فرنگی و بادمجان‌های سرخ‌شده را به قابلمه اضافه کنید.",
+                "حرارت را کم کنید و اجازه دهید خورشت آرام بپزد تا گوشت کاملاً نرم شود.",
+                "نمک خورشت را تنظیم کنید و اجازه دهید سس آن غلیظ و جاافتاده شود.",
+                "خورشت بادمجان را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 465,
+                proteinGrams = 27.0,
+                carbohydratesGrams = 19.0,
+                fatGrams = 30.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "بادمجان", "غذای سنتی", "ناهار", "غذای خانگی"),
+
+            rating = 4.7,
+            ratingCount = 284,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "350", IngredientUnit.GRAM),
+                Ingredients("بادمجان", "4", IngredientUnit.PIECE),
+                Ingredients("گوجه‌فرنگی", "3", IngredientUnit.PIECE),
+                Ingredients("پیاز", "2", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "2", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "5", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 20,
+            image = Res.drawable.food5,
+            title = "خورشت کرفس",
+            chefName = "الناز کریمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 120,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "ساقه‌های کرفس را بشویید و به قطعات دو تا سه سانتی‌متری خرد کنید.",
+                "برگ‌های لطیف کرفس را جدا کرده و در صورت تمایل برای عطر بیشتر خرد کنید.",
+                "جعفری و نعناع را پاک کنید، بشویید و ریز خرد کنید.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید تا طلایی شود.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "کرفس خردشده را در تابه‌ای جداگانه با کمی روغن تفت دهید تا کمی نرم شود.",
+                "جعفری و نعناع خردشده را جداگانه با حرارت ملایم تفت دهید تا عطر آن‌ها آزاد شود.",
+                "کرفس و سبزی سرخ‌شده را به قابلمه گوشت اضافه کنید.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید مواد به جوش بیایند.",
+                "حرارت را کم کنید و در قابلمه را بگذارید تا گوشت و کرفس به آرامی بپزند.",
+                "در مراحل پایانی آبلیمو را اضافه کنید و خورشت را به آرامی هم بزنید.",
+                "پس از نرم شدن گوشت و کرفس، نمک و میزان ترشی خورشت را تنظیم کنید.",
+                "اجازه دهید خورشت کمی دیگر بجوشد تا جا بیفتد و سپس سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 410,
+                proteinGrams = 28.0,
+                carbohydratesGrams = 16.0,
+                fatGrams = 25.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "کرفس", "غذای سنتی", "سبزیجات", "ناهار"),
+
+            rating = 4.7,
+            ratingCount = 218,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "350", IngredientUnit.GRAM),
+                Ingredients("کرفس", "500", IngredientUnit.GRAM),
+                Ingredients("جعفری", "150", IngredientUnit.GRAM),
+                Ingredients("نعناع", "50", IngredientUnit.GRAM),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 21,
+            image = Res.drawable.food6,
+            title = "آلو اسفناج",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 100,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "آلوهای خورشتی را بشویید و حدود ۲۰ دقیقه در آب ولرم خیس کنید.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید تا طلایی شود.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "چند پیمانه آب جوش اضافه کنید و اجازه دهید گوشت با حرارت ملایم نیم‌پز شود.",
+                "اسفناج را پاک کنید، چند بار بشویید و پس از آبکش شدن خرد کنید.",
+                "اسفناج خردشده را در تابه‌ای جداگانه تفت دهید تا آب آن کشیده و حجم آن کم شود.",
+                "اسفناج تفت‌داده‌شده را به قابلمه گوشت اضافه کنید.",
+                "آلوهای خیس‌خورده را آبکش کرده و همراه مقدار کمی از آب خیساندن به خورشت اضافه کنید.",
+                "خورشت را با حرارت ملایم بپزید تا گوشت و آلو کاملاً نرم شوند.",
+                "آبلیمو را اضافه کنید و طعم خورشت را بچشید.",
+                "نمک را تنظیم کنید و اجازه دهید خورشت چند دقیقه دیگر جا بیفتد.",
+                "خورشت آلو اسفناج را همراه برنج سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 395,
+                proteinGrams = 27.0,
+                carbohydratesGrams = 25.0,
+                fatGrams = 21.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "اسفناج", "آلو", "غذای سنتی", "مجلسی"),
+
+            rating = 4.8,
+            ratingCount = 176,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("اسفناج", "500", IngredientUnit.GRAM),
+                Ingredients("آلو خورشتی", "150", IngredientUnit.GRAM),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("روغن", "3", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 22,
+            image = Res.drawable.food1,
+            title = "خورشت به‌آلو",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 120,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "به‌ها را بشویید، پوست بگیرید و به قطعات متوسط خرد کنید.",
+                "آلوهای خورشتی را بشویید و حدود ۲۰ دقیقه در آب ولرم خیس کنید.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید تا رنگ آن باز شود.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید گوشت نیم‌پز شود.",
+                "تکه‌های به را در تابه با کمی روغن تفت دهید تا سطح آن‌ها کمی طلایی شود.",
+                "به و آلوهای آبکش‌شده را به قابلمه اضافه کنید.",
+                "دارچین و شکر را اضافه کنید تا طعم ترش و شیرین خورشت متعادل شود.",
+                "خورشت را با حرارت ملایم بپزید تا گوشت و به نرم شوند، اما تکه‌های به شکل خود را حفظ کنند.",
+                "نمک و طعم نهایی خورشت را تنظیم کنید.",
+                "خورشت به‌آلو را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 435,
+                proteinGrams = 26.0,
+                carbohydratesGrams = 35.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "به", "آلو", "غذای ملس", "غذای سنتی"),
+
+            rating = 4.7,
+            ratingCount = 153,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("به", "2", IngredientUnit.PIECE),
+                Ingredients("آلو خورشتی", "120", IngredientUnit.GRAM),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "1", IngredientUnit.TABLESPOON),
+                Ingredients("شکر", "1", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "3", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "0.5", IngredientUnit.TEASPOON),
+                Spices("دارچین", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 23,
+            image = Res.drawable.food2,
+            title = "خورشت آلو مسما",
+            chefName = "سارا محمدی",
+            cuisine = "گیلانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 90,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "مرغ را بشویید و با دستمال تمیز کاملاً خشک کنید.",
+                "آلوهای بخارا را بشویید و حدود ۲۰ دقیقه در آب ولرم خیس کنید.",
+                "پیازها را خلالی خرد کرده و در قابلمه با روغن تفت دهید تا طلایی شوند.",
+                "تکه‌های مرغ را اضافه کنید و دو طرف آن‌ها را کمی سرخ کنید.",
+                "زردچوبه و فلفل سیاه را اضافه کنید و مواد را به آرامی هم بزنید.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید تا رنگ آن باز شود.",
+                "مقداری آب جوش به قابلمه اضافه کنید و اجازه دهید مرغ نیم‌پز شود.",
+                "آلوهای آبکش‌شده را به قابلمه اضافه کنید.",
+                "زعفران دم‌کرده را اضافه کنید و در صورت تمایل کمی شکر برای متعادل کردن ترشی آلو بریزید.",
+                "حرارت را کم کنید و اجازه دهید مرغ کاملاً بپزد و سس خورشت غلیظ شود.",
+                "در پایان نمک و طعم خورشت را تنظیم کنید.",
+                "خورشت آلو مسما را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 465,
+                proteinGrams = 31.0,
+                carbohydratesGrams = 34.0,
+                fatGrams = 22.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "آلو مسما", "غذای گیلانی", "مرغ", "غذای مجلسی"),
+
+            rating = 4.9,
+            ratingCount = 237,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("مرغ", "600", IngredientUnit.GRAM),
+                Ingredients("آلو بخارا", "200", IngredientUnit.GRAM),
+                Ingredients("پیاز", "2", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "2", IngredientUnit.TABLESPOON),
+                Ingredients("زعفران دم‌کرده", "2", IngredientUnit.TABLESPOON),
+                Ingredients("شکر", "1", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "3", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON),
+                Spices("دارچین", "0.25", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 24,
+            image = Res.drawable.food3,
+            title = "خورشت قیمه بادمجان",
+            chefName = "نگار رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 120,
+            servings = 4,
+            difficulty = RecipeDifficulty.HARD,
+
+            cookingSteps = listOf(
+                "لپه را بشویید و حدود یک ساعت در آب خیس کنید.",
+                "پیازها را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "لپه را آبکش کرده و به قابلمه اضافه کنید و چند دقیقه تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و تفت دهید تا رنگ آن باز شود.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید مواد به جوش بیایند.",
+                "لیموعمانی‌ها را سوراخ کرده و پس از شست‌وشو به خورشت اضافه کنید.",
+                "خورشت را با حرارت ملایم بپزید تا گوشت و لپه نرم شوند.",
+                "بادمجان‌ها را پوست بگیرید، از طول برش دهید و روی آن‌ها کمی نمک بپاشید.",
+                "پس از حدود ۳۰ دقیقه بادمجان‌ها را خشک کنید و در روغن سرخ کنید.",
+                "بادمجان‌های سرخ‌شده را در نیم ساعت پایانی پخت به خورشت اضافه کنید.",
+                "نمک و طعم خورشت را تنظیم کنید و اجازه دهید مواد به آرامی جا بیفتند.",
+                "خورشت قیمه بادمجان را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 495,
+                proteinGrams = 29.0,
+                carbohydratesGrams = 35.0,
+                fatGrams = 25.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "قیمه بادمجان", "بادمجان", "غذای سنتی", "مجلسی"),
+
+            rating = 4.8,
+            ratingCount = 276,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("لپه", "120", IngredientUnit.GRAM),
+                Ingredients("بادمجان", "4", IngredientUnit.PIECE),
+                Ingredients("پیاز", "2", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "2", IngredientUnit.TABLESPOON),
+                Ingredients("لیموعمانی", "2", IngredientUnit.PIECE),
+                Ingredients("روغن", "5", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON),
+                Spices("دارچین", "0.25", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 25,
+            image = Res.drawable.food4,
+            title = "خورشت لوبیا سبز",
+            chefName = "الناز کریمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 120,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "لوبیا سبزها را بشویید و به قطعات دو تا سه سانتی‌متری خرد کنید.",
+                "پیازها را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید تا رنگ آن باز شود.",
+                "لوبیا سبز خردشده را در تابه‌ای جداگانه با کمی روغن تفت دهید.",
+                "لوبیا را به قابلمه گوشت اضافه کنید و مواد را مخلوط کنید.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید خورشت به جوش بیاید.",
+                "حرارت را کم کنید و در قابلمه را بگذارید تا گوشت و لوبیا بپزند.",
+                "گوجه‌فرنگی‌ها را خرد کنید و در نیمه دوم پخت به خورشت اضافه کنید.",
+                "اجازه دهید خورشت با حرارت ملایم جا بیفتد و سس آن غلیظ شود.",
+                "در پایان نمک و آبلیمو را اضافه کنید و طعم خورشت را تنظیم کنید.",
+                "خورشت لوبیا سبز را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 425,
+                proteinGrams = 28.0,
+                carbohydratesGrams = 24.0,
+                fatGrams = 23.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "لوبیا سبز", "غذای سنتی", "سبزیجات", "ناهار"),
+
+            rating = 4.7,
+            ratingCount = 193,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "350", IngredientUnit.GRAM),
+                Ingredients("لوبیا سبز", "400", IngredientUnit.GRAM),
+                Ingredients("پیاز", "2", IngredientUnit.PIECE),
+                Ingredients("گوجه‌فرنگی", "2", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "2", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 26,
+            image = Res.drawable.food5,
+            title = "خورشت هویج",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 100,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "هویج‌ها را پوست بگیرید و به صورت خلالی یکدست خرد کنید.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید تا طلایی شود.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید گوشت نیم‌پز شود.",
+                "هویج‌های خلالی را در تابه‌ای جداگانه با کمی روغن تفت دهید تا کمی نرم شوند.",
+                "هویج را به قابلمه گوشت اضافه کنید و مواد را به آرامی مخلوط کنید.",
+                "زعفران دم‌کرده و آبلیمو را اضافه کنید.",
+                "حرارت را کم کنید و اجازه دهید خورشت بپزد تا هویج نرم و گوشت کاملاً پخته شود.",
+                "در صورت تمایل برای ایجاد طعم ملس، مقدار کمی شکر اضافه کنید.",
+                "در پایان نمک و طعم خورشت را تنظیم کنید و اجازه دهید خورشت جا بیفتد.",
+                "خورشت هویج را همراه برنج سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 440,
+                proteinGrams = 27.0,
+                carbohydratesGrams = 32.0,
+                fatGrams = 22.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "هویج", "غذای سنتی", "زعفرانی", "غذای خانگی"),
+
+            rating = 4.6,
+            ratingCount = 142,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("هویج", "400", IngredientUnit.GRAM),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "1", IngredientUnit.TABLESPOON),
+                Ingredients("زعفران دم‌کرده", "2", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON),
+                Spices("دارچین", "0.25", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 27,
+            image = Res.drawable.food6,
+            title = "خورشت مرغ و آلو",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 90,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "آلوها را بشویید و حدود ۲۰ دقیقه در آب ولرم خیس کنید.",
+                "پیازها را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "تکه‌های مرغ را اضافه کنید و دو طرف آن‌ها را سرخ کنید تا کمی طلایی شوند.",
+                "زردچوبه و فلفل سیاه را اضافه کنید و مواد را هم بزنید.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید تا رنگ آن باز شود.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید مرغ نیم‌پز شود.",
+                "آلوهای آبکش‌شده را به قابلمه اضافه کنید.",
+                "زعفران دم‌کرده و آبلیمو را اضافه کنید.",
+                "حرارت را کم کنید و اجازه دهید خورشت بپزد تا مرغ کاملاً مغزپخت شود.",
+                "در صورت تمایل کمی شکر برای متعادل کردن ترشی آلو اضافه کنید.",
+                "نمک خورشت را تنظیم کنید و اجازه دهید سس آن غلیظ شود.",
+                "خورشت مرغ و آلو را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 455,
+                proteinGrams = 32.0,
+                carbohydratesGrams = 30.0,
+                fatGrams = 20.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "مرغ", "آلو", "غذای ملس", "غذای مجلسی"),
+
+            rating = 4.8,
+            ratingCount = 201,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("مرغ", "600", IngredientUnit.GRAM),
+                Ingredients("آلو بخارا", "150", IngredientUnit.GRAM),
+                Ingredients("پیاز", "2", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "2", IngredientUnit.TABLESPOON),
+                Ingredients("زعفران دم‌کرده", "2", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "3", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON),
+                Spices("دارچین", "0.25", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 28,
+            image = Res.drawable.food1,
+            title = "خورشت کدو",
+            chefName = "سارا محمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 100,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "کدوها را بشویید و در صورت تمایل پوست آن‌ها را به صورت راه‌راه بگیرید.",
+                "کدوها را از طول نصف کنید و در تابه با کمی روغن سرخ کنید تا سطح آن‌ها طلایی شود.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید گوشت بپزد.",
+                "گوجه‌فرنگی‌ها را خرد کرده و پس از نیم‌پز شدن گوشت به قابلمه اضافه کنید.",
+                "کدوهای سرخ‌شده را در مراحل پایانی پخت به خورشت اضافه کنید.",
+                "حرارت را کم کنید و اجازه دهید خورشت آرام جا بیفتد تا کدوها شکل خود را حفظ کنند.",
+                "آبلیمو و نمک را اضافه کنید و طعم خورشت را تنظیم کنید.",
+                "خورشت کدو را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 26.0,
+                carbohydratesGrams = 17.0,
+                fatGrams = 23.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "کدو سبز", "غذای سنتی", "سبزیجات", "ناهار"),
+
+            rating = 4.6,
+            ratingCount = 158,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("کدو سبز", "4", IngredientUnit.PIECE),
+                Ingredients("گوجه‌فرنگی", "2", IngredientUnit.PIECE),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "2", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 29,
+            image = Res.drawable.food2,
+            title = "خورشت غوره بادمجان",
+            chefName = "نگار رضایی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 110,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "بادمجان‌ها را پوست بگیرید و روی آن‌ها کمی نمک بپاشید.",
+                "پس از حدود ۳۰ دقیقه بادمجان‌ها را خشک کنید و در روغن سرخ کنید.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید گوشت نیم‌پز شود.",
+                "گوجه‌فرنگی‌ها را نصف کنید و همراه بادمجان‌های سرخ‌شده به قابلمه اضافه کنید.",
+                "غوره را بشویید و در نیم ساعت پایانی پخت به خورشت اضافه کنید.",
+                "خورشت را با حرارت ملایم بپزید تا گوشت و بادمجان نرم شوند.",
+                "در پایان نمک و میزان ترشی خورشت را تنظیم کنید.",
+                "اجازه دهید خورشت چند دقیقه دیگر جا بیفتد و سپس همراه برنج سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 425,
+                proteinGrams = 26.0,
+                carbohydratesGrams = 20.0,
+                fatGrams = 25.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "غوره", "بادمجان", "غذای ترش", "غذای سنتی"),
+
+            rating = 4.7,
+            ratingCount = 164,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("بادمجان", "4", IngredientUnit.PIECE),
+                Ingredients("غوره", "150", IngredientUnit.GRAM),
+                Ingredients("گوجه‌فرنگی", "2", IngredientUnit.PIECE),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "1", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 30,
+            image = Res.drawable.food3,
+            title = "خورشت ریواس",
+            chefName = "الناز کریمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 100,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "ریواس‌ها را بشویید و پوست نازک و رشته‌ای آن‌ها را جدا کنید.",
+                "ریواس را به قطعات سه تا چهار سانتی‌متری خرد کنید.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید گوشت کاملاً بپزد.",
+                "جعفری و نعناع را پاک کنید، بشویید و ریز خرد کنید.",
+                "سبزی خردشده را در تابه با کمی روغن تفت دهید تا عطر آن آزاد شود.",
+                "سبزی سرخ‌شده را به قابلمه گوشت اضافه کنید.",
+                "ریواس خردشده را در ۱۵ تا ۲۰ دقیقه پایانی پخت به خورشت اضافه کنید.",
+                "خورشت را به آرامی هم بزنید تا ریواس له نشود.",
+                "پس از نرم شدن ریواس، نمک خورشت را تنظیم کنید.",
+                "خورشت را چند دقیقه دیگر روی حرارت ملایم قرار دهید تا جا بیفتد و سپس سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 380,
+                proteinGrams = 26.0,
+                carbohydratesGrams = 18.0,
+                fatGrams = 22.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "ریواس", "غذای ترش", "سبزیجات", "غذای سنتی"),
+
+            rating = 4.7,
+            ratingCount = 139,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("ریواس", "400", IngredientUnit.GRAM),
+                Ingredients("جعفری", "150", IngredientUnit.GRAM),
+                Ingredients("نعناع", "50", IngredientUnit.GRAM),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("روغن", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 31,
+            image = Res.drawable.food4,
+            title = "خورشت به",
+            chefName = "مریم احمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 110,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "به‌ها را بشویید، پوست بگیرید و به قطعات متوسط خرد کنید.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید گوشت نیم‌پز شود.",
+                "تکه‌های به را در تابه با کمی روغن تفت دهید تا سطح آن‌ها کمی طلایی شود.",
+                "به را همراه زعفران دم‌کرده به قابلمه اضافه کنید.",
+                "شکر و آبلیمو را اضافه کنید تا طعم ملس و متعادلی ایجاد شود.",
+                "خورشت را با حرارت ملایم بپزید تا به نرم شود اما شکل خود را حفظ کند.",
+                "در پایان نمک و طعم نهایی خورشت را تنظیم کنید.",
+                "خورشت به را همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 420,
+                proteinGrams = 26.0,
+                carbohydratesGrams = 32.0,
+                fatGrams = 19.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "به", "غذای ملس", "زعفرانی", "غذای سنتی"),
+
+            rating = 4.8,
+            ratingCount = 171,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("به", "3", IngredientUnit.PIECE),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "1", IngredientUnit.TABLESPOON),
+                Ingredients("شکر", "2", IngredientUnit.TABLESPOON),
+                Ingredients("آبلیمو", "1", IngredientUnit.TABLESPOON),
+                Ingredients("زعفران دم‌کرده", "2", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "3", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.25", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "0.5", IngredientUnit.TEASPOON),
+                Spices("دارچین", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 32,
+            image = Res.drawable.food5,
+            title = "خورشت خلال کرمانشاهی",
+            chefName = "ترانه شریفی",
+            cuisine = "کرمانشاهی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 150,
+            servings = 4,
+            difficulty = RecipeDifficulty.HARD,
+
+            cookingSteps = listOf(
+                "خلال بادام را حدود یک ساعت در ترکیب آب و گلاب خیس کنید.",
+                "پیاز را ریز خرد کرده و در قابلمه با روغن تفت دهید تا سبک و طلایی شود.",
+                "گوشت گوسفندی را به قطعات کوچک خورشتی خرد کنید و به پیاز اضافه کنید.",
+                "گوشت را همراه زردچوبه و فلفل تفت دهید تا رنگ آن تغییر کند.",
+                "رب گوجه‌فرنگی را اضافه کنید و چند دقیقه تفت دهید تا رنگ آن باز شود.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید گوشت با حرارت ملایم بپزد.",
+                "خلال بادام را آبکش کنید و پس از نیم‌پز شدن گوشت به قابلمه اضافه کنید.",
+                "لیموعمانی‌ها را سوراخ کرده و پس از شست‌وشو به خورشت اضافه کنید.",
+                "زعفران دم‌کرده را اضافه کنید و مواد را به آرامی مخلوط کنید.",
+                "زرشک را بشویید و با مقدار کمی روغن یا کره روی حرارت ملایم تفت دهید.",
+                "زرشک تفت‌داده‌شده را در مراحل پایانی به خورشت اضافه کنید.",
+                "اجازه دهید خورشت با حرارت ملایم بپزد تا گوشت نرم و خلال بادام لطیف شود.",
+                "نمک را تنظیم کنید و خورشت را پس از جا افتادن همراه برنج ایرانی سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 510,
+                proteinGrams = 32.0,
+                carbohydratesGrams = 29.0,
+                fatGrams = 30.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "غذای کرمانشاهی", "خورشت خلال", "بادام", "غذای مجلسی"),
+
+            rating = 4.9,
+            ratingCount = 203,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت گوسفندی", "350", IngredientUnit.GRAM),
+                Ingredients("خلال بادام", "100", IngredientUnit.GRAM),
+                Ingredients("زرشک", "50", IngredientUnit.GRAM),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("رب گوجه‌فرنگی", "2", IngredientUnit.TABLESPOON),
+                Ingredients("لیموعمانی", "2", IngredientUnit.PIECE),
+                Ingredients("گلاب", "2", IngredientUnit.TABLESPOON),
+                Ingredients("زعفران دم‌کرده", "2", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "3", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "0.5", IngredientUnit.TEASPOON),
+                Spices("دارچین", "0.25", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 33,
+            image = Res.drawable.food6,
+            title = "خورشت تره",
+            chefName = "سارا محمدی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 110,
+            servings = 4,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "تره و جعفری را پاک کنید، چند بار بشویید و ریز خرد کنید.",
+                "پیاز را نگینی خرد کرده و در قابلمه با روغن تفت دهید تا طلایی شود.",
+                "گوشت خورشتی را اضافه کنید و همراه زردچوبه و فلفل تفت دهید.",
+                "سبزی خردشده را در تابه‌ای جداگانه با کمی روغن تفت دهید تا آب آن گرفته شود.",
+                "سبزی سرخ‌شده را به قابلمه گوشت اضافه کنید و مواد را مخلوط کنید.",
+                "آب جوش به قابلمه اضافه کنید و اجازه دهید خورشت به جوش بیاید.",
+                "حرارت را کم کنید و در قابلمه را بگذارید تا گوشت به آرامی بپزد.",
+                "سیب‌زمینی را پوست بگیرید و به مکعب‌های کوچک خرد کنید.",
+                "سیب‌زمینی را در نیمه دوم پخت به خورشت اضافه کنید.",
+                "آبلیمو را در مراحل پایانی اضافه کنید و خورشت را به آرامی هم بزنید.",
+                "پس از پخت کامل گوشت و نرم شدن سیب‌زمینی، نمک را تنظیم کنید.",
+                "اجازه دهید خورشت با حرارت ملایم جا بیفتد و سپس همراه برنج سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 430,
+                proteinGrams = 28.0,
+                carbohydratesGrams = 27.0,
+                fatGrams = 22.0
+            ),
+
+            tags = listOf("خورشت", "غذای ایرانی", "تره", "غذای سنتی", "سبزیجات", "غذای خانگی"),
+
+            rating = 4.7,
+            ratingCount = 148,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("گوشت خورشتی", "300", IngredientUnit.GRAM),
+                Ingredients("تره", "400", IngredientUnit.GRAM),
+                Ingredients("جعفری", "100", IngredientUnit.GRAM),
+                Ingredients("سیب‌زمینی", "2", IngredientUnit.PIECE),
+                Ingredients("پیاز", "1", IngredientUnit.PIECE),
+                Ingredients("آبلیمو", "2", IngredientUnit.TABLESPOON),
+                Ingredients("روغن", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("نمک", "1", IngredientUnit.TEASPOON),
+                Spices("فلفل سیاه", "0.5", IngredientUnit.TEASPOON),
+                Spices("زردچوبه", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+        recipe(
+            id = 34,
+            image = Res.drawable.food1,
+            title = "تیرامیسو",
+            chefName = "نگار رضایی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 0,
+            servings = 6,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "قهوه غلیظ را آماده کنید و اجازه دهید کاملاً خنک شود.",
+                "زرده تخم‌مرغ و شکر را در ظرفی مقاوم به حرارت بریزید و روی بخار آب با همزن بزنید تا مخلوط روشن و غلیظ شود.",
+                "مخلوط زرده را از روی بخار بردارید و اجازه دهید کمی خنک شود.",
+                "پنیر ماسکارپونه را به مخلوط زرده اضافه کنید و به‌آرامی هم بزنید تا کرمی یکدست به دست آید.",
+                "خامه سرد را در ظرفی جداگانه با همزن بزنید تا فرم بگیرد و رد پره‌های همزن روی آن باقی بماند.",
+                "خامه فرم‌گرفته را در دو مرحله به ترکیب ماسکارپونه اضافه کنید و با لیسک به‌آرامی مخلوط کنید.",
+                "بیسکویت‌های لیدی‌فینگر را برای یک تا دو ثانیه در قهوه خنک فرو ببرید تا بیش از حد نرم نشوند.",
+                "یک لایه از بیسکویت‌های آغشته به قهوه را کف ظرف سرو بچینید.",
+                "نیمی از کرم ماسکارپونه را روی بیسکویت‌ها پخش کنید و سطح آن را صاف کنید.",
+                "یک لایه دیگر بیسکویت قهوه‌ای بچینید و باقی کرم را روی آن پخش کنید.",
+                "روی ظرف را بپوشانید و تیرامیسو را حداقل ۶ ساعت در یخچال قرار دهید تا کاملاً خودش را بگیرد.",
+                "پیش از سرو، پودر کاکائو را از الک روی سطح دسر بپاشید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 465,
+                proteinGrams = 8.0,
+                carbohydratesGrams = 42.0,
+                fatGrams = 30.0
+            ),
+
+            tags = listOf("دسر", "تیرامیسو", "دسر ایتالیایی", "قهوه", "دسر مجلسی", "بدون فر"),
+
+            rating = 4.9,
+            ratingCount = 326,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("پنیر ماسکارپونه", "250", IngredientUnit.GRAM),
+                Ingredients("بیسکویت لیدی‌فینگر", "200", IngredientUnit.GRAM),
+                Ingredients("خامه", "200", IngredientUnit.GRAM),
+                Ingredients("زرده تخم‌مرغ", "3", IngredientUnit.PIECE),
+                Ingredients("شکر", "80", IngredientUnit.GRAM),
+                Ingredients("قهوه غلیظ", "200", IngredientUnit.MILLILITER),
+                Ingredients("پودر کاکائو", "2", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 35,
+            image = Res.drawable.food2,
+            title = "کرم کارامل",
+            chefName = "الناز کریمی",
+            cuisine = "فرانسوی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 55,
+            servings = 6,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "شکر مخصوص کارامل را داخل قابلمه کوچکی بریزید و روی حرارت ملایم قرار دهید.",
+                "اجازه دهید شکر بدون هم زدن ذوب شود و به رنگ طلایی کهربایی برسد.",
+                "کارامل داغ را با احتیاط کف قالب‌های مخصوص دسر یا یک قالب بزرگ بریزید و قالب را بچرخانید تا کف آن پوشیده شود.",
+                "تخم‌مرغ‌ها و شکر مخصوص کرم را در ظرفی بریزید و با همزن دستی به‌آرامی مخلوط کنید تا یکدست شوند.",
+                "شیر را در قابلمه‌ای جداگانه گرم کنید، اما اجازه ندهید بجوشد.",
+                "شیر گرم را به‌تدریج و در چند مرحله به مخلوط تخم‌مرغ اضافه کنید و هم‌زمان هم بزنید.",
+                "وانیل را اضافه کنید و مایه کرم را از صافی ریز عبور دهید تا بافتی لطیف داشته باشد.",
+                "مایه کرم را به‌آرامی داخل قالب‌های حاوی کارامل بریزید.",
+                "قالب‌ها را داخل ظرف بزرگ‌تری قرار دهید و تا نیمه ارتفاع قالب‌ها آب گرم بریزید.",
+                "ظرف را در فر از قبل گرم‌شده با دمای ۱۶۰ درجه سانتی‌گراد قرار دهید.",
+                "حدود ۴۵ تا ۵۵ دقیقه بپزید تا کرم بسته شود و مرکز آن کمی لرزش داشته باشد.",
+                "قالب‌ها را از ظرف آب خارج کنید و اجازه دهید در دمای محیط خنک شوند.",
+                "کرم کارامل را حداقل ۴ ساعت در یخچال قرار دهید تا کاملاً سرد و منسجم شود.",
+                "دور دسر را با چاقوی نازک آزاد کنید و قالب را در ظرف سرو برگردانید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 285,
+                proteinGrams = 8.0,
+                carbohydratesGrams = 39.0,
+                fatGrams = 11.0
+            ),
+
+            tags = listOf("دسر", "کرم کارامل", "دسر فرانسوی", "کاراملی", "دسر خنک", "مناسب مهمانی"),
+
+            rating = 4.8,
+            ratingCount = 274,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("شیر", "500", IngredientUnit.MILLILITER),
+                Ingredients("تخم‌مرغ", "4", IngredientUnit.PIECE),
+                Ingredients("شکر برای کرم", "100", IngredientUnit.GRAM),
+                Ingredients("شکر برای کارامل", "100", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 36,
+            image = Res.drawable.food3,
+            title = "پاناکوتا",
+            chefName = "ترانه شریفی",
+            cuisine = "ایتالیایی",
+            preparationTimeMinutes = 15,
+            cookingTimeMinutes = 10,
+            servings = 5,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "پودر ژلاتین را روی آب سرد بپاشید و حدود ۵ تا ۱۰ دقیقه صبر کنید تا اسفنجی شود.",
+                "خامه و شیر را داخل قابلمه‌ای مناسب بریزید.",
+                "شکر را اضافه کنید و مواد را روی حرارت ملایم قرار دهید.",
+                "مخلوط را مرتب هم بزنید تا شکر کاملاً حل شود، اما اجازه ندهید بجوشد.",
+                "قابلمه را از روی حرارت بردارید و ژلاتین اسفنجی‌شده را اضافه کنید.",
+                "مواد را هم بزنید تا ژلاتین کاملاً حل شود و هیچ دانه‌ای باقی نماند.",
+                "وانیل را اضافه کنید و مخلوط را از صافی عبور دهید تا بافتی لطیف پیدا کند.",
+                "مایه پاناکوتا را داخل قالب‌های کوچک یا لیوان‌های سرو بریزید.",
+                "اجازه دهید مایه در دمای محیط کمی خنک شود.",
+                "قالب‌ها را حداقل ۴ ساعت در یخچال قرار دهید تا پاناکوتا کاملاً ببندد.",
+                "برای خارج کردن از قالب، چند ثانیه کف قالب را در آب ولرم قرار دهید و سپس در ظرف سرو برگردانید.",
+                "پاناکوتا را با سس میوه، توت‌فرنگی یا تکه‌های میوه تازه تزئین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 310,
+                proteinGrams = 5.0,
+                carbohydratesGrams = 29.0,
+                fatGrams = 20.0
+            ),
+
+            tags = listOf("دسر", "پاناکوتا", "دسر ایتالیایی", "دسر خنک", "دسر خامه‌ای", "بدون فر"),
+
+            rating = 4.8,
+            ratingCount = 218,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("خامه", "200", IngredientUnit.MILLILITER),
+                Ingredients("شیر", "300", IngredientUnit.MILLILITER),
+                Ingredients("شکر", "70", IngredientUnit.GRAM),
+                Ingredients("پودر ژلاتین", "2", IngredientUnit.TABLESPOON),
+                Ingredients("آب سرد", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 37,
+            image = Res.drawable.food4,
+            title = "ژله میوه‌ای",
+            chefName = "مریم احمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 0,
+            servings = 6,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "پودر ژله را داخل ظرفی مناسب و مقاوم به حرارت بریزید.",
+                "یک لیوان آب جوش به پودر ژله اضافه کنید.",
+                "مواد را با قاشق یا همزن دستی هم بزنید تا پودر ژله کاملاً حل شود و محلول شفافی به دست آید.",
+                "یک لیوان آب سرد اضافه کنید و دوباره هم بزنید تا دمای مایه کاهش پیدا کند.",
+                "توت‌فرنگی، موز و کیوی را بشویید و به قطعات کوچک و یکدست خرد کنید.",
+                "میوه‌های خردشده را کف قالب ژله بچینید.",
+                "اجازه دهید مایه ژله کمی خنک شود و سپس آن را به‌آرامی روی میوه‌ها بریزید.",
+                "قالب را با احتیاط حداقل ۴ ساعت در یخچال قرار دهید تا ژله کاملاً سفت شود.",
+                "پس از بستن ژله، قالب را چند ثانیه در آب ولرم قرار دهید تا دیواره‌های آن آزاد شوند.",
+                "ژله را در ظرف سرو برگردانید و با چند تکه میوه تازه تزئین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 125,
+                proteinGrams = 2.0,
+                carbohydratesGrams = 29.0,
+                fatGrams = 0.2
+            ),
+
+            tags = listOf("دسر", "ژله", "ژله میوه‌ای", "دسر خنک", "میوه‌ای", "مناسب مهمانی"),
+
+            rating = 4.7,
+            ratingCount = 192,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("پودر ژله", "1", IngredientUnit.PACK),
+                Ingredients("آب جوش", "250", IngredientUnit.MILLILITER),
+                Ingredients("آب سرد", "250", IngredientUnit.MILLILITER),
+                Ingredients("توت‌فرنگی", "100", IngredientUnit.GRAM),
+                Ingredients("موز", "1", IngredientUnit.PIECE),
+                Ingredients("کیوی", "1", IngredientUnit.PIECE)
+            ),
+
+            spices = listOf()
+        ),
+
+        recipe(
+            id = 38,
+            image = Res.drawable.food5,
+            title = "پودینگ شکلاتی",
+            chefName = "سارا محمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 15,
+            servings = 5,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "نشاسته ذرت، شکر و پودر کاکائو را داخل قابلمه‌ای مناسب بریزید و مخلوط کنید.",
+                "شیر سرد را به‌تدریج اضافه کنید و هم بزنید تا مواد کاملاً حل شوند و گلوله‌ای باقی نماند.",
+                "قابلمه را روی حرارت ملایم قرار دهید.",
+                "مواد را مرتب با همزن دستی هم بزنید تا به‌تدریج غلیظ شوند.",
+                "وقتی مایه به غلظت فرنی رسید، شکلات تلخ خردشده را اضافه کنید.",
+                "کره را اضافه کرده و هم بزنید تا شکلات و کره کاملاً ذوب شوند.",
+                "وانیل را اضافه کنید و قابلمه را از روی حرارت بردارید.",
+                "پودینگ را در حالی که هنوز گرم است داخل ظرف‌های سرو بریزید.",
+                "برای جلوگیری از ایجاد لایه روی سطح، سلفون را مستقیماً روی سطح پودینگ قرار دهید.",
+                "پس از خنک شدن در دمای محیط، ظرف‌ها را حداقل ۲ ساعت در یخچال قرار دهید.",
+                "پودینگ را با خامه فرم‌گرفته، شکلات رنده‌شده یا میوه دلخواه تزئین و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 325,
+                proteinGrams = 7.0,
+                carbohydratesGrams = 43.0,
+                fatGrams = 14.0
+            ),
+
+            tags = listOf("دسر", "پودینگ", "شکلاتی", "دسر خنک", "دسر خانگی", "بدون فر"),
+
+            rating = 4.8,
+            ratingCount = 245,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("شیر", "500", IngredientUnit.MILLILITER),
+                Ingredients("شکر", "100", IngredientUnit.GRAM),
+                Ingredients("پودر کاکائو", "3", IngredientUnit.TABLESPOON),
+                Ingredients("نشاسته ذرت", "3", IngredientUnit.TABLESPOON),
+                Ingredients("شکلات تلخ", "80", IngredientUnit.GRAM),
+                Ingredients("کره", "30", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 39,
+            image = Res.drawable.food6,
+            title = "چیزکیک",
+            chefName = "نگار رضایی",
+            cuisine = "آمریکایی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 60,
+            servings = 8,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "بیسکویت‌های پتی‌بور را داخل غذاساز خرد کنید تا کاملاً پودر شوند.",
+                "کره را ذوب کنید و به بیسکویت خردشده اضافه کنید.",
+                "مواد را مخلوط کنید تا بافتی شبیه شن مرطوب پیدا کنند.",
+                "مخلوط بیسکویت را کف قالب کمربندی بریزید و با پشت قاشق یا لیوان کاملاً فشرده کنید.",
+                "قالب را حدود ۲۰ دقیقه در یخچال قرار دهید تا لایه پایه سفت شود.",
+                "پنیر خامه‌ای را که به دمای محیط رسیده است با شکر مخلوط کنید تا بافتی نرم و یکدست پیدا کند.",
+                "تخم‌مرغ‌ها را یکی‌یکی اضافه کنید و پس از هر بار افزودن، مواد را با دور کم هم بزنید.",
+                "خامه و وانیل را اضافه کنید و فقط تا یکدست شدن مایه هم بزنید.",
+                "مایه پنیری را روی لایه بیسکویتی بریزید و سطح آن را صاف کنید.",
+                "قالب را در فر از قبل گرم‌شده با دمای ۱۶۰ درجه سانتی‌گراد قرار دهید.",
+                "حدود ۵۰ تا ۶۰ دقیقه بپزید تا اطراف چیزکیک بسته شود و مرکز آن کمی لرزان باقی بماند.",
+                "فر را خاموش کنید و اجازه دهید چیزکیک با درِ نیمه‌باز فر به‌آرامی خنک شود.",
+                "پس از رسیدن به دمای محیط، چیزکیک را چند ساعت در یخچال قرار دهید تا کاملاً سرد و منسجم شود.",
+                "پیش از سرو، روی دسر را با سس میوه یا مربای دلخواه تزئین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 465,
+                proteinGrams = 8.0,
+                carbohydratesGrams = 39.0,
+                fatGrams = 31.0
+            ),
+
+            tags = listOf("دسر", "چیزکیک", "دسر آمریکایی", "دسر پنیری", "مناسب مهمانی", "دسر مجلسی"),
+
+            rating = 4.9,
+            ratingCount = 341,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("پنیر خامه‌ای", "400", IngredientUnit.GRAM),
+                Ingredients("بیسکویت پتی‌بور", "200", IngredientUnit.GRAM),
+                Ingredients("کره", "100", IngredientUnit.GRAM),
+                Ingredients("شکر", "120", IngredientUnit.GRAM),
+                Ingredients("تخم‌مرغ", "2", IngredientUnit.PIECE),
+                Ingredients("خامه", "150", IngredientUnit.MILLILITER),
+                Ingredients("سس میوه", "100", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 40,
+            image = Res.drawable.food1,
+            title = "فرنی",
+            chefName = "الناز کریمی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 10,
+            cookingTimeMinutes = 20,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "آرد برنج را داخل قابلمه‌ای مناسب بریزید.",
+                "شیر سرد را به‌تدریج اضافه کنید و هم بزنید تا آرد کاملاً در شیر حل شود.",
+                "قابلمه را روی حرارت ملایم قرار دهید.",
+                "مواد را مرتب با قاشق چوبی یا همزن دستی هم بزنید تا ته نگیرند.",
+                "شکر را اضافه کنید و به هم زدن ادامه دهید تا کاملاً حل شود.",
+                "وقتی فرنی کمی غلیظ شد، گلاب را اضافه کنید.",
+                "در صورت تمایل زعفران دم‌کرده را نیز اضافه کنید و مواد را هم بزنید تا رنگ یکنواختی پیدا کند.",
+                "پس از رسیدن فرنی به غلظتی نرم و کرمی، قابلمه را از روی حرارت بردارید.",
+                "فرنی را بلافاصله داخل ظرف‌های سرو بریزید.",
+                "اجازه دهید فرنی کمی خنک شود و سپس با دارچین و خلال پسته تزئین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 235,
+                proteinGrams = 7.0,
+                carbohydratesGrams = 39.0,
+                fatGrams = 6.0
+            ),
+
+            tags = listOf("دسر", "فرنی", "غذای ایرانی", "دسر سنتی", "دسر شیری", "میان‌وعده"),
+
+            rating = 4.8,
+            ratingCount = 286,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("شیر", "500", IngredientUnit.MILLILITER),
+                Ingredients("آرد برنج", "4", IngredientUnit.TABLESPOON),
+                Ingredients("شکر", "5", IngredientUnit.TABLESPOON),
+                Ingredients("گلاب", "3", IngredientUnit.TABLESPOON),
+                Ingredients("خلال پسته", "20", IngredientUnit.GRAM),
+                Ingredients("زعفران دم‌کرده", "1", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("دارچین", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 41,
+            image = Res.drawable.food2,
+            title = "شله‌زرد",
+            chefName = "ترانه شریفی",
+            cuisine = "ایرانی",
+            preparationTimeMinutes = 30,
+            cookingTimeMinutes = 90,
+            servings = 6,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "برنج نیم‌دانه را چند بار با آب سرد بشویید تا آب آن نسبتاً شفاف شود.",
+                "برنج را حدود ۲ تا ۳ ساعت در آب خیس کنید.",
+                "برنج خیس‌خورده را همراه آب در قابلمه‌ای بزرگ بریزید.",
+                "قابلمه را روی حرارت متوسط قرار دهید تا آب به جوش بیاید.",
+                "پس از جوش آمدن، کف روی آب را بگیرید و حرارت را کم کنید.",
+                "اجازه دهید برنج به‌آرامی بپزد و کاملاً شکفته و نرم شود.",
+                "زعفران دم‌کرده غلیظ را اضافه کنید و هم بزنید تا رنگ شله‌زرد یکنواخت شود.",
+                "شکر را کم‌کم اضافه کنید و مرتب هم بزنید تا کاملاً حل شود.",
+                "گلاب را اضافه کنید و مواد را به‌آرامی مخلوط کنید.",
+                "کره را داخل قابلمه بریزید و هم بزنید تا کاملاً ذوب شود.",
+                "خلال بادام را اضافه کنید و اجازه دهید شله‌زرد با حرارت ملایم غلیظ شود.",
+                "در صورت غلیظ شدن بیش از حد، کمی آب جوش اضافه کنید و هم بزنید.",
+                "پس از رسیدن به غلظت مناسب، شله‌زرد را داخل ظرف‌های سرو بریزید.",
+                "پس از خنک شدن، روی شله‌زرد را با دارچین، خلال بادام و خلال پسته تزئین کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 5.0,
+                carbohydratesGrams = 82.0,
+                fatGrams = 6.0
+            ),
+
+            tags = listOf("دسر", "شله‌زرد", "غذای ایرانی", "دسر سنتی", "زعفرانی", "مناسب نذری"),
+
+            rating = 4.9,
+            ratingCount = 358,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("برنج نیم‌دانه", "250", IngredientUnit.GRAM),
+                Ingredients("شکر", "400", IngredientUnit.GRAM),
+                Ingredients("آب", "2", IngredientUnit.LITER),
+                Ingredients("گلاب", "100", IngredientUnit.MILLILITER),
+                Ingredients("خلال بادام", "50", IngredientUnit.GRAM),
+                Ingredients("کره", "50", IngredientUnit.GRAM),
+                Ingredients("زعفران دم‌کرده", "4", IngredientUnit.TABLESPOON)
+            ),
+
+            spices = listOf(
+                Spices("دارچین", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 42,
+            image = Res.drawable.food3,
+            title = "بستنی خانگی",
+            chefName = "مریم احمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 0,
+            servings = 6,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "خامه پرچرب و سرد را داخل ظرفی مناسب بریزید و با همزن کمی بزنید تا حجم بگیرد.",
+                "شیر عسلی را به خامه اضافه کنید.",
+                "وانیل را اضافه کرده و مواد را با دور ملایم همزن مخلوط کنید.",
+                "مخلوط را آن‌قدر بزنید تا بافتی یکدست، حجیم و کرمی پیدا کند.",
+                "شکلات چیپسی را به‌آرامی با لیسک داخل مایه بستنی مخلوط کنید.",
+                "مغز پسته خردشده را نیز اضافه کنید و مواد را به‌آرامی هم بزنید.",
+                "مایه بستنی را داخل ظرف دردار و مناسب فریزر بریزید و سطح آن را صاف کنید.",
+                "ظرف را به مدت ۶ تا ۸ ساعت در فریزر قرار دهید تا بستنی کاملاً سفت شود.",
+                "در صورت امکان طی دو ساعت اول، هر ۳۰ تا ۴۵ دقیقه بستنی را خارج کرده و هم بزنید تا بافت نرم‌تری پیدا کند.",
+                "پس از سفت شدن کامل، بستنی را چند دقیقه در دمای محیط قرار دهید تا کمی نرم شود.",
+                "بستنی را با مغز پسته، شکلات یا سس دلخواه سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 385,
+                proteinGrams = 5.0,
+                carbohydratesGrams = 32.0,
+                fatGrams = 27.0
+            ),
+
+            tags = listOf("دسر", "بستنی", "بستنی خانگی", "دسر خنک", "شکلاتی", "بدون دستگاه"),
+
+            rating = 4.8,
+            ratingCount = 263,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("خامه پرچرب", "400", IngredientUnit.MILLILITER),
+                Ingredients("شیر عسلی", "200", IngredientUnit.GRAM),
+                Ingredients("شکلات چیپسی", "50", IngredientUnit.GRAM),
+                Ingredients("مغز پسته", "30", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "1", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 43,
+            image = Res.drawable.food4,
+            title = "موس شکلاتی",
+            chefName = "سارا محمدی",
+            cuisine = "فرانسوی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 0,
+            servings = 6,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "شکلات تلخ را به قطعات کوچک خرد کنید.",
+                "شکلات را به روش بن‌ماری روی بخار آب ذوب کنید و اجازه دهید کمی خنک شود.",
+                "زرده و سفیده تخم‌مرغ‌ها را با دقت از یکدیگر جدا کنید.",
+                "زرده‌ها را با شکر مخلوط کنید تا روشن و یکدست شوند.",
+                "شکلات ذوب‌شده و خنک‌شده را به مخلوط زرده اضافه کنید و هم بزنید.",
+                "خامه سرد را در ظرفی جداگانه بزنید تا فرم نیمه‌سفت پیدا کند.",
+                "خامه فرم‌گرفته را در چند مرحله به مخلوط شکلات اضافه کنید و با لیسک به‌آرامی هم بزنید.",
+                "سفیده تخم‌مرغ را در ظرفی کاملاً تمیز با همزن بزنید تا فرم بگیرد و با برگرداندن ظرف از آن خارج نشود.",
+                "سفیده فرم‌گرفته را در چند مرحله به مخلوط شکلات اضافه کنید و با حرکات دورانی آرام ترکیب کنید.",
+                "وانیل را اضافه کنید و مواد را تا یکدست شدن مخلوط کنید.",
+                "موس را داخل لیوان‌های سرو بریزید و سطح آن را صاف کنید.",
+                "دسر را حداقل ۴ ساعت در یخچال قرار دهید تا بافت آن کاملاً منسجم شود.",
+                "موس شکلاتی را با خامه فرم‌گرفته و شکلات رنده‌شده تزئین و سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 390,
+                proteinGrams = 6.0,
+                carbohydratesGrams = 29.0,
+                fatGrams = 29.0
+            ),
+
+            tags = listOf("دسر", "موس شکلاتی", "شکلات", "دسر فرانسوی", "دسر خامه‌ای", "مناسب مهمانی"),
+
+            rating = 4.9,
+            ratingCount = 298,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("شکلات تلخ", "200", IngredientUnit.GRAM),
+                Ingredients("خامه", "200", IngredientUnit.MILLILITER),
+                Ingredients("تخم‌مرغ", "3", IngredientUnit.PIECE),
+                Ingredients("شکر", "50", IngredientUnit.GRAM),
+                Ingredients("کره", "30", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 44,
+            image = Res.drawable.food5,
+            title = "پارفه میوه",
+            chefName = "نگار رضایی",
+            cuisine = "فرانسوی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 0,
+            servings = 4,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "توت‌فرنگی، موز و سایر میوه‌های دلخواه را بشویید و کاملاً خشک کنید.",
+                "میوه‌ها را به قطعات کوچک و یکدست خرد کنید.",
+                "خامه سرد را با یک قاشق عسل مخلوط کنید و کمی هم بزنید تا بافتی نرم و سبک پیدا کند.",
+                "ماست یونانی را با باقی عسل هم بزنید تا یکدست شود.",
+                "خامه را به‌آرامی با ماست یونانی ترکیب کنید تا کرمی لطیف به دست آید.",
+                "بیسکویت را با دست یا غذاساز خرد کنید، به‌طوری‌که کمی بافت ترد آن باقی بماند.",
+                "داخل لیوان‌های سرو یک لایه بیسکویت خردشده بریزید.",
+                "یک لایه از ترکیب ماست و خامه روی بیسکویت اضافه کنید.",
+                "مقداری از میوه‌های خردشده را روی لایه کرمی قرار دهید.",
+                "لایه‌ها را به همین ترتیب تکرار کنید تا لیوان‌ها پر شوند.",
+                "روی دسر را با میوه تازه و بادام خردشده تزئین کنید.",
+                "پارفه را حدود یک ساعت در یخچال قرار دهید و سپس خنک سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 285,
+                proteinGrams = 8.0,
+                carbohydratesGrams = 38.0,
+                fatGrams = 12.0
+            ),
+
+            tags = listOf("دسر", "پارفه", "دسر میوه‌ای", "توت‌فرنگی", "دسر خنک", "میان‌وعده"),
+
+            rating = 4.7,
+            ratingCount = 184,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("توت‌فرنگی", "150", IngredientUnit.GRAM),
+                Ingredients("موز", "2", IngredientUnit.PIECE),
+                Ingredients("ماست یونانی", "200", IngredientUnit.GRAM),
+                Ingredients("خامه", "100", IngredientUnit.MILLILITER),
+                Ingredients("عسل", "3", IngredientUnit.TABLESPOON),
+                Ingredients("بیسکویت", "100", IngredientUnit.GRAM),
+                Ingredients("بادام خردشده", "30", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf()
+        ),
+
+        recipe(
+            id = 45,
+            image = Res.drawable.food6,
+            title = "دسر بیسکوییتی",
+            chefName = "الناز کریمی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 15,
+            servings = 8,
+            difficulty = RecipeDifficulty.EASY,
+
+            cookingSteps = listOf(
+                "شیر، شکر، نشاسته ذرت و پودر کاکائو را داخل قابلمه‌ای مناسب بریزید.",
+                "مواد را با همزن دستی مخلوط کنید تا نشاسته و پودر کاکائو کاملاً در شیر حل شوند.",
+                "قابلمه را روی حرارت ملایم قرار دهید و مرتب هم بزنید.",
+                "پس از گرم شدن شیر، به هم زدن ادامه دهید تا کرم به‌تدریج غلیظ شود.",
+                "وقتی کرم به غلظت مناسب رسید، قابلمه را از روی حرارت بردارید.",
+                "کره و وانیل را اضافه کنید و هم بزنید تا کره کاملاً ذوب و مواد یکدست شوند.",
+                "کف ظرف سرو یک لایه بیسکویت پتی‌بور بچینید.",
+                "مقداری از کرم گرم را روی بیسکویت‌ها پخش کنید تا تمام سطح آن‌ها پوشیده شود.",
+                "دوباره یک لایه بیسکویت و یک لایه کرم اضافه کنید.",
+                "این کار را تا تمام شدن مواد ادامه دهید و لایه آخر را با کرم شکلاتی بپوشانید.",
+                "اجازه دهید دسر در دمای محیط خنک شود.",
+                "دسر را حداقل ۴ ساعت در یخچال قرار دهید تا لایه‌ها نرم و منسجم شوند.",
+                "روی دسر را با پودر کاکائو یا شکلات رنده‌شده تزئین کنید و به شکل برش‌های منظم سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 315,
+                proteinGrams = 6.0,
+                carbohydratesGrams = 46.0,
+                fatGrams = 12.0
+            ),
+
+            tags = listOf("دسر", "دسر بیسکوییتی", "شکلاتی", "دسر یخچالی", "بدون فر", "دسر خانگی"),
+
+            rating = 4.8,
+            ratingCount = 231,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("بیسکویت پتی‌بور", "250", IngredientUnit.GRAM),
+                Ingredients("شیر", "600", IngredientUnit.MILLILITER),
+                Ingredients("شکر", "100", IngredientUnit.GRAM),
+                Ingredients("نشاسته ذرت", "4", IngredientUnit.TABLESPOON),
+                Ingredients("پودر کاکائو", "2", IngredientUnit.TABLESPOON),
+                Ingredients("کره", "40", IngredientUnit.GRAM),
+                Ingredients("شکلات رنده‌شده", "30", IngredientUnit.GRAM)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "0.5", IngredientUnit.TEASPOON)
+            )
+        ),
+        recipe(
+            id = 46,
+            image = Res.drawable.food1,
+            title = "کیک شکلاتی",
+            chefName = "سارا محمدی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 20,
+            cookingTimeMinutes = 40,
+            servings = 8,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "فر را روی ۱۸۰ درجه سانتی‌گراد گرم کنید.",
+                "تخم‌مرغ، شکر و وانیل را با همزن بزنید تا کرم‌رنگ و حجیم شود.",
+                "شیر و روغن را اضافه کرده و مخلوط کنید.",
+                "آرد، پودر کاکائو و بیکینگ‌پودر را الک کرده و به مواد اضافه کنید.",
+                "مواد خشک را به‌آرامی با مواد تر مخلوط کنید تا مایه یکدستی به دست آید.",
+                "مایه کیک را داخل قالب چرب‌شده بریزید.",
+                "قالب را در فر قرار دهید و حدود ۳۵ تا ۴۵ دقیقه بپزید.",
+                "با خلال دندان پخت کیک را بررسی کنید و پس از خنک شدن سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 385,
+                proteinGrams = 6.5,
+                carbohydratesGrams = 54.0,
+                fatGrams = 17.0
+            ),
+
+            tags = listOf("کیک", "کیک شکلاتی", "شکلاتی", "دسر", "شیرینی خانگی", "مناسب عصرانه"),
+
+            rating = 4.8,
+            ratingCount = 286,
+            isFavorite = false,
+            isFeatured = false,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("آرد سفید", "۲", IngredientUnit.CUP),
+                Ingredients("شکر", "۱", IngredientUnit.CUP),
+                Ingredients("تخم‌مرغ", "۳", IngredientUnit.PIECE),
+                Ingredients("شیر", "۱", IngredientUnit.CUP),
+                Ingredients("روغن مایع", "نصف", IngredientUnit.CUP),
+                Ingredients("پودر کاکائو", "نصف", IngredientUnit.CUP),
+                Ingredients("بیکینگ‌پودر", "۲", IngredientUnit.TEASPOON)
+            ),
+
+            spices = listOf(
+                Spices("وانیل", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
+        recipe(
+            id = 47,
+            image = Res.drawable.food2,
+            title = "کیک هویج",
+            chefName = "نگار رضایی",
+            cuisine = "بین‌المللی",
+            preparationTimeMinutes = 25,
+            cookingTimeMinutes = 45,
+            servings = 8,
+            difficulty = RecipeDifficulty.MEDIUM,
+
+            cookingSteps = listOf(
+                "فر را روی ۱۸۰ درجه سانتی‌گراد گرم کنید.",
+                "تخم‌مرغ و شکر را با همزن بزنید تا حجیم و کرم‌رنگ شود.",
+                "روغن مایع را اضافه کنید و مواد را مخلوط کنید.",
+                "هویج رنده‌شده و گردوی خردشده را به مواد اضافه کنید.",
+                "آرد و بیکینگ‌پودر را الک کنید.",
+                "مواد خشک و دارچین را به‌آرامی به مایه اضافه کنید و هم بزنید.",
+                "مایه کیک را داخل قالب چرب‌شده بریزید.",
+                "کیک را حدود ۴۰ تا ۴۵ دقیقه در فر بپزید و پس از خنک شدن سرو کنید."
+            ),
+
+            nutrition = NutritionInfo(
+                calories = 365,
+                proteinGrams = 6.0,
+                carbohydratesGrams = 48.0,
+                fatGrams = 17.0
+            ),
+
+            tags = listOf("کیک", "کیک هویج", "گردو", "دارچین", "شیرینی خانگی", "عصرانه"),
+
+            rating = 4.9,
+            ratingCount = 312,
+            isFavorite = false,
+            isFeatured = true,
+            createdAt = "1405-08-17",
+            updatedAt = "1405-08-17",
+
+            ingredients = listOf(
+                Ingredients("آرد سفید", "۲", IngredientUnit.CUP),
+                Ingredients("هویج رنده‌شده", "۲", IngredientUnit.CUP),
+                Ingredients("شکر", "۱", IngredientUnit.CUP),
+                Ingredients("تخم‌مرغ", "۳", IngredientUnit.PIECE),
+                Ingredients("روغن مایع", "۳/۴", IngredientUnit.CUP),
+                Ingredients("گردوی خردشده", "نصف", IngredientUnit.CUP),
+                Ingredients("بیکینگ‌پودر", "۲", IngredientUnit.TEASPOON)
+            ),
+
+            spices = listOf(
+                Spices("دارچین", "۱", IngredientUnit.TEASPOON),
+                Spices("وانیل", "نصف", IngredientUnit.TEASPOON)
+            )
+        ),
+
 
     )
 
