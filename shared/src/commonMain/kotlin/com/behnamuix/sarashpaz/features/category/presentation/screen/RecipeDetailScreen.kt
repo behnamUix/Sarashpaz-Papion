@@ -12,14 +12,17 @@ import com.behnamuix.sarashpaz.isAndroid
 fun RecipeDetail(
 
     id: Int,
-    title: String
+    title: String,
+    backNow:()->Unit
 ) {
 
     Box(Modifier.fillMaxSize()) {
         if(isAndroid()){
             AndroidDetailSc(id=id,title=title)
         }else{
-            WebDetailSc(id=id,title=title)
+            WebDetailSc(id=id,title=title){
+                backNow()
+            }
         }
     }
 

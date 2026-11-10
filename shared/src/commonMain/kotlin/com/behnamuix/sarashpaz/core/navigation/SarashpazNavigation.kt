@@ -36,7 +36,9 @@ fun SarashpazNavigation(navController: NavHostController) {
         }
         composable<RecipeDetailRoute> {backStackEntry->
             val route= backStackEntry.toRoute<RecipeDetailRoute>()
-            RecipeDetail(id= route.id, title = route.title)
+            RecipeDetail(id= route.id, title = route.title){
+                navController.popBackStack()
+            }
         }
     }
 
